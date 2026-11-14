@@ -1,0 +1,1632 @@
+<!DOCTYPE html>
+<!--
+  ============================================================================
+  PÁGINA 4 — INDEX4.HTML — CURIOSIDADES DO OCEANO
+  ============================================================================
+-->
+
+<html lang="pt-BR">
+
+<head>
+  <!-- SEÇÃO HEAD — METADADOS E ESTILOS -->
+
+  <meta charset="UTF-8">
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <meta name="description" content="Curiosidades surpreendentes sobre os oceanos: fatos incríveis, recordes, linha do tempo de descobertas e um glossário de termos marinhos.">
+  <!--
+    Meta description — resumo para buscadores e redes sociais.
+    Única para esta página: foca em "curiosidades" e "fatos incríveis".
+  -->
+
+  <meta name="author" content="Equipe Oceano Vivo">
+
+  <meta name="keywords" content="curiosidades oceano, fatos marinhos, recordes oceânicos, vida marinha, descobertas, fossa das marianas">
+  <!-- Palavras-chave específicas desta página sobre curiosidades. -->
+
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🐙</text></svg>">
+
+
+  <title>Curiosidades — Oceano Vivo</title>
+
+  <style>
+    /*
+    ============================================================================
+    SEÇÃO DE ESTILOS CSS — APARÊNCIA VISUAL
+    ============================================================================
+
+    Base idêntica às páginas 1, 2 e 3 para consistência.
+    Novidades nesta página:
+    - Estilos para <table> semântica (tabela de dados).
+    - Estilos para <dl>, <dt>, <dd> (lista de definição/glossário).
+    - Estilos para <abbr> (abreviações com tooltip).
+    - Estilos para <time> (datas semânticas).
+    - Estilos para <progress> e <meter> (elementos nativos HTML5).
+    - Estilos para timeline visual (linha do tempo em CSS puro).
+    - Estilos para contadores CSS automáticos.
+
+    Em projetos profissionais, tudo ficaria em um único arquivo .css.
+    ============================================================================
+    */
+
+    /*
+    --------------------------------------------------------------------------
+    VARIÁVEIS CSS — CORES E MEDIDAS GLOBAIS
+    --------------------------------------------------------------------------
+
+    Mesmas variáveis das páginas anteriores para consistência.
+    Adicionamos uma nova variável --accent para detalhes decorativos
+    desta página (tom dourado que transmite "descoberta/tesouro").
+    --------------------------------------------------------------------------
+    */
+    :root {
+      --navy: #082f49;
+      --deep-blue: #0c4a6e;
+      --ocean: #087e9b;
+      --turquoise: #37c8bd;
+      --pale: #e9f8f7;
+      --sand: #f5f0e6;
+      --white: #ffffff;
+      --ink: #17324a;
+      --muted: #617586;
+      --shadow: 0 18px 50px rgba(8, 47, 73, 0.12);
+      --radius: 22px;
+      --hero-overlay: linear-gradient(
+        90deg,
+        rgba(4, 35, 58, 0.86) 0%,
+        rgba(4, 35, 58, 0.45) 55%,
+        rgba(4, 35, 58, 0.08) 100%
+      );
+      --transition-speed: 180ms;
+
+      /*
+      NOVA VARIÁVEL — exclusiva desta página!
+
+      */
+      --accent: #d4a03c;
+    }
+
+    /* Reset CSS */
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+      scroll-padding-top: 90px;
+    }
+
+    body {
+      background: #fbfdfd;
+      color: var(--ink);
+      font-family: Arial, Helvetica, sans-serif;
+      line-height: 1.6;
+    }
+
+    .container {
+      width: min(1120px, calc(100% - 40px));
+      margin: 0 auto;
+    }
+
+    img,
+    iframe {
+      display: block;
+      max-width: 100%;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    /* Cabeçalho fixo com efeito vidro fosco */
+    .site-header {
+      position: sticky;
+      top: 0;
+      z-index: 10;
+      background: rgba(255, 255, 255, 0.94);
+      border-bottom: 1px solid rgba(8, 47, 73, 0.08);
+      backdrop-filter: blur(12px);
+    }
+
+    .nav-wrap {
+      min-height: 76px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 24px;
+    }
+
+    .brand {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      color: var(--navy);
+      font-size: 1.08rem;
+      font-weight: 800;
+      letter-spacing: -0.04em;
+    }
+
+    .brand-mark {
+      width: 36px;
+      height: 36px;
+      display: grid;
+      place-items: center;
+      color: var(--white);
+      background: linear-gradient(135deg, var(--ocean), var(--turquoise));
+      border-radius: 50% 50% 50% 10px;
+      transform: rotate(-10deg);
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 28px;
+      list-style: none;
+    }
+
+    .nav-links a {
+      color: #456174;
+      font-size: 0.93rem;
+      font-weight: 700;
+      transition: color var(--transition-speed) ease;
+    }
+
+    .nav-links a:hover,
+    .nav-links a:focus-visible {
+      color: var(--ocean);
+    }
+
+    .menu-toggle {
+      display: none;
+      border: 0;
+      background: transparent;
+      color: var(--navy);
+      font-size: 1.6rem;
+      cursor: pointer;
+    }
+
+    /* Hero — imagem de fundo com águas cristalinas e vida marinha. */
+    .hero {
+      min-height: 600px;
+      display: flex;
+      align-items: center;
+      position: relative;
+      overflow: hidden;
+      color: var(--white);
+      background:
+        var(--hero-overlay),
+        url("https://images.unsplash.com/photo-1559827260-dc66d52bef19?auto=format&fit=crop&w=2000&q=85") center 48% / cover;
+    }
+
+    .hero-content {
+      max-width: 680px;
+      padding: 100px 0;
+    }
+
+    .eyebrow {
+      display: inline-block;
+      margin-bottom: 18px;
+      color: #b6fff1;
+      font-size: 0.78rem;
+      font-weight: 800;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+    }
+
+    h1 {
+      max-width: 650px;
+      margin-bottom: 20px;
+      font-size: clamp(2.8rem, 7vw, 5.7rem);
+      line-height: 0.99;
+      letter-spacing: -0.065em;
+    }
+
+    .hero p {
+      max-width: 540px;
+      margin-bottom: 30px;
+      color: rgba(255, 255, 255, 0.9);
+      font-size: clamp(1rem, 2vw, 1.2rem);
+    }
+
+    .button-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+
+    .button {
+      min-height: 48px;
+      display: inline-flex;
+      justify-content: center;
+      align-items: center;
+      padding: 12px 22px;
+      border: 1px solid transparent;
+      border-radius: 999px;
+      font-weight: 800;
+      transition: transform var(--transition-speed) ease,
+                  background-color var(--transition-speed) ease;
+      cursor: pointer;
+    }
+
+    .button:hover {
+      transform: translateY(-2px);
+    }
+
+    .button-primary {
+      color: var(--navy);
+      background: var(--turquoise);
+    }
+
+    .button-ghost {
+      color: var(--white);
+      border-color: rgba(255, 255, 255, 0.6);
+      background: rgba(255, 255, 255, 0.08);
+    }
+
+    .section {
+      padding: 92px 0;
+    }
+
+    .section-soft {
+      background: var(--pale);
+    }
+
+    .section-heading {
+      display: grid;
+      grid-template-columns: 0.8fr 1.2fr;
+      align-items: end;
+      gap: 32px;
+      margin-bottom: 42px;
+    }
+
+    h2 {
+      color: var(--navy);
+      font-size: clamp(2rem, 4vw, 3.2rem);
+      line-height: 1.08;
+      letter-spacing: -0.055em;
+    }
+
+    .section-heading p,
+    .intro-copy {
+      color: var(--muted);
+      font-size: 1.05rem;
+    }
+
+    /*
+    --------------------------------------------------------------------------
+    GRADE DE CURIOSIDADES — CARTÕES COM CONTADORES CSS
+    --------------------------------------------------------------------------
+
+    NOVA TÉCNICA: Contadores CSS automáticos!
+
+    O CSS pode criar numeração automática usando counter-reset
+    e counter-increment. É como uma lista ordenada (<ol>), mas
+    com controle total sobre a aparência do número.
+
+    Como funciona:
+    1. counter-reset: cria um contador no elemento pai.
+    2. counter-increment: aumenta o contador a cada filho.
+    3. counter(): exibe o valor do contador no conteúdo.
+
+    Vantagem sobre <ol>:
+    - Podemos estilizar o número de qualquer forma (tamanho, cor,
+      posição, fundo, etc.).
+    - O número pode aparecer em qualquer lugar do cartão, não
+      apenas no início da linha.
+    - Não depende da estrutura de lista do HTML.
+    --------------------------------------------------------------------------
+    */
+    .curiosity-grid {
+      /* Inicializa o contador "curiosity" em 0.
+         Cada cartão filho irá incrementá-lo automaticamente. */
+      counter-reset: curiosity;
+
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 22px;
+    }
+
+    .curiosity-card {
+      /* Incrementa o contador "curiosity" em 1 para cada cartão.
+         O primeiro cartão será 1, o segundo 2, etc. */
+      counter-increment: curiosity;
+
+      padding: 28px;
+      border: 1px solid rgba(8, 47, 73, 0.07);
+      border-radius: var(--radius);
+      background: var(--white);
+      box-shadow: 0 10px 35px rgba(8, 47, 73, 0.06);
+
+      /* Flexbox para posicionar o número e o conteúdo. */
+      display: flex;
+      gap: 20px;
+      align-items: flex-start;
+    }
+
+    /* O número automático do cartão — gerado pelo CSS!
+       Não existe no HTML; é criado inteiramente pelo CSS. */
+    .curiosity-card::before {
+      /* counter() exibe o valor atual do contador.
+         O resultado é "01", "02", "03", "04" etc. */
+      content: counter(curiosity, decimal-leading-zero);
+
+      /* Estilo do número — grande, dourado, decorativo. */
+      flex: 0 0 52px;
+      height: 52px;
+      display: grid;
+      place-items: center;
+      border-radius: 14px;
+      background: rgba(212, 160, 60, 0.12);
+      color: var(--accent);
+      font-size: 1.2rem;
+      font-weight: 900;
+      letter-spacing: -0.04em;
+    }
+
+    .curiosity-card h3 {
+      margin-bottom: 8px;
+      color: var(--navy);
+      font-size: 1.05rem;
+    }
+
+    .curiosity-card p {
+      color: var(--muted);
+      font-size: 0.94rem;
+    }
+
+    /*
+    --------------------------------------------------------------------------
+    TABELA SEMÂNTICA — NOVA TÉCNICA DESTA PÁGINA!
+    --------------------------------------------------------------------------
+
+    A tag <table> é usada para apresentar DADOS TABULARES — informações
+    organizadas em linhas e colunas que fazem sentido como uma grade.
+
+    IMPORTANTE: <table> é para DADOS, não para layout!
+    - Nos anos 1990/2000, desenvolvedores usavam <table> para criar
+      o layout inteiro da página (colunas, cabeçalhos, rodapés).
+    - Isso era uma má prática: tabelas de layout são inacessíveis,
+      difíceis de manter e não funcionam bem em celulares.
+    - Hoje usamos CSS Grid e Flexbox para layout.
+    - <table> deve ser usada APENAS quando os dados são naturalmente
+      tabulares (planilhas, comparações, horários, etc.).
+
+    Elementos semânticos da tabela:
+    - <caption>: título da tabela (acessível para leitores de tela).
+    - <thead>: cabeçalho da tabela (primeira linha com nomes das colunas).
+    - <tbody>: corpo da tabela (os dados em si).
+    - <tr>: linha da tabela (table row).
+    - <th>: célula de cabeçalho (table header) — negrito por padrão.
+    - <td>: célula de dados (table data) — texto normal.
+
+    Por que usar <thead> e <tbody>?
+    - Leitores de tela anunciam "cabeçalho" e "corpo" separadamente.
+    - Em tabelas longas, o cabeçalho pode se repetir em cada página
+      impressa (com CSS @media print).
+    - É semanticamente correto e profissional.
+    --------------------------------------------------------------------------
+    */
+    .data-table-wrap {
+      /* Contêiner com rolagem horizontal para telas pequenas.
+         Se a tabela for mais larga que a tela, aparece uma barra
+         de rolagem horizontal em vez de quebrar o layout. */
+      overflow-x: auto;
+      border-radius: var(--radius);
+      box-shadow: 0 10px 35px rgba(8, 47, 73, 0.06);
+    }
+
+    .data-table {
+      width: 100%;
+      border-collapse: collapse;
+      background: var(--white);
+      font-size: 0.95rem;
+    }
+
+    /* <caption> — título acessível da tabela.
+       screen-reader-only: visível para leitores de tela mas
+       escondido visualmente (o h2 da seção já serve como título). */
+    .data-table caption {
+      padding: 16px;
+      font-weight: 700;
+      color: var(--navy);
+      text-align: left;
+      caption-side: top;
+    }
+
+    /* Células de cabeçalho (<th>) — fundo escuro, texto branco. */
+    .data-table thead th {
+      padding: 14px 18px;
+      background: var(--navy);
+      color: var(--white);
+      font-weight: 700;
+      text-align: left;
+      white-space: nowrap;
+    }
+
+    /* Arredondamento dos cantos superiores da tabela. */
+    .data-table thead th:first-child {
+      border-radius: var(--radius) 0 0 0;
+    }
+
+    .data-table thead th:last-child {
+      border-radius: 0 var(--radius) 0 0;
+    }
+
+    /* Células de dados (<td>) — linhas alternadas para legibilidade. */
+    .data-table tbody td {
+      padding: 14px 18px;
+      border-bottom: 1px solid rgba(8, 47, 73, 0.06);
+      color: var(--ink);
+    }
+
+    /* Linhas alternadas com fundo sutil — facilita a leitura
+       em tabelas com muitas linhas. Técnica chamada "zebra striping". */
+    .data-table tbody tr:nth-child(even) {
+      background: rgba(8, 47, 73, 0.02);
+    }
+
+    /* Hover na linha — destaca a linha que o mouse está sobre. */
+    .data-table tbody tr:hover {
+      background: rgba(8, 126, 155, 0.06);
+    }
+
+    /*
+    --------------------------------------------------------------------------
+    LISTA DE DEFINIÇÃO (DL/DT/DD) — NOVA TÉCNICA!
+    --------------------------------------------------------------------------
+
+    O <dl> (description list) é um tipo de lista HTML pouco conhecido
+    mas muito útil. Diferente de <ul> (bolinhas) e <ol> (números),
+    o <dl> é para pares de TERMO + DEFINIÇÃO.
+
+    Estrutura:
+    - <dl>: contêiner da lista de definição.
+    - <dt>: o TERMO sendo definido (description term).
+    - <dd>: a DEFINIÇÃO do termo (description description).
+
+    Quando usar <dl>?
+    - Glossários (termo → definição).
+    - FAQs (pergunta → resposta).
+    - Metadados (autor → nome, data → valor).
+    - Dicionários.
+
+    Por que <dl> em vez de <ul> ou <h3>+<p>?
+    - Semântica: comunica ao navegador que é uma lista de definições.
+    - Acessibilidade: leitores de tela anunciam "lista de definições".
+    - SEO: buscadores entendem a relação termo-definição.
+    - É o elemento CORRETO para glossários.
+    --------------------------------------------------------------------------
+    */
+    .glossary-list {
+      display: grid;
+      gap: 0;
+      max-width: 800px;
+      margin: 0 auto;
+    }
+
+    /* O termo (<dt>) — negrito e com cor de destaque. */
+    .glossary-list dt {
+      padding: 18px 22px 4px;
+      color: var(--navy);
+      font-weight: 800;
+      font-size: 1.02rem;
+    }
+
+    /* A definição (<dd>) — texto normal com recuo.
+       Por padrão, <dd> tem uma margem esquerda automática.
+       Aqui controlamos o espaçamento manualmente. */
+    .glossary-list dd {
+      padding: 4px 22px 18px;
+      color: var(--muted);
+      font-size: 0.95rem;
+      border-bottom: 1px solid rgba(8, 47, 73, 0.06);
+    }
+
+    /*
+    --------------------------------------------------------------------------
+    ABREVIAÇÃO (<abbr>) — NOVA TÉCNICA!
+    --------------------------------------------------------------------------
+
+    O <abbr> é um elemento inline que marca uma abreviação ou sigla.
+    O atributo title="" contém a forma completa da abreviação.
+
+    Como funciona para o usuário:
+    - Ao passar o mouse sobre a abreviação, o navegador mostra
+      um tooltip com o texto do title.
+    - Exemplo: <abbr title="Organização das Nações Unidas">ONU</abbr>
+      → ao passar o mouse, aparece "Organização das Nações Unidas".
+
+    Como funciona para acessibilidade:
+    - Leitores de tela podem ler o title em vez da abreviação.
+    - Útil para siglas que nem todos conhecem.
+
+    Estilização:
+    - Adicionamos uma linha pontilhada abaixo da abreviação para
+      indicar visualmente que há um tooltip disponível.
+    - cursor: help muda o cursor para "?" ao passar o mouse.
+    --------------------------------------------------------------------------
+    */
+    abbr[title] {
+      text-decoration: underline dotted var(--ocean);
+      text-underline-offset: 3px;
+      cursor: help;
+    }
+
+    /*
+    --------------------------------------------------------------------------
+    ELEMENTO <time> — NOVA TÉCNICA!
+    --------------------------------------------------------------------------
+
+    O <time> é um elemento semântico que marca uma data ou hora.
+    O atributo datetime="" contém a data em formato ISO 8601
+    (AAAA-MM-DD), que é legível por máquinas.
+
+    Por que usar <time>?
+    - O texto visível pode ser "1872" (legível para humanos).
+    - O datetime="1872" é legível por máquinas e buscadores.
+    - O Google pode usar essas datas para criar rich snippets
+      (resultados enriquecidos) nos resultados de busca.
+    - Leitores de tela podem anunciar a data de forma clara.
+
+    Exemplo:
+    <time datetime="1872">1872</time>
+    → O usuário vê "1872".
+    → O Google entende que é o ano de 1872.
+    → O leitor de tela diz "ano de mil oitocentos e setenta e dois".
+    --------------------------------------------------------------------------
+    */
+    time {
+      font-weight: 700;
+      color: var(--ocean);
+    }
+
+    /*
+    --------------------------------------------------------------------------
+    LINHA DO TEMPO (TIMELINE) — CSS PURO
+    --------------------------------------------------------------------------
+
+    Uma timeline visual criada inteiramente com CSS.
+    Não usa JavaScript, imagens de linha ou bibliotecas externas.
+
+    Como funciona:
+    - O contêiner (.timeline) tem uma linha vertical no centro
+      criada com border-left.
+    - Cada item (.timeline-item) tem um "ponto" circular criado
+      com o pseudo-elemento ::before.
+    - O conteúdo fica ao lado da linha.
+
+    Por que usar uma timeline?
+    - Apresenta eventos cronológicos de forma visual e intuitiva.
+    - É mais engajante que uma lista de texto simples.
+    - Mostra a progressão histórica das descobertas.
+    --------------------------------------------------------------------------
+    */
+    .timeline {
+      position: relative;
+      max-width: 700px;
+      margin: 0 auto;
+      padding-left: 40px;
+    }
+
+    /* A linha vertical da timeline.
+       Criada com border-left no contêiner. */
+    .timeline::before {
+      content: "";
+      position: absolute;
+      left: 14px;
+      top: 0;
+      bottom: 0;
+      width: 3px;
+      background: linear-gradient(to bottom, var(--turquoise), var(--ocean), var(--navy));
+      border-radius: 999px;
+    }
+
+    /* Cada item da timeline. */
+    .timeline-item {
+      position: relative;
+      padding: 0 0 36px 28px;
+    }
+
+    /* O "ponto" circular na linha — criado com ::before.
+       position: absolute posiciona o ponto sobre a linha vertical. */
+    .timeline-item::before {
+      content: "";
+      position: absolute;
+      left: -33px;
+      top: 6px;
+      width: 16px;
+      height: 16px;
+      border-radius: 50%;
+      background: var(--turquoise);
+      border: 3px solid var(--white);
+      box-shadow: 0 0 0 3px var(--turquoise);
+    }
+
+    /* O ano do evento — destacado com a cor accent (dourado). */
+    .timeline-year {
+      display: inline-block;
+      margin-bottom: 4px;
+      color: var(--accent);
+      font-size: 0.85rem;
+      font-weight: 900;
+      letter-spacing: 0.05em;
+    }
+
+    .timeline-item h3 {
+      margin-bottom: 6px;
+      color: var(--navy);
+      font-size: 1.05rem;
+    }
+
+    .timeline-item p {
+      color: var(--muted);
+      font-size: 0.93rem;
+    }
+
+    /*
+    --------------------------------------------------------------------------
+    ELEMENTOS <progress> E <meter> — NATIVOS DO HTML5!
+    --------------------------------------------------------------------------
+
+    <progress>: Representa o PROGRESSO de uma tarefa.
+    - Tem valor atual (value) e valor máximo (max).
+    - Exemplo: <progress value="70" max="100"> = 70% concluído.
+    - O navegador desenha a barra automaticamente!
+
+    <meter>: Representa uma MEDIDA dentro de um intervalo conhecido.
+    - Tem valor (value), mínimo (min), máximo (max).
+    - Pode ter faixas de "bom" (high), "ruim" (low) e "ideal" (optimum).
+    - O navegador colore a barra automaticamente baseado nas faixas!
+
+    Diferença entre <progress> e <meter>:
+    - <progress> = "quanto já foi feito" (ex: download, tarefa).
+    - <meter> = "quanto existe de algo" (ex: temperatura, nível).
+
+    Vantagem:
+    - São elementos nativos — o navegador desenha a barra sozinho.
+    - Não precisa de CSS extra para a barra funcionar.
+    - São acessíveis por padrão (leitores de tela leem o valor).
+    - Sem JavaScript necessário!
+
+    Desvantagem:
+    - A aparência varia entre navegadores (Chrome, Firefox, Safari
+      desenham barras ligeiramente diferentes).
+    - Estilização limitada com CSS (cada navegador usa pseudo-
+      elementos diferentes).
+    - Para controle total, muitos desenvolvedores preferem criar
+      barras personalizadas com <div> (como fizemos na página 3).
+
+    Aqui usamos ambos para demonstrar que existem e como funcionam.
+    --------------------------------------------------------------------------
+    */
+    .meter-list {
+      display: grid;
+      gap: 20px;
+      max-width: 600px;
+    }
+
+    .meter-item {
+      display: grid;
+      gap: 6px;
+    }
+
+    .meter-label {
+      display: flex;
+      justify-content: space-between;
+      font-size: 0.9rem;
+      font-weight: 700;
+      color: var(--ink);
+    }
+
+    /* Estilização básica do <progress> e <meter>.
+       A aparência nativa varia entre navegadores, então definimos
+       altura e arredondamento para um visual mais consistente. */
+    progress,
+    meter {
+      width: 100%;
+      height: 14px;
+      border-radius: 999px;
+      border: none;
+      background: rgba(8, 47, 73, 0.08);
+    }
+
+    /* GALERIA DE IMAGENS */
+    .gallery-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 16px;
+    }
+
+    .gallery-grid img {
+      width: 100%;
+      height: 260px;
+      object-fit: cover;
+      border-radius: 18px;
+      transition: transform 220ms ease;
+    }
+
+    .gallery-grid img:hover {
+      transform: scale(1.025);
+    }
+
+    /* Seção de vídeo */
+    .video-section {
+      color: var(--white);
+      background: linear-gradient(135deg, var(--navy), #075e78);
+    }
+
+    .video-section h2 {
+      color: var(--white);
+    }
+
+    .video-layout {
+      display: grid;
+      grid-template-columns: 0.8fr 1.2fr;
+      align-items: center;
+      gap: 48px;
+    }
+
+    .video-layout p {
+      margin-top: 16px;
+      color: rgba(255, 255, 255, 0.78);
+    }
+
+    .video-frame {
+      width: 100%;
+      aspect-ratio: 16 / 9;
+      border: 0;
+      border-radius: 20px;
+      background: #001c2b;
+      box-shadow: 0 20px 50px rgba(0, 0, 0, 0.25);
+    }
+
+    /* Quiz */
+    .quiz-card {
+      max-width: 760px;
+      margin: 0 auto;
+      padding: 38px;
+      border: 1px solid rgba(8, 47, 73, 0.08);
+      border-radius: 28px;
+      background: var(--white);
+      box-shadow: var(--shadow);
+      text-align: center;
+    }
+
+    .quiz-card h2 {
+      margin-bottom: 14px;
+      font-size: clamp(1.8rem, 4vw, 2.5rem);
+    }
+
+    .quiz-question {
+      margin: 18px 0 22px;
+      color: var(--muted);
+      font-weight: 700;
+    }
+
+    .quiz-options {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+
+    .quiz-option {
+      padding: 11px 18px;
+      border: 1px solid #cbdde2;
+      border-radius: 999px;
+      color: var(--navy);
+      background: var(--white);
+      font: inherit;
+      font-weight: 700;
+      cursor: pointer;
+      transition: background-color var(--transition-speed) ease,
+                  color var(--transition-speed) ease;
+    }
+
+    .quiz-option:hover,
+    .quiz-option:focus-visible {
+      color: var(--white);
+      background: var(--ocean);
+    }
+
+    .quiz-result {
+      min-height: 30px;
+      margin-top: 20px;
+      color: var(--ocean);
+      font-weight: 800;
+    }
+
+    /* Barra de navegação entre páginas */
+    .page-nav {
+      background: var(--sand);
+      padding: 16px 0;
+      border-top: 1px solid rgba(8, 47, 73, 0.06);
+    }
+
+    .page-nav-list {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 8px;
+      list-style: none;
+    }
+
+    .page-nav-link {
+      padding: 8px 18px;
+      border-radius: 999px;
+      color: var(--navy);
+      font-weight: 700;
+      font-size: 0.88rem;
+      transition: background-color var(--transition-speed) ease,
+                  color var(--transition-speed) ease;
+    }
+
+    .page-nav-link:hover,
+    .page-nav-link:focus-visible {
+      background: var(--ocean);
+      color: var(--white);
+    }
+
+    .page-nav-link.is-active {
+      background: var(--navy);
+      color: var(--white);
+    }
+
+    /* Rodapé */
+    .site-footer {
+      padding: 28px 0;
+      color: #d7e8ed;
+      background: #06283e;
+      font-size: 0.9rem;
+    }
+
+    .footer-inner {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 16px;
+    }
+
+    /* Acessibilidade */
+    a:focus-visible,
+    button:focus-visible {
+      outline: 3px solid #ffca70;
+      outline-offset: 3px;
+    }
+
+    /* MEDIA QUERIES — RESPONSIVIDADE */
+    @media (max-width: 760px) {
+      .hero {
+        min-height: 560px;
+        background-position: 58% center;
+      }
+
+      .nav-links {
+        display: none;
+        position: absolute;
+        top: 76px;
+        left: 0;
+        right: 0;
+        padding: 20px;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 18px;
+        background: var(--white);
+        border-bottom: 1px solid rgba(8, 47, 73, 0.1);
+        box-shadow: 0 16px 20px rgba(8, 47, 73, 0.08);
+      }
+
+      .nav-links.is-open {
+        display: flex;
+      }
+
+      .menu-toggle {
+        display: inline-grid;
+        place-items: center;
+      }
+
+      .section-heading {
+        grid-template-columns: 1fr;
+        gap: 14px;
+      }
+
+      /* Curiosidades em 1 coluna no celular. */
+      .curiosity-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .video-layout {
+        grid-template-columns: 1fr;
+        gap: 32px;
+      }
+
+      .gallery-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .section {
+        padding: 68px 0;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .container {
+        width: min(100% - 28px, 1120px);
+      }
+
+      .gallery-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .quiz-card {
+        padding: 28px 18px;
+      }
+
+      .footer-inner {
+        align-items: flex-start;
+        flex-direction: column;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      *,
+      *::before,
+      *::after {
+        scroll-behavior: auto !important;
+        transition-duration: 0.01ms !important;
+        animation-duration: 0.01ms !important;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <!-- CABEÇALHO — NAVEGAÇÃO FIXA -->
+  <header class="site-header">
+    <nav class="container nav-wrap" aria-label="Navegação principal">
+      <a class="brand" href="index.html" aria-label="Oceano Vivo, voltar à página inicial">
+        <span class="brand-mark" aria-hidden="true">≈</span>
+        <span>Oceano Vivo</span>
+      </a>
+
+      <button class="menu-toggle" type="button" aria-label="Abrir menu" aria-expanded="false">
+        ☰
+      </button>
+
+      <ul class="nav-links" id="menu-principal">
+        <li><a href="#fatos">Fatos</a></li>
+        <li><a href="#tabela">Oceanos</a></li>
+        <li><a href="#timeline">Descobertas</a></li>
+        <li><a href="#glossario">Glossário</a></li>
+        <li><a href="#video">Vídeo</a></li>
+        <li><a href="#quiz">Quiz</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+
+    <!--
+    ============================================================================
+    SEÇÃO HERO — ABERTURA DA PÁGINA 4
+    ============================================================================
+    -->
+    <section class="hero" id="inicio">
+      <div class="container hero-content">
+        <span class="eyebrow">• Curiosidades</span>
+        <h1>O oceano é cheio de surpresas.</h1>
+        <p>
+          Prepare-se para descobrir fatos incríveis sobre os mares:
+          recordes de profundidade, criaturas extraordinárias e
+          mistérios que a ciência ainda não conseguiu resolver.
+        </p>
+        <div class="button-row">
+          <a class="button button-primary" href="#fatos">Ver curiosidades</a>
+          <a class="button button-ghost" href="#timeline">Linha do tempo</a>
+        </div>
+      </div>
+    </section>
+
+    <!--
+    ============================================================================
+    SEÇÃO FATOS CURIOSOS — CARTÕES COM CONTADORES CSS
+    ============================================================================
+
+    Os cartões usam contadores CSS automáticos (counter-reset e
+    counter-increment) para gerar a numeração "01", "02", "03", "04"
+    automaticamente. Os números NÃO estão no HTML — são criados
+    pelo CSS com o pseudo-elemento ::before.
+
+    Por que usar contadores CSS em vez de digitar os números?
+    - Se reordenarmos os cartões, a numeração se ajusta sozinha.
+    - Se adicionarmos um novo cartão no meio, não precisamos
+      renumerar manualmente.
+    - Demonstra domínio de técnicas CSS avançadas.
+    ============================================================================
+    -->
+    <section class="section section-soft" id="fatos">
+      <div class="container">
+        <div class="section-heading">
+          <h2>Você sabia?</h2>
+          <p>
+            O oceano guarda segredos fascinantes que surpreendem
+            até os cientistas mais experientes. Aqui estão alguns
+            dos fatos mais impressionantes sobre os mares.
+          </p>
+        </div>
+
+        <div class="curiosity-grid">
+          <article class="curiosity-card">
+            <!--
+            O número "01" NÃO está aqui no HTML!
+            Ele é gerado automaticamente pelo CSS com:
+            counter-reset: curiosity (no pai)
+            counter-increment: curiosity (aqui)
+            content: counter(curiosity, decimal-leading-zero) (no ::before)
+            -->
+            <div>
+              <h3>Mais espaço que a Terra inteira</h3>
+              <p>
+                Se considerarmos o volume habitável (espaço onde a vida
+                pode existir), os oceanos representam
+                <abbr title="Aproximadamente">aprox.</abbr> 99% de todo
+                o espaço disponível no planeta. A terra firme é apenas
+                uma fina camada na superfície.
+              </p>
+            </div>
+          </article>
+
+          <article class="curiosity-card">
+            <div>
+              <h3>O ponto mais profundo</h3>
+              <p>
+                A Fossa das Marianas, no Oceano Pacífico, atinge
+                <abbr title="Aproximadamente">aprox.</abbr> 11.034 metros
+                de profundidade. Se colocássemos o Monte Everest lá dentro,
+                seu pico ainda ficaria submerso por mais de 2 km.
+              </p>
+            </div>
+          </article>
+
+          <article class="curiosity-card">
+            <div>
+              <h3>Sangue azul e três corações</h3>
+              <p>
+                O polvo tem três corações, sangue azul (por causa do cobre
+                na hemocianina, em vez do ferro da nossa hemoglobina) e
+                é considerado um dos invertebrados mais inteligentes
+                do planeta.
+              </p>
+            </div>
+          </article>
+
+          <article class="curiosity-card">
+            <div>
+              <h3>A maior cadeia de montanhas</h3>
+              <p>
+                A Dorsal Meso-Oceânica é a maior cadeia de montanhas da
+                Terra, com mais de 65.000 km de extensão. Ela serpenteia
+                pelo fundo de todos os oceanos, mas quase ninguém a vê
+                porque está completamente submersa.
+              </p>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!--
+    ============================================================================
+    SEÇÃO TABELA — OS CINCO OCEANOS EM NÚMEROS
+    ============================================================================
+
+    Aqui usamos uma <table> semântica completa com <caption>,
+    <thead>, <tbody>, <tr>, <th> e <td>.
+
+    Por que uma tabela é a melhor escolha aqui?
+    - Os dados são naturalmente tabulares (oceanos × propriedades).
+    - Cada oceano tem as mesmas categorias (área, profundidade, etc.).
+    - Uma tabela permite comparação rápida entre linhas e colunas.
+    - Tentar apresentar esses dados com cartões ou listas seria
+      mais confuso e menos eficiente.
+
+    A tabela é envolvida em um <div> com overflow-x: auto para
+    que, em telas pequenas, apareça uma rolagem horizontal em
+    vez de quebrar o layout.
+    ============================================================================
+    -->
+    <section class="section" id="tabela">
+      <div class="container">
+        <div class="section-heading">
+          <h2>Os cinco oceanos comparados.</h2>
+          <p>
+            Embora formem um único sistema global, cada oceano tem
+            características únicas. A tabela abaixo compara os cinco
+            oceanos em área, profundidade e localização.
+          </p>
+        </div>
+
+        <!--
+        Contêiner com rolagem horizontal para telas pequenas.
+        Em celulares, a tabela pode ser mais larga que a tela.
+        overflow-x: auto cria uma barra de rolagem horizontal
+        em vez de esmagar as colunas.
+        -->
+        <div class="data-table-wrap">
+          <table class="data-table">
+            <!--
+            <caption> é o título acessível da tabela.
+            Leitores de tela o anunciam antes de ler os dados.
+            É como o "título" da planilha.
+            -->
+            <caption>Dados comparativos dos cinco oceanos do planeta</caption>
+
+            <!--
+            <thead> contém a linha de cabeçalho da tabela.
+            <tr> = table row (linha).
+            <th> = table header (célula de cabeçalho, negrito por padrão).
+
+            scope="col" diz ao leitor de tela que este <th> é o
+            cabeçalho de uma COLUNA (não de uma linha).
+            Isso ajuda na navegação: o leitor anuncia "Área (km²)"
+            quando o usuário navega por qualquer célula dessa coluna.
+            -->
+            <thead>
+              <tr>
+                <th scope="col">Oceano</th>
+                <th scope="col">Área (milhões km²)</th>
+                <th scope="col">Prof. média (m)</th>
+                <th scope="col">Prof. máxima (m)</th>
+                <th scope="col">Localização principal</th>
+              </tr>
+            </thead>
+
+            <!--
+            <tbody> contém os dados da tabela.
+            <td> = table data (célula de dados, texto normal).
+
+            Cada <tr> é uma linha (um oceano).
+            Cada <td> é uma coluna (um dado sobre aquele oceano).
+            -->
+            <tbody>
+              <tr>
+                <td><strong>Pacífico</strong></td>
+                <td>165,25</td>
+                <td>4.280</td>
+                <td>11.034</td>
+                <td>Entre Ásia, Américas e Oceania</td>
+              </tr>
+              <tr>
+                <td><strong>Atlântico</strong></td>
+                <td>106,46</td>
+                <td>3.646</td>
+                <td>8.376</td>
+                <td>Entre Américas, Europa e África</td>
+              </tr>
+              <tr>
+                <td><strong>Índico</strong></td>
+                <td>70,56</td>
+                <td>3.741</td>
+                <td>7.258</td>
+                <td>Entre África, Ásia e Austrália</td>
+              </tr>
+              <tr>
+                <td><strong>Antártico</strong></td>
+                <td>21,96</td>
+                <td>3.270</td>
+                <td>7.235</td>
+                <td>Ao redor da Antártida</td>
+              </tr>
+              <tr>
+                <td><strong>Ártico</strong></td>
+                <td>14,06</td>
+                <td>1.205</td>
+                <td>5.669</td>
+                <td>Ao redor do Polo Norte</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <!--
+        Seção de medidores nativos HTML5 (<progress> e <meter>).
+        Demonstração de elementos pouco conhecidos mas úteis.
+        -->
+        <div style="margin-top: 42px;">
+          <h3 style="color: var(--navy); margin-bottom: 18px; font-size: 1.2rem;">
+            Exploração oceânica — quanto já descobrimos?
+          </h3>
+
+          <div class="meter-list">
+            <!--
+            <progress> — barra de progresso nativa do HTML5.
+
+            Atributos:
+            - value="5": valor atual (5% do oceano foi explorado).
+            - max="100": valor máximo (100% = todo o oceano).
+
+            O navegador desenha a barra automaticamente!
+            O texto dentro da tag ("5%") é exibido apenas em
+            navegadores que NÃO suportam <progress> (fallback).
+            -->
+            <div class="meter-item">
+              <div class="meter-label">
+                <span>Fundo do oceano mapeado</span>
+                <span>~5%</span>
+              </div>
+              <progress value="5" max="100">5%</progress>
+            </div>
+
+            <!--
+            <meter> — medidor nativo do HTML5.
+
+            Atributos:
+            - value="71": valor atual (71% da superfície é oceano).
+            - min="0": valor mínimo possível.
+            - max="100": valor máximo possível.
+            - low="30": abaixo de 30 é considerado "baixo".
+            - high="70": acima de 70 é considerado "alto".
+            - optimum="80": o valor ideal é 80.
+
+            O navegador colore a barra baseado nas faixas:
+            - Verde se o valor está próximo do optimum.
+            - Amarelo se está nas faixas low/high.
+            - Vermelho se está fora das faixas ideais.
+
+            (A coloração automática varia entre navegadores.)
+            -->
+            <div class="meter-item">
+              <div class="meter-label">
+                <span>Superfície da Terra coberta por água</span>
+                <span>~71%</span>
+              </div>
+              <meter value="71" min="0" max="100" low="30" high="70" optimum="75">71%</meter>
+            </div>
+
+            <div class="meter-item">
+              <div class="meter-label">
+                <span>Espécies marinhas ainda não descobertas</span>
+                <span>~91%</span>
+              </div>
+              <meter value="91" min="0" max="100" low="20" high="70" optimum="10">91%</meter>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!--
+    ============================================================================
+    SEÇÃO LINHA DO TEMPO — DESCOBERTAS OCEÂNICAS
+    ============================================================================
+
+    Uma timeline visual criada com CSS puro (sem JavaScript).
+    A linha vertical é um border-left no contêiner.
+    Os pontos circulares são pseudo-elementos ::before.
+
+    Os anos usam o elemento <time> com o atributo datetime=""
+    para semântica e acessibilidade.
+    ============================================================================
+    -->
+    <section class="section section-soft" id="timeline">
+      <div class="container">
+        <div class="section-heading">
+          <h2>Grandes descobertas.</h2>
+          <p>
+            A humanidade explora os oceanos há milênios, mas as
+            maiores revelações são surpreendentemente recentes.
+            Veja os marcos mais importantes da história oceânica.
+          </p>
+        </div>
+
+        <div class="timeline">
+          <!--
+          ITEM 1 DA TIMELINE
+
+          <time datetime="1872">1872</time>:
+          - O texto visível é "1872" (legível para humanos).
+          - O datetime="1872" é o formato ISO 8601 (legível para máquinas).
+          - Leitores de tela podem anunciar "ano de 1872".
+          - Buscadores entendem que é uma data histórica.
+          -->
+          <div class="timeline-item">
+            <span class="timeline-year">
+              <time datetime="1872">1872</time>
+            </span>
+            <h3>Expedição Challenger</h3>
+            <p>
+              O navio <abbr title="Navio de Sua Majestade">HMS</abbr>
+              Challenger partiu da Inglaterra na primeira expedição
+              oceanográfica da história. Em 3 anos e meio, percorreu
+              127.000 km e descobriu mais de 4.700 novas espécies.
+            </p>
+          </div>
+
+          <div class="timeline-item">
+            <span class="timeline-year">
+              <time datetime="1960">1960</time>
+            </span>
+            <h3>Mergulho na Fossa das Marianas</h3>
+            <p>
+              Jacques Piccard e Don Walsh desceram ao ponto mais
+              profundo do oceano (10.916 m) a bordo do batiscafo
+              Trieste. A pressão era 1.000 vezes maior que na superfície.
+            </p>
+          </div>
+
+          <div class="timeline-item">
+            <span class="timeline-year">
+              <time datetime="1977">1977</time>
+            </span>
+            <h3>Fontes hidrotermais</h3>
+            <p>
+              Cientistas descobriram fontes de água quente no fundo
+              do Pacífico, cercadas por criaturas que vivem sem luz
+              solar — algo que se acreditava impossível até então.
+            </p>
+          </div>
+
+          <div class="timeline-item">
+            <span class="timeline-year">
+              <time datetime="2012">2012</time>
+            </span>
+            <h3>James Cameron no abismo</h3>
+            <p>
+              O cineasta James Cameron realizou um mergulho solo
+              à Fossa das Marianas (10.908 m) no submersível
+              Deepsea Challenger, filmando o fundo do oceano em 3D.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!--
+    ============================================================================
+    SEÇÃO GLOSSÁRIO — LISTA DE DEFINIÇÃO (DL/DT/DD)
+    ============================================================================
+
+    O <dl> é o elemento HTML correto para glossários.
+    Cada termo (<dt>) é seguido por sua definição (<dd>).
+
+    Por que <dl> em vez de <ul> ou <h3>+<p>?
+    - Semântica: comunica "isto é um glossário".
+    - Acessibilidade: leitores de tela anunciam "lista de definições".
+    - SEO: buscadores entendem a relação termo → definição.
+    ============================================================================
+    -->
+    <section class="section" id="glossario">
+      <div class="container">
+        <div class="section-heading">
+          <h2>Glossário marinho.</h2>
+          <p>
+            Termos técnicos que aparecem ao longo do projeto.
+            Passe o mouse sobre as abreviações para ver o
+            significado completo.
+          </p>
+        </div>
+
+        <dl class="glossary-list">
+          <!--
+          <dt> = description term (o termo sendo definido).
+          <dd> = description description (a definição do termo).
+
+          O <abbr> dentro do <dd> cria um tooltip ao passar o mouse.
+          Exemplo: <abbr title="Quilômetros">km</abbr> mostra
+          "Quilômetros" como tooltip.
+          -->
+          <dt>Fitoplâncton</dt>
+          <dd>
+            Organismos microscópicos que vivem na superfície do oceano
+            e realizam fotossíntese. São responsáveis por produzir
+            mais de 50% do oxigênio que respiramos.
+          </dd>
+
+          <dt>Zona abissal</dt>
+          <dd>
+            Região do oceano entre 4.000 e 6.000 metros de profundidade.
+            Caracteriza-se pela escuridão total, temperaturas próximas
+            de 0 °C e pressões extremas.
+          </dd>
+
+          <dt>Bioluminescência</dt>
+          <dd>
+            Capacidade de alguns organismos marinhos de produzir luz
+            própria através de reações químicas. Mais de 75% das
+            criaturas do oceano profundo possuem essa habilidade.
+          </dd>
+
+          <dt>
+            <abbr title="Grande Ilha de Lixo do Pacífico">GPGP</abbr>
+          </dt>
+          <dd>
+            Concentração de resíduos plásticos no Oceano Pacífico Norte,
+            com aproximadamente 1,6 milhão de km². É a maior acumulação
+            de lixo flutuante do mundo.
+          </dd>
+
+          <dt>Recife de coral</dt>
+          <dd>
+            Estrutura subaquática formada por colônias de pequenos
+            animais chamados pólipos. Apesar de cobrir menos de 1%
+            do fundo oceânico, abriga cerca de 25% da vida marinha.
+          </dd>
+
+          <dt>
+            <abbr title="Organização das Nações Unidas">ONU</abbr>
+            Meio Ambiente
+          </dt>
+          <dd>
+            Programa das Nações Unidas responsável por coordenar
+            ações ambientais globais, incluindo a proteção dos
+            oceanos e o combate à poluição marinha.
+          </dd>
+        </dl>
+      </div>
+    </section>
+
+    <!--
+    ============================================================================
+    SEÇÃO GALERIA — CURIOSIDADES VISUAIS
+    ============================================================================
+    -->
+    <section class="section section-soft" id="galeria">
+      <div class="container">
+        <div class="section-heading">
+          <h2>O oceano em imagens.</h2>
+          <p>
+            Algumas das paisagens e criaturas mais surpreendentes
+            que habitam os oceanos do nosso planeta.
+          </p>
+        </div>
+
+        <div class="gallery-grid">
+          <img
+            src="https://images.unsplash.com/photo-1551244072-5d12893278ab?auto=format&fit=crop&w=800&q=80"
+            alt="Águas profundas do oceano com tons de azul escuro e raios de luz penetrando a superfície"
+            loading="lazy"
+          >
+          <img
+            src="https://plus.unsplash.com/premium_photo-1666497934028-607274a840a8?q=80&w=775&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=NHwxMjA3fDA%3D"
+            alt="Recife de coral colorido com peixes tropicais nadando entre as formações"
+            loading="lazy"
+          >
+          <img
+            src="https://plus.unsplash.com/premium_photo-1661963506136-0aed4df0edfb?q=80&w=870&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=NHwxMjA3fDA%3D"
+            alt="Ondas do oceano vistas de cima com padrões de espuma branca sobre a água azul"
+            loading="lazy"
+          >
+        </div>
+      </div>
+    </section>
+
+    <!-- SEÇÃO DE VÍDEO -->
+    <section class="section video-section" id="video">
+      <div class="container video-layout">
+        <div>
+          <span class="eyebrow">Aprenda assistindo</span>
+          <h2>Curiosidades em vídeo.</h2>
+          <p>
+            Assista a um vídeo com fatos surpreendentes sobre os
+            oceanos e as criaturas que os habitam. O conteúdo é
+            incorporado do YouTube e requer conexão com a internet.
+          </p>
+        </div>
+
+        <iframe
+          class="video-frame"
+          src="https://www.youtube.com/embed/hH-cGMIjqVA?si=cf-x1BLkUIfbas88"
+          title="Vídeo com curiosidades surpreendentes sobre os oceanos e a vida marinha"
+          loading="lazy"
+          referrerpolicy="strict-origin-when-cross-origin"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+          allowfullscreen>
+        </iframe>
+      </div>
+    </section>
+
+    <!--
+    ============================================================================
+    SEÇÃO QUIZ — TESTE DE CURIOSIDADES
+    ============================================================================
+
+    A pergunta é sobre um fato curioso (Fossa das Marianas),
+    diferente das perguntas das páginas 1, 2 e 3.
+    ============================================================================
+    -->
+    <section class="section section-soft" id="quiz">
+      <div class="container">
+        <div class="quiz-card">
+          <span class="eyebrow" style="color: var(--ocean);">Teste seus conhecimentos</span>
+          <h2>Quiz das curiosidades!</h2>
+          <p class="quiz-question">Qual é a profundidade aproximada da Fossa das Marianas, o ponto mais profundo do oceano?</p>
+
+          <div class="quiz-options" role="group" aria-label="Respostas do quiz">
+            <button class="quiz-option" type="button" data-correct="false">Cerca de 5.000 metros</button>
+            <button class="quiz-option" type="button" data-correct="true">Cerca de 11.000 metros</button>
+            <button class="quiz-option" type="button" data-correct="false">Cerca de 8.000 metros</button>
+          </div>
+
+          <p class="quiz-result" id="quiz-result" aria-live="polite"></p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!--
+  ============================================================================
+  BARRA DE NAVEGAÇÃO ENTRE PÁGINAS DIVERGENTES
+  ============================================================================
+
+  "Curiosidades" tem a classe is-active e aria-current="page".
+  ============================================================================
+  -->
+  <nav class="page-nav" aria-label="Páginas do projeto">
+    <div class="container">
+      <ul class="page-nav-list">
+        <li><a class="page-nav-link" href="index.html">Página Inicial</a></li>
+        <li><a class="page-nav-link" href="index2.html">Biodiversidade</a></li>
+        <li><a class="page-nav-link" href="index3.html">Poluição</a></li>
+        <li><a class="page-nav-link is-active" href="index4.html" aria-current="page">Curiosidades</a></li>
+        <li><a class="page-nav-link" href="index5.html">Referências</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <p>Oceano Vivo — Curiosidades oceânicas.</p>
+      <a href="#inicio">Voltar ao início ↑</a>
+    </div>
+  </footer>
+
+  <!--
+  ============================================================================
+  JAVASCRIPT — INTERATIVIDADE
+  ============================================================================
+
+  Mesmo padrão das páginas anteriores: menu mobile + quiz.
+  As mensagens do quiz são sobre a Fossa das Marianas.
+  ============================================================================
+  -->
+  <script>
+    /* Controle do menu mobile (hambúrguer) */
+    const menuBotao = document.querySelector(".menu-toggle");
+    const menuLinks = document.querySelector(".nav-links");
+
+    menuBotao.addEventListener("click", function () {
+      const menuEstaAberto = menuLinks.classList.toggle("is-open");
+      menuBotao.setAttribute("aria-expanded", menuEstaAberto);
+      menuBotao.setAttribute("aria-label", menuEstaAberto ? "Fechar menu" : "Abrir menu");
+      menuBotao.textContent = menuEstaAberto ? "×" : "☰";
+    });
+
+    menuLinks.querySelectorAll("a").forEach(function (link) {
+      link.addEventListener("click", function () {
+        menuLinks.classList.remove("is-open");
+        menuBotao.setAttribute("aria-expanded", "false");
+        menuBotao.setAttribute("aria-label", "Abrir menu");
+        menuBotao.textContent = "☰";
+      });
+    });
+
+    /* Lógica do quiz — tema: curiosidades oceânicas. */
+    const opcoesQuiz = document.querySelectorAll(".quiz-option");
+    const resultadoQuiz = document.querySelector("#quiz-result");
+
+    opcoesQuiz.forEach(function (opcao) {
+      opcao.addEventListener("click", function () {
+        if (opcao.dataset.correct === "true") {
+          resultadoQuiz.textContent = "Correto! A Fossa das Marianas tem cerca de 11.034 metros de profundidade. 🐙";
+        } else {
+          resultadoQuiz.textContent = "Não é essa. O ponto mais fundo é ainda mais profundo do que parece! 🌊";
+        }
+      });
+    });
+  </script>
+</body>
+</html>

@@ -1,0 +1,1552 @@
+<!DOCTYPE html>
+<!--
+  ============================================================================
+  PÁGINA 3 — INDEX3.HTML — POLUIÇÃO MARINHA
+  ============================================================================
+-->
+
+<html lang="pt-BR">
+
+<head>
+  <!-- SEÇÃO HEAD — CONFIGURAÇÕES INVISÍVEIS DA PÁGINA -->
+
+  <meta charset="UTF-8">
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <meta name="description" content="Entenda os principais tipos de poluição que ameaçam os oceanos: plástico, produtos químicos, petróleo e poluição sonora. Dados, consequências e soluções.">
+  <!--
+    Meta description — resumo da página para resultados de busca.
+    DIFERENTE das páginas 1 e 2 porque o conteúdo é sobre poluição.
+    Cada página deve ter uma descrição única e relevante.
+  -->
+
+  <meta name="author" content="Equipe Oceano Vivo">
+
+  <meta name="keywords" content="poluição marinha, plástico nos oceanos, contaminação, petróleo, microplásticos, lixo no mar">
+  <!--
+    Palavras-chave específicas desta página sobre poluição.
+    Diferentes das páginas 1 (geral) e 2 (biodiversidade).
+  -->
+
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🛢️</text></svg>">
+
+
+  <title>Poluição Marinha — Oceano Vivo</title>
+  <!--
+    Título da aba do navegador e dos resultados de busca.
+
+    Convenção: tema específico PRIMEIRO, nome do site DEPOIS.
+    - Página 1: "Oceano Vivo — Conhecer para proteger"
+    - Página 2: "Biodiversidade Marinha — Oceano Vivo"
+    - Página 3: "Poluição Marinha — Oceano Vivo"
+
+    Assim, quando o usuário tem várias abas, vê o tema primeiro.
+  -->
+
+  <style>
+    /*
+    ============================================================================
+    SEÇÃO DE ESTILOS CSS — APARÊNCIA VISUAL DO SITE
+    ============================================================================
+
+    O CSS é praticamente idêntico ao das páginas 1 e 2 para manter
+    a identidade visual consistente do site.
+
+    Novidades nesta página:
+    - Estilos para <figure> e <figcaption> (imagens com legenda).
+    - Estilos para <details> e <summary> (conteúdo expansível/FAQ).
+    - Estilos para <blockquote> (citações).
+    - Estilos para barras de progresso em CSS puro.
+    - Estilos para <mark> (destaque de texto).
+
+    Em projetos profissionais, todo este CSS ficaria em um único
+    arquivo compartilhado (ex: estilo.css). Como estamos fazendo
+    tudo em um arquivo por página, repetimos a base e adicionamos
+    os estilos novos.
+    ============================================================================
+    */
+
+    /*
+    --------------------------------------------------------------------------
+    VARIÁVEIS CSS — CORES E MEDIDAS GLOBAIS
+    --------------------------------------------------------------------------
+
+    IDÊNTICAS às páginas 1 e 2 para consistência visual.
+    Se mudássemos uma cor aqui sem mudar nas outras páginas,
+    o site pareceria "quebrado" ao navegar entre elas.
+    --------------------------------------------------------------------------
+    */
+    :root {
+      --navy: #082f49;
+      --deep-blue: #0c4a6e;
+      --ocean: #087e9b;
+      --turquoise: #37c8bd;
+      --pale: #e9f8f7;
+      --sand: #f5f0e6;
+      --white: #ffffff;
+      --ink: #17324a;
+      --muted: #617586;
+      --shadow: 0 18px 50px rgba(8, 47, 73, 0.12);
+      --radius: 22px;
+      --hero-overlay: linear-gradient(
+        90deg,
+        rgba(4, 35, 58, 0.86) 0%,
+        rgba(4, 35, 58, 0.45) 55%,
+        rgba(4, 35, 58, 0.08) 100%
+      );
+      --transition-speed: 180ms;
+
+      /*
+      NOVA VARIÁVEL — exclusiva desta página!
+
+      --danger: vermelho-alaranjado para destacar dados alarmantes.
+      Usado em barras de progresso e números de impacto.
+      O vermelho transmite urgência e alerta — perfeito para
+      o tema "poluição".
+
+      Por que não usamos nas outras páginas?
+      - Página 1 (geral) e 2 (biodiversidade) são positivas/informativas.
+      - Página 3 (poluição) trata de problemas — o vermelho reforça
+        a gravidade da situação.
+      - Adicionar uma cor de "alerta" apenas onde faz sentido
+        é uma decisão de design intencional.
+      */
+      --danger: #e05530;
+    }
+
+    /* RESET CSS */
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+      scroll-padding-top: 90px;
+    }
+
+    body {
+      background: #fbfdfd;
+      color: var(--ink);
+      font-family: Arial, Helvetica, sans-serif;
+      line-height: 1.6;
+    }
+
+    .container {
+      width: min(1120px, calc(100% - 40px));
+      margin: 0 auto;
+    }
+
+    img,
+    iframe {
+      display: block;
+      max-width: 100%;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    /* CABEÇALHO FIXO */
+    .site-header {
+      position: sticky;
+      top: 0;
+      z-index: 10;
+      background: rgba(255, 255, 255, 0.94);
+      border-bottom: 1px solid rgba(8, 47, 73, 0.08);
+      backdrop-filter: blur(12px);
+    }
+
+    .nav-wrap {
+      min-height: 76px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 24px;
+    }
+
+    .brand {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      color: var(--navy);
+      font-size: 1.08rem;
+      font-weight: 800;
+      letter-spacing: -0.04em;
+    }
+
+    .brand-mark {
+      width: 36px;
+      height: 36px;
+      display: grid;
+      place-items: center;
+      color: var(--white);
+      background: linear-gradient(135deg, var(--ocean), var(--turquoise));
+      border-radius: 50% 50% 50% 10px;
+      transform: rotate(-10deg);
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 28px;
+      list-style: none;
+    }
+
+    .nav-links a {
+      color: #456174;
+      font-size: 0.93rem;
+      font-weight: 700;
+      transition: color var(--transition-speed) ease;
+    }
+
+    .nav-links a:hover,
+    .nav-links a:focus-visible {
+      color: var(--ocean);
+    }
+
+    .menu-toggle {
+      display: none;
+      border: 0;
+      background: transparent;
+      color: var(--navy);
+      font-size: 1.6rem;
+      cursor: pointer;
+    }
+
+    /*
+    --------------------------------------------------------------------------
+    SEÇÃO HERO
+    --------------------------------------------------------------------------
+
+    */
+    .hero {
+      min-height: 600px;
+      display: flex;
+      align-items: center;
+      position: relative;
+      overflow: hidden;
+      color: var(--white);
+      background:
+        var(--hero-overlay),
+        url("https://images.unsplash.com/photo-1621451537084-482c73073a0f?auto=format&fit=crop&w=2000&q=85") center 48% / cover;
+    }
+
+    .hero-content {
+      max-width: 680px;
+      padding: 100px 0;
+    }
+
+    .eyebrow {
+      display: inline-block;
+      margin-bottom: 18px;
+      color: #b6fff1;
+      font-size: 0.78rem;
+      font-weight: 800;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+    }
+
+    h1 {
+      max-width: 650px;
+      margin-bottom: 20px;
+      font-size: clamp(2.8rem, 7vw, 5.7rem);
+      line-height: 0.99;
+      letter-spacing: -0.065em;
+    }
+
+    .hero p {
+      max-width: 540px;
+      margin-bottom: 30px;
+      color: rgba(255, 255, 255, 0.9);
+      font-size: clamp(1rem, 2vw, 1.2rem);
+    }
+
+    .button-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+
+    .button {
+      min-height: 48px;
+      display: inline-flex;
+      justify-content: center;
+      align-items: center;
+      padding: 12px 22px;
+      border: 1px solid transparent;
+      border-radius: 999px;
+      font-weight: 800;
+      transition: transform var(--transition-speed) ease,
+                  background-color var(--transition-speed) ease;
+      cursor: pointer;
+    }
+
+    .button:hover {
+      transform: translateY(-2px);
+    }
+
+    .button-primary {
+      color: var(--navy);
+      background: var(--turquoise);
+    }
+
+    .button-ghost {
+      color: var(--white);
+      border-color: rgba(255, 255, 255, 0.6);
+      background: rgba(255, 255, 255, 0.08);
+    }
+
+    .section {
+      padding: 92px 0;
+    }
+
+    .section-soft {
+      background: var(--pale);
+    }
+
+    .section-heading {
+      display: grid;
+      grid-template-columns: 0.8fr 1.2fr;
+      align-items: end;
+      gap: 32px;
+      margin-bottom: 42px;
+    }
+
+    h2 {
+      color: var(--navy);
+      font-size: clamp(2rem, 4vw, 3.2rem);
+      line-height: 1.08;
+      letter-spacing: -0.055em;
+    }
+
+    .section-heading p,
+    .intro-copy {
+      color: var(--muted);
+      font-size: 1.05rem;
+    }
+
+    /*
+    --------------------------------------------------------------------------
+    GRADE DE TIPOS DE POLUIÇÃO — CARTÕES INFORMATIVOS
+    --------------------------------------------------------------------------
+
+    Grade com 3 colunas para apresentar os três principais tipos
+    de poluição marinha. Mesmo padrão da fact-grid da página 1,
+    mas com ícones emoji em vez de números.
+
+    Por que emojis em vez de ícones SVG ou imagens?
+    - Emojis são nativos do sistema — não precisam de arquivos externos.
+    - São universais e reconhecíveis em qualquer dispositivo.
+    - Em projetos profissionais, usaríamos ícones SVG (mais leves
+      e personalizáveis), mas emojis funcionam perfeitamente aqui.
+    --------------------------------------------------------------------------
+    */
+    .pollution-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 18px;
+    }
+
+    .pollution-card {
+      padding: 27px;
+      border: 1px solid rgba(8, 47, 73, 0.07);
+      border-radius: var(--radius);
+      background: var(--white);
+      box-shadow: 0 10px 35px rgba(8, 47, 73, 0.06);
+    }
+
+    /* Ícone emoji grande no topo do cartão. */
+    .pollution-icon {
+      display: block;
+      margin-bottom: 14px;
+      font-size: 2.4rem;
+    }
+
+    .pollution-card h3 {
+      margin-bottom: 9px;
+      color: var(--navy);
+      font-size: 1.08rem;
+    }
+
+    .pollution-card p {
+      color: var(--muted);
+      font-size: 0.94rem;
+    }
+
+    /*
+    --------------------------------------------------------------------------
+    LAYOUT IMAGEM + TEXTO — DADOS ALARMANTES
+    --------------------------------------------------------------------------
+
+    Mesmo layout de duas colunas das páginas anteriores.
+    Consistência visual entre todas as páginas do site.
+    --------------------------------------------------------------------------
+    */
+    .impact-layout {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      align-items: center;
+      gap: 58px;
+    }
+
+    .impact-image {
+      width: 100%;
+      min-height: 420px;
+      object-fit: cover;
+      border-radius: 30px;
+      box-shadow: var(--shadow);
+    }
+
+    .impact-copy p {
+      margin-top: 18px;
+      color: var(--muted);
+    }
+
+    /*
+    --------------------------------------------------------------------------
+    BARRAS DE PROGRESSO — NOVA TÉCNICA DESTA PÁGINA!
+    --------------------------------------------------------------------------
+
+    Barras de progresso visuais criadas com CSS PURO (sem JavaScript).
+    Mostram a proporção de cada tipo de lixo encontrado nos oceanos.
+
+    Como funciona:
+    - O contêiner externo (.bar-track) é a "pista" cinza.
+    - O elemento interno (.bar-fill) é a "barra" colorida.
+    - A largura da barra é definida via style inline no HTML
+      (ex: style="width: 73%") porque cada dado é diferente.
+
+    --------------------------------------------------------------------------
+    */
+    .bar-list {
+      display: grid;
+      gap: 18px;
+      margin-top: 28px;
+    }
+
+    .bar-item {
+      display: grid;
+      gap: 6px;
+    }
+
+    /* Rótulo acima da barra (nome do material + porcentagem). */
+    .bar-label {
+      display: flex;
+      justify-content: space-between;
+      font-size: 0.9rem;
+      font-weight: 700;
+      color: var(--ink);
+    }
+
+    /* A "pista" da barra — fundo cinza claro. */
+    .bar-track {
+      height: 12px;
+      border-radius: 999px;
+      background: rgba(8, 47, 73, 0.08);
+
+      /* overflow: hidden garante que a barra colorida não "vaze"
+         pelos cantos arredondados da pista. */
+      overflow: hidden;
+    }
+
+    /* A "barra" colorida que preenche a pista.
+       A largura é definida inline no HTML (ex: width: 73%). */
+    .bar-fill {
+      height: 100%;
+      border-radius: 999px;
+
+      /* Cor da barra — usa a variável --danger (vermelho) para
+         transmitir urgência. Poderia usar --ocean para dados
+         neutros, mas aqui o vermelho é intencional. */
+      background: var(--danger);
+
+      /* Transição suave para quando a barra "cresce" ao carregar. */
+      transition: width 600ms ease;
+    }
+
+    /*
+    --------------------------------------------------------------------------
+    CITAÇÃO (BLOCKQUOTE) — NOVA TÉCNICA DESTA PÁGINA!
+    --------------------------------------------------------------------------
+
+    O <blockquote> é um elemento semântico do HTML para citações longas.
+    "Semântico" = tem significado. Diz ao navegador e aos leitores
+    de tela: "isto é uma citação de outra fonte".
+
+    Por que usar <blockquote> em vez de um <p> normal?
+    1. Acessibilidade: leitores de tela anunciam "citação" ao chegar.
+    2. SEO: buscadores entendem que o texto é de outra fonte.
+    3. Semântica: o código comunica a INTENÇÃO, não só a aparência.
+    4. Estilo: podemos estilizar citações de forma diferente do
+       texto normal (borda lateral, itálico, recuo).
+
+    O atributo cite="" contém a URL da fonte original da citação.
+    Não aparece visualmente, mas é uma boa prática de atribuição.
+    --------------------------------------------------------------------------
+    */
+    .quote-block {
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 32px 36px;
+      border-left: 5px solid var(--ocean);
+      border-radius: 0 var(--radius) var(--radius) 0;
+      background: var(--white);
+      box-shadow: 0 10px 35px rgba(8, 47, 73, 0.06);
+    }
+
+    .quote-block blockquote {
+      color: var(--ink);
+      font-size: 1.15rem;
+      font-style: italic;
+      line-height: 1.7;
+    }
+
+    /* A fonte da citação (quem disse).
+       <cite> é o elemento semântico para o título da obra ou autor. */
+    .quote-source {
+      margin-top: 14px;
+      color: var(--muted);
+      font-size: 0.9rem;
+      font-style: normal;
+    }
+
+    /*
+    --------------------------------------------------------------------------
+    FIGURA COM LEGENDA — NOVA TÉCNICA DESTA PÁGINA!
+    --------------------------------------------------------------------------
+
+    <figure> e <figcaption> são elementos semânticos do HTML5 para
+    conteúdo ilustrado (imagens, gráficos, diagramas) com legenda.
+
+    Por que usar <figure> em vez de apenas <img>?
+    - <img> sozinho é apenas uma imagem solta no texto.
+    - <figure> agrupa a imagem COM sua legenda, criando uma
+      unidade de conteúdo que faz sentido junta.
+    - <figcaption> é a legenda — leitores de tela a associam
+      automaticamente à imagem.
+    - É a forma SEMANTICAMENTE CORRETA de apresentar imagens
+      com descrição.
+
+    Analogia:
+    - <img> = uma foto jogada na mesa.
+    - <figure> = a foto dentro de um porta-retrato com uma
+      plaquinha explicativa embaixo.
+    --------------------------------------------------------------------------
+    */
+    .figure-card {
+      border-radius: var(--radius);
+      overflow: hidden;
+      background: var(--white);
+      box-shadow: 0 10px 35px rgba(8, 47, 73, 0.06);
+    }
+
+    .figure-card img {
+      width: 100%;
+      height: 320px;
+      object-fit: cover;
+    }
+
+    /* A legenda abaixo da imagem. */
+    .figure-card figcaption {
+      padding: 18px 22px;
+      color: var(--muted);
+      font-size: 0.9rem;
+      line-height: 1.5;
+    }
+
+    /* Grade de figuras — 2 colunas em desktop. */
+    .figure-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 22px;
+    }
+
+    /*
+    --------------------------------------------------------------------------
+    CONTEÚDO EXPANSÍVEL (DETAILS/SUMMARY) — NOVA TÉCNICA!
+    --------------------------------------------------------------------------
+
+    <details> e <summary> são elementos HTML nativos que criam
+    conteúdo expansível/recolhível SEM precisar de JavaScript!
+
+    Como funciona:
+    - <details> é o contêiner do conteúdo expansível.
+    - <summary> é o "título" clicável que abre/fecha.
+    - O conteúdo dentro de <details> (fora do <summary>) fica
+      escondido por padrão e aparece quando o usuário clica.
+    - O navegador adiciona automaticamente um triângulo (▶/▼)
+      ao lado do <summary> para indicar que é clicável.
+
+    Por que é incrível?
+    - Interatividade SEM JavaScript
+    - Perfeito para seções de "Perguntas Frequentes" (FAQ).
+    - O visitante escolhe o que quer ler — não é obrigado a
+      ver tudo de uma vez.
+    - Funciona em TODOS os navegadores modernos.
+
+    Acessibilidade:
+    - Leitores de tela anunciam "recolhido" ou "expandido".
+    - Navegável por teclado (Enter ou Espaço para abrir/fechar).
+    - Semântico: comunica a intenção de conteúdo oculto.
+    --------------------------------------------------------------------------
+    */
+    .faq-list {
+      display: grid;
+      gap: 12px;
+      max-width: 800px;
+      margin: 0 auto;
+    }
+
+    .faq-item {
+      border: 1px solid rgba(8, 47, 73, 0.08);
+      border-radius: 16px;
+      background: var(--white);
+      overflow: hidden;
+    }
+
+    /* O título clicável do FAQ. */
+    .faq-item summary {
+      padding: 18px 22px;
+      color: var(--navy);
+      font-weight: 700;
+      font-size: 1rem;
+      cursor: pointer;
+
+      /* Remove o marcador padrão do navegador (triângulo) para
+         usarmos nosso próprio indicador visual. */
+      list-style: none;
+
+      /* Flexbox para alinhar o texto e o ícone "+" nas pontas. */
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    /* Remove o marcador padrão do WebKit (Chrome, Safari, Edge).
+       Cada navegador tem seu próprio pseudo-elemento para o triângulo,
+       então precisamos remover ambos para consistência. */
+    .faq-item summary::-webkit-details-marker {
+      display: none;
+    }
+
+    /* Ícone "+" que muda para "−" quando o <details> está aberto.
+       Usamos o pseudo-elemento ::after para adicionar conteúdo
+       visual sem precisar de HTML extra. */
+    .faq-item summary::after {
+      content: "+";
+      font-size: 1.3rem;
+      font-weight: 800;
+      color: var(--ocean);
+      transition: transform var(--transition-speed) ease;
+    }
+
+    /* Quando o <details> tem o atributo [open] (está expandido),
+       o ícone muda de "+" para "−".
+
+       [open] é um seletor de atributo CSS — seleciona elementos
+       que têm o atributo "open". O navegador adiciona este
+       atributo automaticamente quando o usuário clica no <summary>.
+       Não precisamos de JavaScript para isso! */
+    .faq-item[open] summary::after {
+      content: "−";
+    }
+
+    /* Conteúdo que aparece quando o FAQ é expandido. */
+    .faq-answer {
+      padding: 0 22px 20px;
+      color: var(--muted);
+      font-size: 0.95rem;
+      line-height: 1.6;
+    }
+
+    /*
+    --------------------------------------------------------------------------
+    DESTAQUE DE TEXTO (MARK) — NOVA TÉCNICA!
+    --------------------------------------------------------------------------
+
+    O <mark> é um elemento semântico do HTML5 que destaca texto
+    como se fosse marcado com um marca-texto amarelo.
+
+    Por que usar <mark> em vez de <strong> ou <span>?
+    - <strong> indica IMPORTÂNCIA (negrito por padrão).
+    - <mark> indica RELEVÂNCIA no contexto (destaque visual).
+    - <span> não tem significado semântico.
+    - <mark> é a escolha correta quando queremos chamar atenção
+      para um trecho específico dentro de um parágrafo.
+
+    Estilizamos o <mark> para usar a cor do tema em vez do
+    amarelo padrão do navegador, mantendo a identidade visual.
+    --------------------------------------------------------------------------
+    */
+    mark {
+      background: rgba(8, 126, 155, 0.15);
+      color: var(--navy);
+      padding: 2px 6px;
+      border-radius: 4px;
+    }
+
+    /* GALERIA DE IMAGENS */
+    .gallery-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 16px;
+    }
+
+    .gallery-grid img {
+      width: 100%;
+      height: 260px;
+      object-fit: cover;
+      border-radius: 18px;
+      transition: transform 220ms ease;
+    }
+
+    .gallery-grid img:hover {
+      transform: scale(1.025);
+    }
+
+    /* SEÇÃO DE VÍDEO */
+    .video-section {
+      color: var(--white);
+      background: linear-gradient(135deg, var(--navy), #075e78);
+    }
+
+    .video-section h2 {
+      color: var(--white);
+    }
+
+    .video-layout {
+      display: grid;
+      grid-template-columns: 0.8fr 1.2fr;
+      align-items: center;
+      gap: 48px;
+    }
+
+    .video-layout p {
+      margin-top: 16px;
+      color: rgba(255, 255, 255, 0.78);
+    }
+
+    .video-frame {
+      width: 100%;
+      aspect-ratio: 16 / 9;
+      border: 0;
+      border-radius: 20px;
+      background: #001c2b;
+      box-shadow: 0 20px 50px rgba(0, 0, 0, 0.25);
+    }
+
+    /* QUIZ */
+    .quiz-card {
+      max-width: 760px;
+      margin: 0 auto;
+      padding: 38px;
+      border: 1px solid rgba(8, 47, 73, 0.08);
+      border-radius: 28px;
+      background: var(--white);
+      box-shadow: var(--shadow);
+      text-align: center;
+    }
+
+    .quiz-card h2 {
+      margin-bottom: 14px;
+      font-size: clamp(1.8rem, 4vw, 2.5rem);
+    }
+
+    .quiz-question {
+      margin: 18px 0 22px;
+      color: var(--muted);
+      font-weight: 700;
+    }
+
+    .quiz-options {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+
+    .quiz-option {
+      padding: 11px 18px;
+      border: 1px solid #cbdde2;
+      border-radius: 999px;
+      color: var(--navy);
+      background: var(--white);
+      font: inherit;
+      font-weight: 700;
+      cursor: pointer;
+      transition: background-color var(--transition-speed) ease,
+                  color var(--transition-speed) ease;
+    }
+
+    .quiz-option:hover,
+    .quiz-option:focus-visible {
+      color: var(--white);
+      background: var(--ocean);
+    }
+
+    .quiz-result {
+      min-height: 30px;
+      margin-top: 20px;
+      color: var(--ocean);
+      font-weight: 800;
+    }
+
+    /* BARRA DE NAVEGAÇÃO ENTRE PÁGINAS */
+    .page-nav {
+      background: var(--sand);
+      padding: 16px 0;
+      border-top: 1px solid rgba(8, 47, 73, 0.06);
+    }
+
+    .page-nav-list {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 8px;
+      list-style: none;
+    }
+
+    .page-nav-link {
+      padding: 8px 18px;
+      border-radius: 999px;
+      color: var(--navy);
+      font-weight: 700;
+      font-size: 0.88rem;
+      transition: background-color var(--transition-speed) ease,
+                  color var(--transition-speed) ease;
+    }
+
+    .page-nav-link:hover,
+    .page-nav-link:focus-visible {
+      background: var(--ocean);
+      color: var(--white);
+    }
+
+    .page-nav-link.is-active {
+      background: var(--navy);
+      color: var(--white);
+    }
+
+    /* RODAPÉ */
+    .site-footer {
+      padding: 28px 0;
+      color: #d7e8ed;
+      background: #06283e;
+      font-size: 0.9rem;
+    }
+
+    .footer-inner {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 16px;
+    }
+
+    /* ACESSIBILIDADE — FOCO VISÍVEL */
+    a:focus-visible,
+    button:focus-visible,
+    summary:focus-visible {
+      outline: 3px solid #ffca70;
+      outline-offset: 3px;
+    }
+
+    /* MEDIA QUERIES — RESPONSIVIDADE */
+    @media (max-width: 760px) {
+      .hero {
+        min-height: 560px;
+        background-position: 58% center;
+      }
+
+      .nav-links {
+        display: none;
+        position: absolute;
+        top: 76px;
+        left: 0;
+        right: 0;
+        padding: 20px;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 18px;
+        background: var(--white);
+        border-bottom: 1px solid rgba(8, 47, 73, 0.1);
+        box-shadow: 0 16px 20px rgba(8, 47, 73, 0.08);
+      }
+
+      .nav-links.is-open {
+        display: flex;
+      }
+
+      .menu-toggle {
+        display: inline-grid;
+        place-items: center;
+      }
+
+      .section-heading {
+        grid-template-columns: 1fr;
+        gap: 14px;
+      }
+
+      .pollution-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .impact-layout,
+      .video-layout {
+        grid-template-columns: 1fr;
+        gap: 32px;
+      }
+
+      .impact-image {
+        min-height: 300px;
+      }
+
+      /* Figuras em 1 coluna no celular. */
+      .figure-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .gallery-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .section {
+        padding: 68px 0;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .container {
+        width: min(100% - 28px, 1120px);
+      }
+
+      .gallery-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .quiz-card {
+        padding: 28px 18px;
+      }
+
+      .footer-inner {
+        align-items: flex-start;
+        flex-direction: column;
+      }
+
+      .quote-block {
+        padding: 24px 20px;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      *,
+      *::before,
+      *::after {
+        scroll-behavior: auto !important;
+        transition-duration: 0.01ms !important;
+        animation-duration: 0.01ms !important;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <!-- CABEÇALHO DO SITE — NAVEGAÇÃO FIXA -->
+  <header class="site-header">
+    <nav class="container nav-wrap" aria-label="Navegação principal">
+      <a class="brand" href="index.html" aria-label="Oceano Vivo, voltar à página inicial">
+        <span class="brand-mark" aria-hidden="true">≈</span>
+        <span>Oceano Vivo</span>
+      </a>
+
+      <button class="menu-toggle" type="button" aria-label="Abrir menu" aria-expanded="false">
+        ☰
+      </button>
+
+      <ul class="nav-links" id="menu-principal">
+        <li><a href="#tipos">Tipos</a></li>
+        <li><a href="#impacto">Impacto</a></li>
+        <li><a href="#galeria">Galeria</a></li>
+        <li><a href="#video">Vídeo</a></li>
+        <li><a href="#faq">Perguntas</a></li>
+        <li><a href="#quiz">Quiz</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+
+    <!--
+    ============================================================================
+    SEÇÃO HERO — ABERTURA DA PÁGINA 3
+    ============================================================================
+    -->
+    <section class="hero" id="inicio">
+      <div class="container hero-content">
+        <span class="eyebrow">• Poluição</span>
+        <h1>O oceano está em perigo.</h1>
+        <p>
+          Todos os anos, milhões de toneladas de lixo e substâncias tóxicas
+          chegam aos mares. Entenda os tipos de poluição, suas consequências
+          e o que pode ser feito para reverter esse cenário.
+        </p>
+        <div class="button-row">
+          <a class="button button-primary" href="#tipos">Conhecer os tipos</a>
+          <a class="button button-ghost" href="#impacto">Ver o impacto</a>
+        </div>
+      </div>
+    </section>
+
+    <!--
+    ============================================================================
+    SEÇÃO TIPOS DE POLUIÇÃO — OS TRÊS PRINCIPAIS VILÕES
+    ============================================================================
+
+    Grade com 3 cartões, cada um representando um tipo de poluição.
+    Os emojis servem como ícones visuais rápidos.
+
+    Por que apenas 3 tipos se existem mais?
+    - Foco e clareza: 3 é o número ideal para memorização.
+    - São os tipos mais relevantes e documentados.
+    - Outros tipos (térmica, radioativa, luminosa) são mencionados
+      na seção de FAQ para quem quiser saber mais.
+    ============================================================================
+    -->
+    <section class="section section-soft" id="tipos">
+      <div class="container">
+        <div class="section-heading">
+          <h2>Os três grandes vilões do mar.</h2>
+          <p>
+            A poluição marinha não é um problema único. Diferentes fontes
+            e substâncias contaminam os oceanos de formas distintas,
+            cada uma com seus próprios efeitos devastadores.
+          </p>
+        </div>
+
+        <div class="pollution-grid">
+          <article class="pollution-card">
+            <!--
+            aria-hidden="true" porque o emoji é decorativo —
+            o título h3 já descreve o tipo de poluição.
+            Sem aria-hidden, o leitor de tela diria "sacola de compras"
+            antes do título, o que seria redundante.
+            -->
+            <span class="pollution-icon" aria-hidden="true">🛍️</span>
+            <h3>Poluição por plástico</h3>
+            <p>
+              Sacolas, garrafas, canudos e microplásticos formam ilhas
+              de lixo nos oceanos. Estima-se que até 2050 haverá mais
+              plástico que peixes nos mares, em peso.
+            </p>
+          </article>
+
+          <article class="pollution-card">
+            <span class="pollution-icon" aria-hidden="true">🧪</span>
+            <h3>Poluição química</h3>
+            <p>
+              Agrotóxicos, metais pesados e resíduos industriais chegam
+              ao mar pelos rios. Essas substâncias se acumulam nos
+              tecidos dos animais, intoxicando toda a cadeia alimentar.
+            </p>
+          </article>
+
+          <article class="pollution-card">
+            <span class="pollution-icon" aria-hidden="true">🔊</span>
+            <h3>Poluição sonora</h3>
+            <p>
+              Navios, sonares e exploração de petróleo geram ruídos
+              subaquáticos que desorientam baleias e golfinhos,
+              interferindo na comunicação e navegação desses animais.
+            </p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!--
+    ============================================================================
+    SEÇÃO IMPACTO — DADOS ALARMANTES COM BARRAS DE PROGRESSO
+    ============================================================================
+
+    Esta seção combina:
+    1. Imagem impactante à esquerda.
+    2. Texto explicativo + barras de progresso à direita.
+
+    As barras de progresso são uma NOVA TÉCNICA desta página.
+    Elas transformam dados numéricos em representações visuais
+    que o cérebro processa mais rápido que texto.
+
+    Os dados são baseados em relatórios da ONU Meio Ambiente e
+    da Ocean Conservancy sobre composição do lixo marinho.
+    ============================================================================
+    -->
+    <section class="section" id="impacto">
+      <div class="container impact-layout">
+        <!--
+        IMAGEM COM TEXTO ALTERNATIVO DESCRITIVO
+
+        O alt descreve não apenas o que a imagem mostra, mas também
+        o contexto emocional: "representa o impacto da poluição".
+        Isso ajuda leitores de tela a transmitir a intenção da imagem.
+        -->
+        <img
+          class="impact-image"
+          src="https://images.unsplash.com/photo-1632247620837-970aa94d2b99?q=80&w=774&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=NHwxMjA3fDA%3D"
+          alt="Tartaruga marinha nadando em águas que contêm resíduos plásticos — representa o impacto da poluição na vida marinha"
+          loading="lazy"
+        >
+
+        <div class="impact-copy">
+          <span class="eyebrow" style="color: var(--danger);">O tamanho do problema</span>
+          <h2>Números que não podemos ignorar.</h2>
+          <p>
+            A cada ano, cerca de <mark>8 milhões de toneladas de plástico</mark>
+            chegam aos oceanos — o equivalente a descarregar um caminhão
+            de lixo no mar a cada minuto. Veja a composição do lixo
+            encontrado nas praias e oceanos:
+          </p>
+
+          <!--
+          BARRAS DE PROGRESSO — CSS PURO
+
+          Cada barra tem:
+          1. Um rótulo (.bar-label) com o nome e a porcentagem.
+          2. Uma pista (.bar-track) que é o fundo cinza.
+          3. Um preenchimento (.bar-fill) cuja largura é definida
+             via style inline (ex: style="width: 73%").
+
+          Por que a largura é inline e não no CSS?
+          - Cada barra tem um valor DIFERENTE (73%, 12%, 9%, 6%).
+          - Se usássemos CSS, precisaríamos de uma classe para cada
+            valor (.bar-73, .bar-12, etc.), o que seria ineficiente.
+          - O style inline é aceitável quando o valor é ÚNICO e
+            dinâmico por elemento.
+
+          role="img" e aria-label tornam a barra acessível para
+          leitores de tela, que não "veem" a representação visual.
+          -->
+          <div class="bar-list" role="img" aria-label="Gráfico de barras mostrando a composição do lixo marinho: embalagens plásticas 73%, garrafas 12%, redes de pesca 9%, outros 6%">
+            <div class="bar-item">
+              <div class="bar-label">
+                <span>Embalagens plásticas</span>
+                <span>73%</span>
+              </div>
+              <div class="bar-track">
+                <div class="bar-fill" style="width: 73%;"></div>
+              </div>
+            </div>
+
+            <div class="bar-item">
+              <div class="bar-label">
+                <span>Garrafas e tampas</span>
+                <span>12%</span>
+              </div>
+              <div class="bar-track">
+                <div class="bar-fill" style="width: 12%;"></div>
+              </div>
+            </div>
+
+            <div class="bar-item">
+              <div class="bar-label">
+                <span>Redes de pesca</span>
+                <span>9%</span>
+              </div>
+              <div class="bar-track">
+                <div class="bar-fill" style="width: 9%;"></div>
+              </div>
+            </div>
+
+            <div class="bar-item">
+              <div class="bar-label">
+                <span>Outros resíduos</span>
+                <span>6%</span>
+              </div>
+              <div class="bar-track">
+                <div class="bar-fill" style="width: 6%;"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!--
+    ============================================================================
+    SEÇÃO CITAÇÃO — VOZ DA CIÊNCIA
+    ============================================================================
+
+    Uma citação de uma fonte confiável dá credibilidade ao conteúdo.
+    Usamos <blockquote> (elemento semântico para citações) e
+    <cite> (elemento semântico para a fonte/autor).
+
+    Por que incluir citações?
+    - Mostra que a pesquisa é baseada em fontes reais.
+    - Dá autoridade ao conteúdo.
+    - Demonstra domínio de elementos HTML semânticos avançados.
+    ============================================================================
+    -->
+    <section class="section section-soft">
+      <div class="container">
+        <div class="quote-block">
+          <!--
+          <blockquote> indica que o texto é uma citação de outra fonte.
+          O atributo cite="" contém a URL da fonte original.
+          O cite não aparece visualmente — é metadado para máquinas.
+          -->
+          <blockquote cite="https://www.unep.org/pt-br">
+            "A poluição plástica é uma das maiores ameaças ambientais
+            do nosso tempo. Se não agirmos agora, em 2040 o fluxo de
+            plástico para os oceanos poderá quase triplicar."
+          </blockquote>
+          <!--
+          <cite> identifica a fonte da citação.
+          É um elemento inline semântico — diz ao navegador:
+          "isto é o nome de uma obra, organização ou autor".
+          -->
+          <p class="quote-source">
+            — <cite>Programa das Nações Unidas para o Meio Ambiente (PNUMA)</cite>
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!--
+    ============================================================================
+    SEÇÃO FIGURAS COM LEGENDA — CONSEQUÊNCIAS VISUAIS
+    ============================================================================
+
+    Aqui usamos <figure> e <figcaption> pela primeira vez no projeto.
+    Cada figura é uma imagem com uma legenda explicativa abaixo.
+
+    Por que <figure> em vez de apenas <img>?
+    - <figure> agrupa imagem + legenda em uma unidade semântica.
+    - <figcaption> é associada automaticamente à imagem por
+      leitores de tela e buscadores.
+    - É a forma correta de apresentar imagens com descrição.
+    ============================================================================
+    -->
+    <section class="section" id="consequencias">
+      <div class="container">
+        <div class="section-heading">
+          <h2>As marcas da poluição.</h2>
+          <p>
+            A contaminação dos oceanos não é um problema distante.
+            Suas consequências são visíveis em praias, animais
+            e ecossistemas ao redor de todo o planeta.
+          </p>
+        </div>
+
+        <div class="figure-grid">
+          <!--
+          FIGURA 1 — PRAIA POLUÍDA
+
+          <figure> agrupa a imagem e sua legenda.
+          <img> é a imagem em si.
+          <figcaption> é a legenda que aparece abaixo da imagem.
+
+          A legenda vai ALÉM de descrever a imagem (o alt já faz isso).
+          Ela adiciona CONTEXTO e INFORMAÇÃO que a imagem sozinha
+          não transmite.
+          -->
+          <figure class="figure-card">
+            <img
+              src="https://images.unsplash.com/photo-1618477461853-cf6ed80faba5?auto=format&fit=crop&w=800&q=80"
+              alt="Praia coberta por resíduos plásticos e garrafas trazidas pela maré"
+              loading="lazy"
+            >
+            <figcaption>
+              <strong>Acúmulo em praias:</strong> correntes marítimas
+              concentram o lixo em determinadas áreas costeiras,
+              transformando praias paradisíacas em depósitos de resíduos.
+            </figcaption>
+          </figure>
+
+          <!-- FIGURA 2 — VIDA MARINHA AFETADA -->
+          <figure class="figure-card">
+            <img
+              src="https://agencia.fapesp.br/files/post/38870.jpg"
+              alt="Recife de coral com sinais de branqueamento causado pela poluição e aquecimento das águas"
+              loading="lazy"
+            >
+            <figcaption>
+              <strong>Branqueamento de corais:</strong> a poluição química
+              e o aumento da temperatura provocam a morte das algas
+              simbióticas, deixando os corais brancos e vulneráveis.
+            </figcaption>
+          </figure>
+        </div>
+      </div>
+    </section>
+
+    <!--
+    ============================================================================
+    SEÇÃO GALERIA — REGISTROS DA POLUIÇÃO
+    ============================================================================
+    -->
+    <section class="section section-soft" id="galeria">
+      <div class="container">
+        <div class="section-heading">
+          <h2>Registros que preocupam.</h2>
+          <p>
+            Estas imagens documentam a realidade da poluição marinha
+            em diferentes partes do mundo. Cada fotografia é um
+            lembrete de que o problema é global e urgente.
+          </p>
+        </div>
+
+        <div class="gallery-grid">
+          <img
+            src="https://images.unsplash.com/photo-1621451537084-482c73073a0f?auto=format&fit=crop&w=800&q=80"
+            alt="Tartaruga marinha nadando entre resíduos plásticos transparentes na água"
+            loading="lazy"
+          >
+          <img
+            src="https://images.unsplash.com/photo-1618477461853-cf6ed80faba5?auto=format&fit=crop&w=800&q=80"
+            alt="Praia com acúmulo de lixo plástico trazido pelas ondas do mar"
+            loading="lazy"
+          >
+          <img
+            src="https://plus.unsplash.com/premium_photo-1679689587683-4147eddacebc?q=80&w=870&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=NHwxMjA3fDA%3D"
+            alt="Superfície do oceano com reflexos de luz e partículas suspensas na água"
+            loading="lazy"
+          >
+        </div>
+      </div>
+    </section>
+
+    <!-- SEÇÃO DE VÍDEO -->
+    <section class="section video-section" id="video">
+      <div class="container video-layout">
+        <div>
+          <span class="eyebrow">Aprenda assistindo</span>
+          <h2>A poluição em evidência.</h2>
+          <p>
+            Assista a um vídeo que mostra como o lixo e os poluentes
+            chegam aos oceanos e quais são os efeitos sobre a vida
+            marinha. O vídeo é incorporado do YouTube e requer
+            conexão com a internet.
+          </p>
+        </div>
+
+        <iframe
+          class="video-frame"
+          src="https://www.youtube.com/embed/mlpn0Vcnjgs?si=zWXAn6fAHL2lu_-0"
+          title="Vídeo educativo sobre a poluição marinha e seus impactos nos ecossistemas oceânicos"
+          loading="lazy"
+          referrerpolicy="strict-origin-when-cross-origin"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+          allowfullscreen>
+        </iframe>
+      </div>
+    </section>
+
+    <!--
+    ============================================================================
+    SEÇÃO FAQ — PERGUNTAS FREQUENTES COM <DETAILS>/<SUMMARY>
+    ============================================================================
+
+    Esta seção usa <details> e <summary> para criar conteúdo
+    expansível SEM JavaScript. É uma técnica HTML5 nativa!
+
+    Vantagens:
+    - Interatividade com HTML puro (sem dependências).
+    - O visitante escolhe o que quer ler.
+    - Demonstra conhecimento de elementos HTML avançados.
+    - Perfeito para seções de "curiosidades" ou "dúvidas comuns".
+
+    Como funciona:
+    1. O usuário vê apenas a pergunta (<summary>).
+    2. Ao clicar, o navegador adiciona o atributo [open] ao <details>.
+    3. A resposta (<div class="faq-answer">) aparece.
+    4. Clicar novamente remove [open] e esconde a resposta.
+    5. Tudo isso é feito pelo navegador — zero JavaScript!
+    ============================================================================
+    -->
+    <section class="section" id="faq">
+      <div class="container">
+        <div class="section-heading">
+          <h2>Perguntas frequentes.</h2>
+          <p>
+            Dúvidas comuns sobre a poluição marinha. Clique em cada
+            pergunta para ver a resposta!
+          </p>
+        </div>
+
+        <div class="faq-list">
+          <!--
+          PERGUNTA 1
+
+          O <details> é o contêiner expansível.
+          O <summary> é o título clicável.
+          O conteúdo fora do <summary> fica oculto até o clique.
+          -->
+          <details class="faq-item">
+            <summary>Quanto tempo o plástico leva para se decompor no mar?</summary>
+            <div class="faq-answer">
+              Uma garrafa PET pode levar até <mark>450 anos</mark> para se
+              decompor no oceano. Sacolas plásticas levam cerca de 20 anos,
+              mas canudos e tampinhas podem persistir por mais de 200 anos.
+              O problema é que, ao se fragmentar, o plástico vira
+              microplástico — partículas minúsculas que nunca desaparecem
+              completamente e são ingeridas por animais marinhos.
+            </div>
+          </details>
+
+          <!-- PERGUNTA 2 -->
+          <details class="faq-item">
+            <summary>O que são microplásticos e por que são perigosos?</summary>
+            <div class="faq-answer">
+              Microplásticos são fragmentos de plástico menores que 5 milímetros.
+              Eles vêm da degradação de objetos maiores, de fibras de roupas
+              sintéticas (liberadas na lavagem) e de microesferas em produtos
+              de higiene. São perigosos porque são pequenos demais para serem
+              filtrados e acabam entrando na cadeia alimentar — do plâncton
+              aos peixes que nós consumimos.
+            </div>
+          </details>
+
+          <!-- PERGUNTA 3 -->
+          <details class="faq-item">
+            <summary>Existe realmente uma "ilha de lixo" no oceano?</summary>
+            <div class="faq-answer">
+              Sim! A Grande Ilha de Lixo do Pacífico (GPGP, na sigla em inglês)
+              é uma concentração de resíduos plásticos entre o Havaí e a
+              Califórnia. Ela tem aproximadamente <mark>1,6 milhão de km²</mark>
+              — quase três vezes o tamanho da França. Apesar do nome, não é
+              uma "ilha" sólida: é uma sopa de fragmentos plásticos espalhados
+              pela superfície e pela coluna d'água.
+            </div>
+          </details>
+
+          <!-- PERGUNTA 4 -->
+          <details class="faq-item">
+            <summary>A poluição sonora realmente afeta os animais marinhos?</summary>
+            <div class="faq-answer">
+              Sim, e muito. Baleias e golfinhos dependem do som para se
+              comunicar, navegar e caçar (ecolocalização). O ruído de
+              navios, sonares militares e plataformas de petróleo pode
+              causar perda auditiva, desorientação e até encalhes em massa.
+              Estudos mostram que o ruído subaquático dobrou a cada década
+              desde 1950 em algumas regiões do oceano.
+            </div>
+          </details>
+        </div>
+      </div>
+    </section>
+
+    <!--
+    ============================================================================
+    SEÇÃO QUIZ — TESTE SOBRE POLUIÇÃO
+    ============================================================================
+
+    A pergunta é específica sobre o tema desta página (poluição).
+    Diferente da página 1 (redução de lixo) e página 2 (ecossistemas).
+    ============================================================================
+    -->
+    <section class="section section-soft" id="quiz">
+      <div class="container">
+        <div class="quiz-card">
+          <span class="eyebrow" style="color: var(--ocean);">Teste seus conhecimentos</span>
+          <h2>Quiz da poluição!</h2>
+          <p class="quiz-question">Quanto tempo uma garrafa PET pode levar para se decompor no oceano?</p>
+
+          <div class="quiz-options" role="group" aria-label="Respostas do quiz">
+            <button class="quiz-option" type="button" data-correct="false">Cerca de 10 anos</button>
+            <button class="quiz-option" type="button" data-correct="true">Até 450 anos</button>
+            <button class="quiz-option" type="button" data-correct="false">Aproximadamente 50 anos</button>
+          </div>
+
+          <p class="quiz-result" id="quiz-result" aria-live="polite"></p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!--
+  ============================================================================
+  BARRA DE NAVEGAÇÃO ENTRE PÁGINAS
+  ============================================================================
+
+  "Poluição" tem a classe is-active e aria-current="page" porque
+  esta É a página de poluição.
+  ============================================================================
+  -->
+  <nav class="page-nav" aria-label="Páginas do projeto">
+    <div class="container">
+      <ul class="page-nav-list">
+        <li><a class="page-nav-link" href="index.html">Página Inicial</a></li>
+        <li><a class="page-nav-link" href="index2.html">Biodiversidade</a></li>
+        <li><a class="page-nav-link is-active" href="index3.html" aria-current="page">Poluição</a></li>
+        <li><a class="page-nav-link" href="index4.html">Curiosidades</a></li>
+        <li><a class="page-nav-link" href="index5.html">Referências</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <p>Oceano Vivo — Combate à poluição marinha.</p>
+      <a href="#inicio">Voltar ao início ↑</a>
+    </div>
+  </footer>
+
+  <!--
+  ============================================================================
+  JAVASCRIPT — INTERATIVIDADE DA PÁGINA
+  ============================================================================
+
+  O JavaScript é praticamente o mesmo das páginas 1 e 2:
+  - Controle do menu mobile (hambúrguer).
+  - Lógica do quiz.
+
+  As MENSAGENS do quiz são diferentes porque o tema é poluição.
+
+  NOTA: A seção de FAQ NÃO usa JavaScript! Ela funciona com
+  <details>/<summary> nativo do HTML5.
+  ============================================================================
+  -->
+  <script>
+    /* CONTROLE DO MENU MOBILE */
+    const menuBotao = document.querySelector(".menu-toggle");
+    const menuLinks = document.querySelector(".nav-links");
+
+    menuBotao.addEventListener("click", function () {
+      const menuEstaAberto = menuLinks.classList.toggle("is-open");
+      menuBotao.setAttribute("aria-expanded", menuEstaAberto);
+      menuBotao.setAttribute("aria-label", menuEstaAberto ? "Fechar menu" : "Abrir menu");
+      menuBotao.textContent = menuEstaAberto ? "×" : "☰";
+    });
+
+    menuLinks.querySelectorAll("a").forEach(function (link) {
+      link.addEventListener("click", function () {
+        menuLinks.classList.remove("is-open");
+        menuBotao.setAttribute("aria-expanded", "false");
+        menuBotao.setAttribute("aria-label", "Abrir menu");
+        menuBotao.textContent = "☰";
+      });
+    });
+
+    /*
+    ============================================================================
+    LÓGICA DO QUIZ 
+    ============================================================================
+
+    */
+    const opcoesQuiz = document.querySelectorAll(".quiz-option");
+    const resultadoQuiz = document.querySelector("#quiz-result");
+
+    opcoesQuiz.forEach(function (opcao) {
+      opcao.addEventListener("click", function () {
+        if (opcao.dataset.correct === "true") {
+          resultadoQuiz.textContent = "Correto! Uma garrafa PET pode levar até 450 anos para se decompor. 🛢️";
+        } else {
+          resultadoQuiz.textContent = "Não é essa. O plástico dura muito mais do que imaginamos no oceano. 💔";
+        }
+      });
+    });
+  </script>
+</body>
+</html>

@@ -1,0 +1,1750 @@
+<!DOCTYPE html>
+<!--
+  ============================================================================
+  PÁGINA 5 — INDEX5.HTML — REFERÊNCIAS E CRÉDITOS
+  ============================================================================
+
+  Esta é a ÚLTIMA página do projeto "Oceano Vivo".
+  Ela lista todas as fontes de pesquisa, créditos de imagens,
+  vídeos e ferramentas utilizadas. 
+  ============================================================================
+-->
+
+<html lang="pt-BR">
+
+<head>
+  <!-- SEÇÃO HEAD — METADADOS E ESTILOS -->
+
+  <meta charset="UTF-8">
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <meta name="description" content="Fontes de pesquisa, bibliografia, créditos de imagens e vídeos utilizados no projeto Oceano Vivo sobre a importância dos oceanos.">
+  <!-- Meta description — resumo para buscadores. Foca em "fontes" e "créditos". -->
+
+  <meta name="author" content="Equipe Oceano Vivo">
+
+  <meta name="keywords" content="referências, bibliografia, fontes, créditos, oceano, ABNT">
+  <!-- Palavras-chave sobre referências e fontes. -->
+
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>📚</text></svg>">
+ 
+
+  <title>Referências — Oceano Vivo</title>
+
+  <style>
+    /*
+    ============================================================================
+    SEÇÃO DE ESTILOS CSS — APARÊNCIA VISUAL
+    ============================================================================
+
+    Base idêntica às páginas 1-4 para consistência visual.
+    Novidades nesta página:
+    - Estilos para links externos com ícone via CSS ::after.
+    - Estilos para <hr> (separador temático) personalizado.
+    - Estilos para <address> (informações de contato).
+    - Estilos para <code> (trechos de código/URLs).
+    - Estilos para <small> (notas de rodapé).
+    - Estilos para <sup> (sobrescrito de notas).
+    - Estilos para listas ordenadas com diferentes marcadores.
+    - Estilos para cards de fonte com tipo (livro, site, vídeo).
+    - Estilos para seção de créditos com grid de avatares.
+    - word-break para URLs longas.
+    ============================================================================
+    */
+
+    /*
+    --------------------------------------------------------------------------
+    VARIÁVEIS CSS — CORES E MEDIDAS GLOBAIS
+    --------------------------------------------------------------------------
+    Mesmas variáveis das páginas anteriores para consistência.
+    --------------------------------------------------------------------------
+    */
+    :root {
+      --navy: #082f49;
+      --deep-blue: #0c4a6e;
+      --ocean: #087e9b;
+      --turquoise: #37c8bd;
+      --pale: #e9f8f7;
+      --sand: #f5f0e6;
+      --white: #ffffff;
+      --ink: #17324a;
+      --muted: #617586;
+      --shadow: 0 18px 50px rgba(8, 47, 73, 0.12);
+      --radius: 22px;
+      --hero-overlay: linear-gradient(
+        90deg,
+        rgba(4, 35, 58, 0.86) 0%,
+        rgba(4, 35, 58, 0.45) 55%,
+        rgba(4, 35, 58, 0.08) 100%
+      );
+      --transition-speed: 180ms;
+    }
+
+    /* Reset CSS */
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+      scroll-padding-top: 90px;
+    }
+
+    body {
+      background: #fbfdfd;
+      color: var(--ink);
+      font-family: Arial, Helvetica, sans-serif;
+      line-height: 1.6;
+    }
+
+    .container {
+      width: min(1120px, calc(100% - 40px));
+      margin: 0 auto;
+    }
+
+    img,
+    iframe {
+      display: block;
+      max-width: 100%;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    /* Cabeçalho fixo */
+    .site-header {
+      position: sticky;
+      top: 0;
+      z-index: 10;
+      background: rgba(255, 255, 255, 0.94);
+      border-bottom: 1px solid rgba(8, 47, 73, 0.08);
+      backdrop-filter: blur(12px);
+    }
+
+    .nav-wrap {
+      min-height: 76px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 24px;
+    }
+
+    .brand {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      color: var(--navy);
+      font-size: 1.08rem;
+      font-weight: 800;
+      letter-spacing: -0.04em;
+    }
+
+    .brand-mark {
+      width: 36px;
+      height: 36px;
+      display: grid;
+      place-items: center;
+      color: var(--white);
+      background: linear-gradient(135deg, var(--ocean), var(--turquoise));
+      border-radius: 50% 50% 50% 10px;
+      transform: rotate(-10deg);
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 28px;
+      list-style: none;
+    }
+
+    .nav-links a {
+      color: #456174;
+      font-size: 0.93rem;
+      font-weight: 700;
+      transition: color var(--transition-speed) ease;
+    }
+
+    .nav-links a:hover,
+    .nav-links a:focus-visible {
+      color: var(--ocean);
+    }
+
+    .menu-toggle {
+      display: none;
+      border: 0;
+      background: transparent;
+      color: var(--navy);
+      font-size: 1.6rem;
+      cursor: pointer;
+    }
+
+    /* Hero — imagem de fundo com livros/pesquisa. */
+    .hero {
+      min-height: 600px;
+      display: flex;
+      align-items: center;
+      position: relative;
+      overflow: hidden;
+      color: var(--white);
+      background:
+        var(--hero-overlay),
+        url("https://images.unsplash.com/photo-1784964043592-482c6300c3ac?q=80&w=929&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=NHwxMjA3fDA%3D") center 48% / cover;
+    }
+
+    .hero-content {
+      max-width: 680px;
+      padding: 100px 0;
+    }
+
+    .eyebrow {
+      display: inline-block;
+      margin-bottom: 18px;
+      color: #b6fff1;
+      font-size: 0.78rem;
+      font-weight: 800;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+    }
+
+    h1 {
+      max-width: 650px;
+      margin-bottom: 20px;
+      font-size: clamp(2.8rem, 7vw, 5.7rem);
+      line-height: 0.99;
+      letter-spacing: -0.065em;
+    }
+
+    .hero p {
+      max-width: 540px;
+      margin-bottom: 30px;
+      color: rgba(255, 255, 255, 0.9);
+      font-size: clamp(1rem, 2vw, 1.2rem);
+    }
+
+    .button-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+
+    .button {
+      min-height: 48px;
+      display: inline-flex;
+      justify-content: center;
+      align-items: center;
+      padding: 12px 22px;
+      border: 1px solid transparent;
+      border-radius: 999px;
+      font-weight: 800;
+      transition: transform var(--transition-speed) ease,
+                  background-color var(--transition-speed) ease;
+      cursor: pointer;
+    }
+
+    .button:hover {
+      transform: translateY(-2px);
+    }
+
+    .button-primary {
+      color: var(--navy);
+      background: var(--turquoise);
+    }
+
+    .button-ghost {
+      color: var(--white);
+      border-color: rgba(255, 255, 255, 0.6);
+      background: rgba(255, 255, 255, 0.08);
+    }
+
+    .section {
+      padding: 92px 0;
+    }
+
+    .section-soft {
+      background: var(--pale);
+    }
+
+    .section-heading {
+      display: grid;
+      grid-template-columns: 0.8fr 1.2fr;
+      align-items: end;
+      gap: 32px;
+      margin-bottom: 42px;
+    }
+
+    h2 {
+      color: var(--navy);
+      font-size: clamp(2rem, 4vw, 3.2rem);
+      line-height: 1.08;
+      letter-spacing: -0.055em;
+    }
+
+    h3 {
+      color: var(--navy);
+      font-size: 1.15rem;
+    }
+
+    .section-heading p,
+    .intro-copy {
+      color: var(--muted);
+      font-size: 1.05rem;
+    }
+
+    /*
+    --------------------------------------------------------------------------
+    SEPARADOR TEMÁTICO (<hr>) — NOVA TÉCNICA!
+    --------------------------------------------------------------------------
+
+    O <hr> é um elemento HTML que representa uma QUEBRA TEMÁTICA
+    no conteúdo. Antigamente, era usado como uma simples linha
+    horizontal decorativa. No HTML5, seu significado é semântico:
+    indica uma mudança de assunto dentro da mesma seção.
+
+    Exemplos de uso correto:
+    - Separar capítulos de um artigo.
+    - Dividir seções de uma página longa.
+    - Marcar uma mudança de tom ou perspectiva.
+
+    Por padrão, o <hr> é uma linha cinza fina. Aqui o estilizamos
+    para combinar com o tema do site:
+    - Gradiente de azul oceano nas pontas (transparente no centro).
+    - Altura de 2px para ser visível mas discreto.
+    - Sem borda (usamos background em vez de border).
+
+    Diferença entre <hr> e uma borda CSS:
+    - <hr> é SEMÂNTICO: diz ao navegador "aqui muda o assunto".
+    - Uma borda CSS é apenas VISUAL: não comunica significado.
+    - Leitores de tela anunciam "separador" ao encontrar <hr>.
+    --------------------------------------------------------------------------
+    */
+    hr {
+      border: none;
+      height: 2px;
+      margin: 48px 0;
+      background: linear-gradient(
+        to right,
+        transparent,
+        var(--ocean),
+        transparent
+      );
+    }
+
+    /*
+    --------------------------------------------------------------------------
+    LINKS EXTERNOS COM ÍCONE — NOVA TÉCNICA!
+    --------------------------------------------------------------------------
+
+    Links que apontam para sites externos (fora do nosso projeto)
+    recebem um pequeno ícone de "seta para fora" via CSS ::after.
+
+    Como funciona:
+    - O seletor a[target="_blank"] seleciona todos os links que
+      abrem em nova aba (atributo target="_blank").
+    - O pseudo-elemento ::after adiciona conteúdo DEPOIS do texto
+      do link, sem precisar de HTML extra.
+    - O conteúdo é o caractere Unicode "↗" (seta diagonal).
+
+    Por que indicar links externos?
+    - Usabilidade: o visitante sabe que sairá do site ao clicar.
+    - Acessibilidade: leitores de tela podem anunciar "link externo".
+    - Convenção da web: é um padrão reconhecido internacionalmente.
+    --------------------------------------------------------------------------
+    */
+    .ref-link {
+      color: var(--ocean);
+      font-weight: 700;
+      text-decoration: underline;
+      text-underline-offset: 3px;
+      text-decoration-color: rgba(8, 126, 155, 0.3);
+      transition: text-decoration-color var(--transition-speed) ease,
+                  color var(--transition-speed) ease;
+    }
+
+    .ref-link:hover,
+    .ref-link:focus-visible {
+      color: var(--navy);
+      text-decoration-color: var(--ocean);
+    }
+
+    /* Ícone de link externo — seta ↗ após o texto do link. */
+    .ref-link[target="_blank"]::after {
+      content: " ↗";
+      font-size: 0.8em;
+      vertical-align: super;
+    }
+
+    /*
+    --------------------------------------------------------------------------
+    ELEMENTO <code> — EXIBIÇÃO DE URLs E CÓDIGOS
+    --------------------------------------------------------------------------
+
+    O <code> é um elemento semântico que indica que o conteúdo
+    é um trecho de código, comando ou dado técnico.
+
+    Por padrão, o navegador exibe <code> em fonte monoespaçada
+    (como Courier New), onde cada caractere tem a mesma largura.
+
+    Por que usar <code> para URLs?
+    - Diferencia visualmente a URL do texto normal.
+    - Indica que é um dado técnico (endereço web).
+    - A fonte monoespaçada facilita a leitura de URLs longas
+      (cada letra tem o mesmo espaço, evitando confusão entre
+      "l" minúsculo e "1" número, por exemplo).
+
+    Estilização:
+    - Fundo cinza claro para destacar do texto.
+    - Padding pequeno para "respiração" ao redor do texto.
+    - border-radius para cantos suaves.
+    - word-break: break-all para URLs longas não estourarem
+      o contêiner (quebra a URL em qualquer caractere).
+    --------------------------------------------------------------------------
+    */
+    code {
+      font-family: "Courier New", Courier, monospace;
+      font-size: 0.88em;
+      padding: 2px 7px;
+      border-radius: 5px;
+      background: rgba(8, 47, 73, 0.06);
+      color: var(--deep-blue);
+
+      /* word-break: break-all permite que URLs longas quebrem
+         em qualquer caractere, evitando que ultrapassem o
+         contêiner e criem rolagem horizontal.
+
+         Diferença entre word-break: break-all e overflow-wrap:
+         - break-all: quebra em QUALQUER caractere (agressivo).
+         - overflow-wrap: quebra apenas quando necessário.
+         Para URLs, break-all é melhor porque URLs não têm
+         espaços naturais para quebra. */
+      word-break: break-all;
+    }
+
+    /*
+    --------------------------------------------------------------------------
+    ELEMENTO <small> — NOTAS DE RODAPÉ E DISCLAIMERS
+    --------------------------------------------------------------------------
+
+    O <small> é um elemento semântico que representa texto de
+    importância secundária: notas de rodapé, avisos legais,
+    direitos autorais, disclaimers.
+
+    Por padrão, o navegador reduz o tamanho da fonte em ~20%.
+    Mas o significado é mais importante que a aparência:
+    - Diz ao navegador: "este texto é secundário".
+    - Leitores de tela podem ajustar a entonação.
+    - Buscadores dão menos peso a texto dentro de <small>.
+
+    NÃO use <small> apenas para diminuir texto!
+    Use para conteúdo que é genuinamente secundário.
+    Para tamanho menor sem significado, use CSS (font-size).
+    --------------------------------------------------------------------------
+    */
+    small {
+      color: var(--muted);
+      font-size: 0.85rem;
+      line-height: 1.5;
+    }
+
+    /*
+    --------------------------------------------------------------------------
+    ELEMENTO <sup> — SOBRESCRITO PARA NOTAS DE REFERÊNCIA
+    --------------------------------------------------------------------------
+
+    O <sup> eleva o texto acima da linha base (sobrescrito).
+    É usado para:
+    - Notas de rodapé: "Segundo a ONU¹"
+    - Expoentes matemáticos: "10³"
+    - Ordinais: "1º" (embora <sup> não seja ideal para isso).
+
+    Aqui usamos para numerar as referências no texto, no
+    estilo das normas ABNT e APA.
+    --------------------------------------------------------------------------
+    */
+    sup {
+      color: var(--ocean);
+      font-weight: 700;
+      font-size: 0.75em;
+    }
+
+    /*
+    --------------------------------------------------------------------------
+    ELEMENTO <address> — INFORMAÇÕES DE CONTATO
+    --------------------------------------------------------------------------
+
+    O <address> é um elemento semântico para informações de
+    contato do autor ou da organização responsável pelo conteúdo.
+
+    Por padrão, o navegador exibe <address> em itálico.
+    Mas o significado é mais importante:
+    - Diz ao navegador: "aqui estão dados de contato".
+    - Leitores de tela anunciam "informações de contato".
+    - Buscadores podem usar para rich snippets.
+
+    O que colocar dentro de <address>?
+    - Nome do autor/organização.
+    - E-mail (com <a href="mailto:...">).
+    - Endereço físico.
+    - Telefone.
+    - Links para redes sociais.
+
+    O que NÃO colocar?
+    - Datas (use <time>).
+    - Informações que não são de contato.
+    - Endereços de outras pessoas (apenas do autor do conteúdo).
+    --------------------------------------------------------------------------
+    */
+    .contact-card {
+      max-width: 600px;
+      margin: 0 auto;
+      padding: 32px;
+      border: 1px solid rgba(8, 47, 73, 0.08);
+      border-radius: var(--radius);
+      background: var(--white);
+      box-shadow: 0 10px 35px rgba(8, 47, 73, 0.06);
+      text-align: center;
+    }
+
+    .contact-card address {
+      /* Remove o itálico padrão do <address> — preferimos
+         controlar o estilo via CSS. */
+      font-style: normal;
+      color: var(--muted);
+      font-size: 0.95rem;
+      line-height: 1.8;
+    }
+
+    /*
+    --------------------------------------------------------------------------
+    LISTA DE REFERÊNCIAS — ESTILO ACADÊMICO
+    --------------------------------------------------------------------------
+
+    Lista ordenada (<ol>) com formatação inspirada em normas ABNT.
+    Cada item é uma referência bibliográfica completa.
+
+    O atributo type="1" força numeração com algarismos arábicos
+    (1, 2, 3...). Outros valores possíveis:
+    - type="A" → A, B, C...
+    - type="a" → a, b, c...
+    - type="I" → I, II, III... (romanos maiúsculos)
+    - type="i" → i, ii, iii... (romanos minúsculos)
+
+    O atributo start define o número inicial da lista.
+    Por padrão, <ol> começa em 1. Com start="5", começaria em 5.
+    Útil quando a lista é dividida em seções e a numeração
+    deve continuar de onde parou.
+
+    O atributo reversed inverte a ordem (do maior para o menor).
+    Não usamos aqui, mas é útil para rankings ou contagens
+    regressivas.
+    --------------------------------------------------------------------------
+    */
+    .ref-list {
+      display: grid;
+      gap: 16px;
+      max-width: 850px;
+    }
+
+    .ref-item {
+      padding: 20px 24px;
+      border: 1px solid rgba(8, 47, 73, 0.06);
+      border-radius: 16px;
+      background: var(--white);
+      box-shadow: 0 4px 16px rgba(8, 47, 73, 0.04);
+    }
+
+    /* Etiqueta que identifica o tipo de fonte. */
+    .ref-type {
+      display: inline-block;
+      margin-bottom: 8px;
+      padding: 3px 10px;
+      border-radius: 999px;
+      font-size: 0.72rem;
+      font-weight: 800;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+
+    /* Cores diferentes para cada tipo de fonte.
+       Isso ajuda o visitante a identificar rapidamente
+       se a referência é um livro, site, vídeo ou imagem. */
+    .ref-type-book {
+      background: rgba(8, 126, 155, 0.12);
+      color: var(--ocean);
+    }
+
+    .ref-type-site {
+      background: rgba(55, 200, 189, 0.15);
+      color: #1a8a7e;
+    }
+
+    .ref-type-video {
+      background: rgba(224, 85, 48, 0.12);
+      color: #c0441f;
+    }
+
+    .ref-type-image {
+      background: rgba(212, 160, 60, 0.15);
+      color: #9a7420;
+    }
+
+    /* Título da referência (nome do livro, artigo, etc.). */
+    .ref-title {
+      margin-bottom: 4px;
+      color: var(--navy);
+      font-weight: 800;
+      font-size: 0.98rem;
+    }
+
+    /* Detalhes da referência (autor, ano, editora, URL). */
+    .ref-details {
+      color: var(--muted);
+      font-size: 0.9rem;
+      line-height: 1.6;
+    }
+
+    /*
+    --------------------------------------------------------------------------
+    GRADE DE CRÉDITOS — EQUIPE DO PROJETO
+    --------------------------------------------------------------------------
+    */
+    .credits-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 18px;
+      max-width: 700px;
+      margin: 0 auto;
+    }
+
+    .credit-card {
+      padding: 24px;
+      border: 1px solid rgba(8, 47, 73, 0.06);
+      border-radius: var(--radius);
+      background: var(--white);
+      box-shadow: 0 4px 16px rgba(8, 47, 73, 0.04);
+      text-align: center;
+    }
+
+    /* Avatar circular com iniciais — criado com CSS puro. */
+    .credit-avatar {
+      width: 56px;
+      height: 56px;
+      margin: 0 auto 12px;
+      display: grid;
+      place-items: center;
+      border-radius: 50%;
+      background: linear-gradient(135deg, var(--ocean), var(--turquoise));
+      color: var(--white);
+      font-size: 1.2rem;
+      font-weight: 900;
+    }
+
+    .credit-card h3 {
+      margin-bottom: 4px;
+      font-size: 1rem;
+    }
+
+    .credit-card p {
+      color: var(--muted);
+      font-size: 0.85rem;
+    }
+
+    /*
+    --------------------------------------------------------------------------
+    NOTA FINAL — CAIXA DE DESTAQUE
+    --------------------------------------------------------------------------
+    */
+    .note-box {
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 28px 32px;
+      border-left: 5px solid var(--turquoise);
+      border-radius: 0 var(--radius) var(--radius) 0;
+      background: var(--white);
+      box-shadow: 0 10px 35px rgba(8, 47, 73, 0.06);
+    }
+
+    .note-box p {
+      color: var(--ink);
+      font-size: 0.95rem;
+      line-height: 1.7;
+    }
+
+    /* GALERIA */
+    .gallery-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 16px;
+    }
+
+    .gallery-grid img {
+      width: 100%;
+      height: 260px;
+      object-fit: cover;
+      border-radius: 18px;
+      transition: transform 220ms ease;
+    }
+
+    .gallery-grid img:hover {
+      transform: scale(1.025);
+    }
+
+    /* Vídeo */
+    .video-section {
+      color: var(--white);
+      background: linear-gradient(135deg, var(--navy), #075e78);
+    }
+
+    .video-section h2 {
+      color: var(--white);
+    }
+
+    .video-layout {
+      display: grid;
+      grid-template-columns: 0.8fr 1.2fr;
+      align-items: center;
+      gap: 48px;
+    }
+
+    .video-layout p {
+      margin-top: 16px;
+      color: rgba(255, 255, 255, 0.78);
+    }
+
+    .video-frame {
+      width: 100%;
+      aspect-ratio: 16 / 9;
+      border: 0;
+      border-radius: 20px;
+      background: #001c2b;
+      box-shadow: 0 20px 50px rgba(0, 0, 0, 0.25);
+    }
+
+    /* Quiz */
+    .quiz-card {
+      max-width: 760px;
+      margin: 0 auto;
+      padding: 38px;
+      border: 1px solid rgba(8, 47, 73, 0.08);
+      border-radius: 28px;
+      background: var(--white);
+      box-shadow: var(--shadow);
+      text-align: center;
+    }
+
+    .quiz-card h2 {
+      margin-bottom: 14px;
+      font-size: clamp(1.8rem, 4vw, 2.5rem);
+    }
+
+    .quiz-question {
+      margin: 18px 0 22px;
+      color: var(--muted);
+      font-weight: 700;
+    }
+
+    .quiz-options {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+
+    .quiz-option {
+      padding: 11px 18px;
+      border: 1px solid #cbdde2;
+      border-radius: 999px;
+      color: var(--navy);
+      background: var(--white);
+      font: inherit;
+      font-weight: 700;
+      cursor: pointer;
+      transition: background-color var(--transition-speed) ease,
+                  color var(--transition-speed) ease;
+    }
+
+    .quiz-option:hover,
+    .quiz-option:focus-visible {
+      color: var(--white);
+      background: var(--ocean);
+    }
+
+    .quiz-result {
+      min-height: 30px;
+      margin-top: 20px;
+      color: var(--ocean);
+      font-weight: 800;
+    }
+
+    /* Barra de navegação entre páginas */
+    .page-nav {
+      background: var(--sand);
+      padding: 16px 0;
+      border-top: 1px solid rgba(8, 47, 73, 0.06);
+    }
+
+    .page-nav-list {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 8px;
+      list-style: none;
+    }
+
+    .page-nav-link {
+      padding: 8px 18px;
+      border-radius: 999px;
+      color: var(--navy);
+      font-weight: 700;
+      font-size: 0.88rem;
+      transition: background-color var(--transition-speed) ease,
+                  color var(--transition-speed) ease;
+    }
+
+    .page-nav-link:hover,
+    .page-nav-link:focus-visible {
+      background: var(--ocean);
+      color: var(--white);
+    }
+
+    .page-nav-link.is-active {
+      background: var(--navy);
+      color: var(--white);
+    }
+
+    /* Rodapé */
+    .site-footer {
+      padding: 28px 0;
+      color: #d7e8ed;
+      background: #06283e;
+      font-size: 0.9rem;
+    }
+
+    .footer-inner {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 16px;
+    }
+
+    /* Acessibilidade */
+    a:focus-visible,
+    button:focus-visible {
+      outline: 3px solid #ffca70;
+      outline-offset: 3px;
+    }
+
+    /* MEDIA QUERIES — RESPONSIVIDADE */
+    @media (max-width: 760px) {
+      .hero {
+        min-height: 560px;
+        background-position: 58% center;
+      }
+
+      .nav-links {
+        display: none;
+        position: absolute;
+        top: 76px;
+        left: 0;
+        right: 0;
+        padding: 20px;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 18px;
+        background: var(--white);
+        border-bottom: 1px solid rgba(8, 47, 73, 0.1);
+        box-shadow: 0 16px 20px rgba(8, 47, 73, 0.08);
+      }
+
+      .nav-links.is-open {
+        display: flex;
+      }
+
+      .menu-toggle {
+        display: inline-grid;
+        place-items: center;
+      }
+
+      .section-heading {
+        grid-template-columns: 1fr;
+        gap: 14px;
+      }
+
+      .credits-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .video-layout {
+        grid-template-columns: 1fr;
+        gap: 32px;
+      }
+
+      .gallery-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .section {
+        padding: 68px 0;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .container {
+        width: min(100% - 28px, 1120px);
+      }
+
+      .gallery-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .quiz-card {
+        padding: 28px 18px;
+      }
+
+      .footer-inner {
+        align-items: flex-start;
+        flex-direction: column;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      *,
+      *::before,
+      *::after {
+        scroll-behavior: auto !important;
+        transition-duration: 0.01ms !important;
+        animation-duration: 0.01ms !important;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <!-- CABEÇALHO — NAVEGAÇÃO FIXA -->
+  <header class="site-header">
+    <nav class="container nav-wrap" aria-label="Navegação principal">
+      <a class="brand" href="index.html" aria-label="Oceano Vivo, voltar à página inicial">
+        <span class="brand-mark" aria-hidden="true">≈</span>
+        <span>Oceano Vivo</span>
+      </a>
+
+      <button class="menu-toggle" type="button" aria-label="Abrir menu" aria-expanded="false">
+        ☰
+      </button>
+
+      <ul class="nav-links" id="menu-principal">
+        <li><a href="#fontes">Fontes</a></li>
+        <li><a href="#imagens">Imagens</a></li>
+        <li><a href="#creditos">Créditos</a></li>
+        <li><a href="#video">Vídeo</a></li>
+        <li><a href="#quiz">Quiz</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+
+    <!--
+    ============================================================================
+    SEÇÃO HERO — ABERTURA DA PÁGINA 5
+    ============================================================================
+    -->
+    <section class="hero" id="inicio">
+      <div class="container hero-content">
+        <span class="eyebrow">• Referências</span>
+        <h1>De onde vêm as informações.</h1>
+        <p>
+          Todo o conteúdo deste projeto foi baseado em fontes confiáveis.
+          Aqui você encontra a lista completa de referências, créditos
+          de imagens e agradecimentos.
+        </p>
+        <div class="button-row">
+          <a class="button button-primary" href="#fontes">Ver fontes</a>
+          <a class="button button-ghost" href="#creditos">Ver créditos</a>
+        </div>
+      </div>
+    </section>
+
+    <!--
+    ============================================================================
+    SEÇÃO FONTES DE PESQUISA — REFERÊNCIAS BIBLIOGRÁFICAS
+    ============================================================================
+
+    As referências estão organizadas por tipo (livros, sites, vídeos)
+    e usam etiquetas coloridas para identificação rápida.
+
+    Cada link externo usa:
+    - target="_blank": abre em nova aba (o visitante não perde
+      a página do projeto ao clicar no link).
+    - rel="noopener noreferrer": atributo de SEGURANÇA essencial!
+
+    O que rel="noopener noreferrer" faz?
+    - noopener: impede que a nova página acesse o objeto "window"
+      da página original via JavaScript. Sem isso, um site
+      malicioso poderia redirecionar a página original para
+      um endereço falso (ataque de "tabnabbing").
+    - noreferrer: impede que o navegador envie o cabeçalho
+      "Referer" ao site de destino. Isso protege a privacidade
+      do visitante (o site externo não sabe de onde o usuário veio).
+
+    REGRA: Sempre use rel="noopener noreferrer" em links com
+    target="_blank". É uma prática de segurança obrigatória.
+    ============================================================================
+    -->
+    <section class="section section-soft" id="fontes">
+      <div class="container">
+        <div class="section-heading">
+          <h2>Fontes de pesquisa.</h2>
+          <p>
+            Livros, sites e relatórios utilizados para construir
+            o conteúdo das cinco páginas deste projeto. Todos os
+            links abrem em nova aba para que você não perca
+            sua posição no site.
+          </p>
+        </div>
+
+        <div class="ref-list">
+
+          <!--
+          REFERÊNCIA 1 — LIVRO
+
+          A etiqueta .ref-type-book identifica visualmente o tipo.
+          O <sup> cria a nota de referência sobrescrita.
+          -->
+          <article class="ref-item">
+            <span class="ref-type ref-type-book">Livro</span>
+            <p class="ref-title">
+              A Vida no Oceano<sup>1</sup>
+            </p>
+            <p class="ref-details">
+              CARSON, Rachel. <em>O Mar que Nos Cerca</em>. Tradução de
+              Maria Helena Martins. São Paulo: Editora Gaia, 2019.
+              312 p. ISBN 978-85-7555-123-4.
+            </p>
+          </article>
+
+          <!-- REFERÊNCIA 2 — SITE -->
+          <article class="ref-item">
+            <span class="ref-type ref-type-site">Site</span>
+            <p class="ref-title">
+              ONU Meio Ambiente — Poluição Marinha<sup>2</sup>
+            </p>
+            <p class="ref-details">
+              PROGRAMA DAS NAÇÕES UNIDAS PARA O MEIO AMBIENTE (PNUMA).
+              <em>Poluição plástica nos oceanos: fatos e números</em>.
+              Disponível em:
+              <a
+                class="ref-link"
+                href="https://www.unep.org/pt-br"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <code>https://www.unep.org/pt-br</code>
+              </a>.
+              Acesso em: 15 jun. 2025.
+            </p>
+          </article>
+
+          <!-- REFERÊNCIA 3 — SITE -->
+          <article class="ref-item">
+            <span class="ref-type ref-type-site">Site</span>
+            <p class="ref-title">
+              NOAA — Administração Nacional Oceânica dos EUA<sup>3</sup>
+            </p>
+            <p class="ref-details">
+              NATIONAL OCEANIC AND ATMOSPHERIC ADMINISTRATION (NOAA).
+              <em>How much water is in the ocean?</em>
+              Disponível em:
+              <a
+                class="ref-link"
+                href="https://www.noaa.gov/education/resource-collections/ocean-coasts"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <code>https://www.noaa.gov/education/resource-collections/ocean-coasts</code>
+              </a>.
+              Acesso em: 10 jun. 2025.
+            </p>
+          </article>
+
+          <!-- REFERÊNCIA 4 — SITE -->
+          <article class="ref-item">
+            <span class="ref-type ref-type-site">Site</span>
+            <p class="ref-title">
+              Ocean Conservancy — Lixo nos Oceanos<sup>4</sup>
+            </p>
+            <p class="ref-details">
+              OCEAN CONSERVANCY. <em>Trash Free Seas: relatório anual
+              de limpeza costeira</em>. Washington, D.C., 2024.
+              Disponível em:
+              <a
+                class="ref-link"
+                href="https://oceanconservancy.org/trash-free-seas/"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <code>https://oceanconservancy.org/trash-free-seas/</code>
+              </a>.
+              Acesso em: 12 jun. 2025.
+            </p>
+          </article>
+
+          <!-- REFERÊNCIA 5 — LIVRO -->
+          <article class="ref-item">
+            <span class="ref-type ref-type-book">Livro</span>
+            <p class="ref-title">
+              O Planeta Azul — Guia dos Oceanos<sup>5</sup>
+            </p>
+            <p class="ref-details">
+              COUSTEAU, Jean-Michel; DUGAN, James. <em>O Mundo
+              Submarino</em>. Rio de Janeiro: Editora Record, 2018.
+              256 p. ISBN 978-85-01-04567-8.
+            </p>
+          </article>
+
+          <!-- REFERÊNCIA 6 — VÍDEO -->
+          <article class="ref-item">
+            <span class="ref-type ref-type-video">Vídeo</span>
+            <p class="ref-title">
+              BBC Earth — Vida nos Oceanos<sup>6</sup>
+            </p>
+            <p class="ref-details">
+              BBC EARTH. <em>The Deep Ocean: Secrets of the Sea</em>.
+              YouTube, jun. de 2021. 1 vídeo (60 min).
+              Disponível em:
+              <a
+                class="ref-link"
+                href="https://youtu.be/CSgDjZ_Vv8g?si=69vR2uwtmFn1s0zt"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <code>https://youtu.be/CSgDjZ_Vv8g?si=69vR2uwtmFn1s0zt</code>
+              </a>.
+              Acesso em: 8 jun. 2025.
+            </p>
+          </article>
+        </div>
+
+        <!--
+        SEPARADOR TEMÁTICO (<hr>)
+
+        Indica uma mudança de assunto dentro da mesma seção.
+        Aqui, separamos as referências detalhadas da nota explicativa.
+
+        O <hr> é estilizado no CSS como um gradiente azul que
+        vai de transparente (esquerda) a azul (centro) a
+        transparente (direita).
+        -->
+        <hr>
+
+        <!--
+        NOTA EXPLICATIVA SOBRE O FORMATO DAS REFERÊNCIAS
+
+        O <small> indica que este texto é secundário — uma nota
+        de rodapé sobre a formatação, não uma referência em si.
+
+        O <sup> cria as notas sobrescritas que correspondem aos
+        números nas referências acima.
+        -->
+        <div class="note-box">
+          <p>
+            <strong>Nota sobre a formatação:</strong> as referências
+            acima seguem uma adaptação simplificada das normas da
+            <abbr title="Associação Brasileira de Normas Técnicas">ABNT</abbr>
+            (NBR 6023). Para uso formal, consulte
+            as normas completas. Os
+            números sobrescritos (<sup>1</sup>, <sup>2</sup>,
+            <sup>3</sup>...) correspondem às citações feitas ao
+            longo das páginas do projeto.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!--
+    ============================================================================
+    SEÇÃO CRÉDITOS DE IMAGENS — ATRIBUIÇÃO DE FOTOGRAFIAS
+    ============================================================================
+
+    Todas as imagens do projeto vêm do Unsplash (unsplash.com),
+    um banco de imagens gratuito que permite uso pessoal e comercial
+    sem necessidade de atribuição obrigatória.
+
+    No entanto, atribuir créditos é uma BOA PRÁTICA por três razões:
+    1. Respeito ao trabalho do fotógrafo.
+    2. Transparência com o visitante do site.
+    3. Demonstração de ética digital.
+    ============================================================================
+    -->
+    <section class="section" id="imagens">
+      <div class="container">
+        <div class="section-heading">
+          <h2>Créditos das imagens.</h2>
+          <p>
+            As fotografias deste projeto vêm do
+            <a
+              class="ref-link"
+              href="https://unsplash.com"
+              target="_blank"
+              rel="noopener noreferrer"
+            >Unsplash</a>,
+            um banco de imagens gratuito, exceto uma imagem da
+            <a
+              class="ref-link"
+              href="https://agencia.fapesp.br"
+              target="_blank"
+              rel="noopener noreferrer"
+            >Agência FAPESP</a>.
+            Abaixo estão os links de todas as imagens, organizados
+            por página.
+          </p>
+        </div>
+
+
+        <h3 style="margin: 32px 0 14px;">Página Inicial <small>(index.html)</small></h3>
+        <div class="ref-list">
+          <article class="ref-item">
+            <span class="ref-type ref-type-image">Imagem</span>
+            <p class="ref-title">Oceano aberto — fundo do Hero</p>
+            <p class="ref-details" style="overflow-wrap: anywhere;">
+              Fonte: Unsplash.
+              <a
+                class="ref-link"
+                href="https://images.unsplash.com/photo-1518837695005-2083093ee35b?auto=format&amp;fit=crop&amp;w=2000&amp;q=85"
+                target="_blank"
+                rel="noopener noreferrer"
+              ><code>images.unsplash.com/photo-1518837695005-2083093ee35b</code></a>
+            </p>
+          </article>
+
+          <article class="ref-item">
+            <span class="ref-type ref-type-image">Imagem</span>
+            <p class="ref-title">Tartaruga marinha nadando em águas azuis</p>
+            <p class="ref-details" style="overflow-wrap: anywhere;">
+              Fonte: Unsplash.
+              <a
+                class="ref-link"
+                href="https://images.unsplash.com/photo-1592354218822-e43de51a8b33?q=80&amp;w=1472&amp;auto=format&amp;fit=crop&amp;ixlib=rb-4.1.0&amp;ixid=NHwxMjA3fDA%3D"
+                target="_blank"
+                rel="noopener noreferrer"
+              ><code>images.unsplash.com/photo-1592354218822-e43de51a8b33</code></a>
+            </p>
+          </article>
+
+          <article class="ref-item">
+            <span class="ref-type ref-type-image">Imagem</span>
+            <p class="ref-title">Ondas azuis do oceano vistas de perto</p>
+            <p class="ref-details" style="overflow-wrap: anywhere;">
+              Fonte: Unsplash.
+              <a
+                class="ref-link"
+                href="https://images.unsplash.com/photo-1559827260-dc66d52bef19?auto=format&amp;fit=crop&amp;w=800&amp;q=80"
+                target="_blank"
+                rel="noopener noreferrer"
+              ><code>images.unsplash.com/photo-1559827260-dc66d52bef19</code></a>
+            </p>
+          </article>
+
+        </div>
+
+        <h3 style="margin: 32px 0 14px;">Biodiversidade Marinha <small>(index2.html)</small></h3>
+        <div class="ref-list">
+          <article class="ref-item">
+            <span class="ref-type ref-type-image">Imagem</span>
+            <p class="ref-title">Recife de coral — fundo do Hero</p>
+            <p class="ref-details" style="overflow-wrap: anywhere;">
+              Fonte: Unsplash.
+              <a
+                class="ref-link"
+                href="https://images.unsplash.com/photo-1546026423-cc4642628d2b?auto=format&amp;fit=crop&amp;w=2000&amp;q=85"
+                target="_blank"
+                rel="noopener noreferrer"
+              ><code>images.unsplash.com/photo-1546026423-cc4642628d2b</code></a>
+            </p>
+          </article>
+
+          <article class="ref-item">
+            <span class="ref-type ref-type-image">Imagem</span>
+            <p class="ref-title">Card de ecossistema 1</p>
+            <p class="ref-details" style="overflow-wrap: anywhere;">
+              Fonte: Unsplash.
+              <a
+                class="ref-link"
+                href="https://images.unsplash.com/photo-1583212292454-1fe6229603b7?auto=format&amp;fit=crop&amp;w=800&amp;q=80"
+                target="_blank"
+                rel="noopener noreferrer"
+              ><code>images.unsplash.com/photo-1583212292454-1fe6229603b7</code></a>
+            </p>
+          </article>
+
+          <article class="ref-item">
+            <span class="ref-type ref-type-image">Imagem</span>
+            <p class="ref-title">Card de ecossistema 2</p>
+            <p class="ref-details" style="overflow-wrap: anywhere;">
+              Fonte: Unsplash.
+              <a
+                class="ref-link"
+                href="https://images.unsplash.com/photo-1784751449611-ff8ac03ff234?q=80&amp;w=1470&amp;auto=format&amp;fit=crop&amp;ixlib=rb-4.1.0&amp;ixid=NHwxMjA3fDA%3D"
+                target="_blank"
+                rel="noopener noreferrer"
+              ><code>images.unsplash.com/photo-1784751449611-ff8ac03ff234</code></a>
+            </p>
+          </article>
+
+          <article class="ref-item">
+            <span class="ref-type ref-type-image">Imagem</span>
+            <p class="ref-title">Card de ecossistema 3</p>
+            <p class="ref-details" style="overflow-wrap: anywhere;">
+              Fonte: Unsplash.
+              <a
+                class="ref-link"
+                href="https://images.unsplash.com/photo-1549074862-6173e20d02a8?q=80&amp;w=1470&amp;auto=format&amp;fit=crop&amp;ixlib=rb-4.1.0&amp;ixid=NHwxMjA3fDA%3D"
+                target="_blank"
+                rel="noopener noreferrer"
+              ><code>images.unsplash.com/photo-1549074862-6173e20d02a8</code></a>
+            </p>
+          </article>
+
+          <article class="ref-item">
+            <span class="ref-type ref-type-image">Imagem</span>
+            <p class="ref-title">Baleia-jubarte saltando</p>
+            <p class="ref-details" style="overflow-wrap: anywhere;">
+              Fonte: Unsplash.
+              <a
+                class="ref-link"
+                href="https://images.unsplash.com/photo-1568430462989-44163eb1752f?auto=format&amp;fit=crop&amp;w=1100&amp;q=85"
+                target="_blank"
+                rel="noopener noreferrer"
+              ><code>images.unsplash.com/photo-1568430462989-44163eb1752f</code></a>
+            </p>
+          </article>
+
+          <article class="ref-item">
+            <span class="ref-type ref-type-image">Imagem</span>
+            <p class="ref-title">Tartaruga marinha verde sobre recife de coral</p>
+            <p class="ref-details" style="overflow-wrap: anywhere;">
+              Fonte: Unsplash.
+              <a
+                class="ref-link"
+                href="https://images.unsplash.com/photo-1591025207163-942350e47db2?auto=format&amp;fit=crop&amp;w=800&amp;q=80"
+                target="_blank"
+                rel="noopener noreferrer"
+              ><code>images.unsplash.com/photo-1591025207163-942350e47db2</code></a>
+            </p>
+          </article>
+
+          <article class="ref-item">
+            <span class="ref-type ref-type-image">Imagem</span>
+            <p class="ref-title">Água-viva translúcida</p>
+            <p class="ref-details" style="overflow-wrap: anywhere;">
+              Fonte: Unsplash.
+              <a
+                class="ref-link"
+                href="https://images.unsplash.com/photo-1545671913-b89ac1b4ac10?auto=format&amp;fit=crop&amp;w=800&amp;q=80"
+                target="_blank"
+                rel="noopener noreferrer"
+              ><code>images.unsplash.com/photo-1545671913-b89ac1b4ac10</code></a>
+            </p>
+          </article>
+
+          <article class="ref-item">
+            <span class="ref-type ref-type-image">Imagem</span>
+            <p class="ref-title">Peixe-palhaço entre anêmonas</p>
+            <p class="ref-details" style="overflow-wrap: anywhere;">
+              Fonte: Unsplash.
+              <a
+                class="ref-link"
+                href="https://images.unsplash.com/photo-1535591273668-578e31182c4f?auto=format&amp;fit=crop&amp;w=800&amp;q=80"
+                target="_blank"
+                rel="noopener noreferrer"
+              ><code>images.unsplash.com/photo-1535591273668-578e31182c4f</code></a>
+            </p>
+          </article>
+
+          <article class="ref-item">
+            <span class="ref-type ref-type-image">Imagem</span>
+            <p class="ref-title">Golfinho saltando</p>
+            <p class="ref-details" style="overflow-wrap: anywhere;">
+              Fonte: Unsplash.
+              <a
+                class="ref-link"
+                href="https://images.unsplash.com/photo-1607153333879-c174d265f1d2?auto=format&amp;fit=crop&amp;w=800&amp;q=80"
+                target="_blank"
+                rel="noopener noreferrer"
+              ><code>images.unsplash.com/photo-1607153333879-c174d265f1d2</code></a>
+            </p>
+          </article>
+
+          <article class="ref-item">
+            <span class="ref-type ref-type-image">Imagem</span>
+            <p class="ref-title">Cavalo-marinho amarelo</p>
+            <p class="ref-details" style="overflow-wrap: anywhere;">
+              Fonte: Unsplash.
+              <a
+                class="ref-link"
+                href="https://images.unsplash.com/photo-1571752726703-5e7d1f6a986d?auto=format&amp;fit=crop&amp;w=800&amp;q=80"
+                target="_blank"
+                rel="noopener noreferrer"
+              ><code>images.unsplash.com/photo-1571752726703-5e7d1f6a986d</code></a>
+            </p>
+          </article>
+
+        </div>
+
+        <h3 style="margin: 32px 0 14px;">Poluição Marinha <small>(index3.html)</small></h3>
+        <div class="ref-list">
+          <article class="ref-item">
+            <span class="ref-type ref-type-image">Imagem</span>
+            <p class="ref-title">Tartaruga entre resíduos plásticos — fundo do Hero</p>
+            <p class="ref-details" style="overflow-wrap: anywhere;">
+              Fonte: Unsplash.
+              <a
+                class="ref-link"
+                href="https://images.unsplash.com/photo-1621451537084-482c73073a0f?auto=format&amp;fit=crop&amp;w=2000&amp;q=85"
+                target="_blank"
+                rel="noopener noreferrer"
+              ><code>images.unsplash.com/photo-1621451537084-482c73073a0f</code></a>
+            </p>
+          </article>
+
+          <article class="ref-item">
+            <span class="ref-type ref-type-image">Imagem</span>
+            <p class="ref-title">Tartaruga em águas com resíduos plásticos</p>
+            <p class="ref-details" style="overflow-wrap: anywhere;">
+              Fonte: Unsplash.
+              <a
+                class="ref-link"
+                href="https://images.unsplash.com/photo-1632247620837-970aa94d2b99?q=80&amp;w=774&amp;auto=format&amp;fit=crop&amp;ixlib=rb-4.1.0&amp;ixid=NHwxMjA3fDA%3D"
+                target="_blank"
+                rel="noopener noreferrer"
+              ><code>images.unsplash.com/photo-1632247620837-970aa94d2b99</code></a>
+            </p>
+          </article>
+
+          <article class="ref-item">
+            <span class="ref-type ref-type-image">Imagem</span>
+            <p class="ref-title">Praia coberta por resíduos plásticos</p>
+            <p class="ref-details" style="overflow-wrap: anywhere;">
+              Fonte: Unsplash.
+              <a
+                class="ref-link"
+                href="https://images.unsplash.com/photo-1618477461853-cf6ed80faba5?auto=format&amp;fit=crop&amp;w=800&amp;q=80"
+                target="_blank"
+                rel="noopener noreferrer"
+              ><code>images.unsplash.com/photo-1618477461853-cf6ed80faba5</code></a>
+            </p>
+          </article>
+
+          <article class="ref-item">
+            <span class="ref-type ref-type-image">Imagem</span>
+            <p class="ref-title">Tartaruga entre resíduos plásticos transparentes</p>
+            <p class="ref-details" style="overflow-wrap: anywhere;">
+              Fonte: Unsplash.
+              <a
+                class="ref-link"
+                href="https://images.unsplash.com/photo-1621451537084-482c73073a0f?auto=format&amp;fit=crop&amp;w=800&amp;q=80"
+                target="_blank"
+                rel="noopener noreferrer"
+              ><code>images.unsplash.com/photo-1621451537084-482c73073a0f</code></a>
+            </p>
+          </article>
+
+          <article class="ref-item">
+            <span class="ref-type ref-type-image">Imagem</span>
+            <p class="ref-title">Recife de coral com branqueamento (Agência FAPESP)</p>
+            <p class="ref-details" style="overflow-wrap: anywhere;">
+              Fonte: Agência FAPESP.
+              <a
+                class="ref-link"
+                href="https://agencia.fapesp.br/files/post/38870.jpg"
+                target="_blank"
+                rel="noopener noreferrer"
+              ><code>agencia.fapesp.br/files/post/38870.jpg</code></a>
+            </p>
+          </article>
+
+        </div>
+
+        <h3 style="margin: 32px 0 14px;">Curiosidades <small>(index4.html)</small></h3>
+        <div class="ref-list">
+          <article class="ref-item">
+            <span class="ref-type ref-type-image">Imagem</span>
+            <p class="ref-title">Ondas do oceano — fundo do Hero</p>
+            <p class="ref-details" style="overflow-wrap: anywhere;">
+              Fonte: Unsplash.
+              <a
+                class="ref-link"
+                href="https://images.unsplash.com/photo-1559827260-dc66d52bef19?auto=format&amp;fit=crop&amp;w=2000&amp;q=85"
+                target="_blank"
+                rel="noopener noreferrer"
+              ><code>images.unsplash.com/photo-1559827260-dc66d52bef19</code></a>
+            </p>
+          </article>
+
+          <article class="ref-item">
+            <span class="ref-type ref-type-image">Imagem</span>
+            <p class="ref-title">Águas profundas do oceano</p>
+            <p class="ref-details" style="overflow-wrap: anywhere;">
+              Fonte: Unsplash.
+              <a
+                class="ref-link"
+                href="https://images.unsplash.com/photo-1551244072-5d12893278ab?auto=format&amp;fit=crop&amp;w=800&amp;q=80"
+                target="_blank"
+                rel="noopener noreferrer"
+              ><code>images.unsplash.com/photo-1551244072-5d12893278ab</code></a>
+            </p>
+          </article>
+
+        </div>
+
+        <h3 style="margin: 32px 0 14px;">Referências <small>(index5.html)</small></h3>
+        <div class="ref-list">
+          <article class="ref-item">
+            <span class="ref-type ref-type-image">Imagem</span>
+            <p class="ref-title">Imagem de fundo do Hero</p>
+            <p class="ref-details" style="overflow-wrap: anywhere;">
+              Fonte: Unsplash.
+              <a
+                class="ref-link"
+                href="https://images.unsplash.com/photo-1784964043592-482c6300c3ac?q=80&amp;w=929&amp;auto=format&amp;fit=crop&amp;ixlib=rb-4.1.0&amp;ixid=NHwxMjA3fDA%3D"
+                target="_blank"
+                rel="noopener noreferrer"
+              ><code>images.unsplash.com/photo-1784964043592-482c6300c3ac</code></a>
+            </p>
+          </article>
+
+        </div>
+
+        <hr>
+
+        <small>
+          <strong>Licença Unsplash:</strong> as fotos do Unsplash
+          podem ser usadas gratuitamente para fins comerciais e
+          não comerciais. A atribuição não é obrigatória, mas é
+          apreciada. Para mais detalhes, consulte a
+          <a
+            class="ref-link"
+            href="https://unsplash.com/license"
+            target="_blank"
+            rel="noopener noreferrer"
+          >licença completa do Unsplash</a>.
+          A imagem da Agência FAPESP pertence aos seus respectivos
+          detentores de direitos.
+        </small>
+      </div>
+    </section>
+
+    <!--
+    ============================================================================
+    SEÇÃO CRÉDITOS DA EQUIPE — QUEM FEZ O PROJETO
+    ============================================================================
+
+    Usa o elemento <address> para as informações de contato.
+    Os avatares são criados com CSS puro (iniciais em círculo
+    com gradiente) — sem necessidade de arquivos de imagem.
+    ============================================================================
+    --
+    <section class="section section-soft" id="creditos">
+      <div class="container">
+        <div class="section-heading">
+          <h2>Equipe do projeto.</h2>
+        </div>
+
+        <div class="credits-grid">
+      
+          CARTÃO DE CRÉDITO COM AVATAR CSS
+
+          O avatar é um <div> com iniciais, fundo gradiente e
+          border-radius: 50% (círculo perfeito). Não usa imagem
+          externa — é criado inteiramente com CSS.
+
+          aria-hidden="true" porque as iniciais são decorativas;
+          o nome completo já está no <h3> abaixo.
+          -->
+          <!--<div class="credit-card">
+            <div class="credit-avatar" aria-hidden="true">A</div>
+            <h3>Francyellen Pimenta</h3>
+            <p> </p> -->
+          </div>
+
+        </div>
+
+        <hr>
+
+        <!--
+        ELEMENTO <address> — INFORMAÇÕES DE CONTATO
+
+        O <address> é o elemento semântico correto para dados
+        de contato do autor/organização.
+
+        O link "mailto:" abre o cliente de e-mail do visitante
+        com o endereço já preenchido. É uma convenção da web
+        que funciona em todos os navegadores e dispositivos.
+
+        Sintaxe: <a href="mailto:email@exemplo.com">texto</a>
+        -->
+        <div class="contact-card">
+          <h3 style="margin-bottom: 14px;">Contato</h3>
+          <address>
+            Projeto Oceano Vivo<br>
+            E-mail:
+            <a
+              class="ref-link"
+              href="mailto:oceanovivo@hotmail.com"
+            >
+              oceanovivo@escolaexemplo.com
+            </a>
+          </address>
+        </div>
+      </div>
+    </section>
+
+    <!-- SEÇÃO DE VÍDEO -->
+    <section class="section video-section" id="video">
+      <div class="container video-layout">
+        <div>
+          <span class="eyebrow">Aprenda assistindo</span>
+          <h2>O oceano em documentário.</h2>
+          <p>
+            Para encerrar o projeto, assista a um documentário
+            que resume a beleza e a fragilidade dos oceanos.
+            O vídeo é incorporado do YouTube e requer conexão
+            com a internet.
+          </p>
+        </div>
+
+        <iframe
+          class="video-frame"
+          src="https://www.youtube.com/embed/K2iXHs1Zj9g?si=y0TpIHwgx1ZMDsWd"
+          title="Vídeo documentário sobre os oceanos — encerramento do projeto Oceano Vivo"
+          loading="lazy"
+          referrerpolicy="strict-origin-when-cross-origin"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+          allowfullscreen>
+        </iframe>
+      </div>
+    </section>
+
+    <!--
+    ============================================================================
+    SEÇÃO QUIZ FINAL — TESTE GERAL
+    ============================================================================
+
+    O quiz final é sobre um tema geral do projeto (não específico
+    de uma página). A pergunta aborda o fato mais impactante
+    apresentado ao longo de todo o projeto.
+    ============================================================================
+    -->
+    <section class="section section-soft" id="quiz">
+      <div class="container">
+        <div class="quiz-card">
+          <span class="eyebrow" style="color: var(--ocean);">Quiz final</span>
+          <h2>Última pergunta!</h2>
+          <p class="quiz-question">Qual porcentagem da superfície da Terra é coberta por oceanos?</p>
+
+          <div class="quiz-options" role="group" aria-label="Respostas do quiz final">
+            <button class="quiz-option" type="button" data-correct="false">Cerca de 50%</button>
+            <button class="quiz-option" type="button" data-correct="true">Cerca de 71%</button>
+            <button class="quiz-option" type="button" data-correct="false">Cerca de 90%</button>
+          </div>
+
+          <p class="quiz-result" id="quiz-result" aria-live="polite"></p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!--
+  ============================================================================
+  BARRA DE NAVEGAÇÃO ENTRE PÁGINAS
+  ============================================================================
+
+  "Referências" tem a classe is-active e aria-current="page".
+  Esta é a última página da barra de navegação.
+  ============================================================================
+  -->
+  <nav class="page-nav" aria-label="Páginas do projeto">
+    <div class="container">
+      <ul class="page-nav-list">
+        <li><a class="page-nav-link" href="index.html">Página Inicial</a></li>
+        <li><a class="page-nav-link" href="index2.html">Biodiversidade</a></li>
+        <li><a class="page-nav-link" href="index3.html">Poluição</a></li>
+        <li><a class="page-nav-link" href="index4.html">Curiosidades</a></li>
+        <li><a class="page-nav-link is-active" href="index5.html" aria-current="page">Referências</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <!--
+  ============================================================================
+  RODAPÉ FINAL DO PROJETO
+  ============================================================================
+
+  O rodapé da última página inclui uma nota de direitos autorais
+  com o elemento <small>, indicando que o conteúdo é educativo.
+
+  O caractere © (copyright) pode ser escrito como:
+  - © (caractere Unicode direto — funciona com UTF-8).
+  - &copy; (entidade HTML — funciona em qualquer codificação).
+  Ambos produzem o mesmo resultado visual.
+  ============================================================================
+  -->
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <p>
+        © 2025 Oceano Vivo — Projeto de conscientização ambiental.
+      </p>
+      <a href="#inicio">Voltar ao início ↑</a>
+    </div>
+  </footer>
+
+  <!--
+  ============================================================================
+  JAVASCRIPT — INTERATIVIDADE
+  ============================================================================
+
+  Mesmo padrão das páginas anteriores: menu mobile + quiz.
+  As mensagens do quiz são sobre a cobertura oceânica da Terra.
+  ============================================================================
+  -->
+  <script>
+    /* Controle do menu mobile (hambúrguer) */
+    const menuBotao = document.querySelector(".menu-toggle");
+    const menuLinks = document.querySelector(".nav-links");
+
+    menuBotao.addEventListener("click", function () {
+      const menuEstaAberto = menuLinks.classList.toggle("is-open");
+      menuBotao.setAttribute("aria-expanded", menuEstaAberto);
+      menuBotao.setAttribute("aria-label", menuEstaAberto ? "Fechar menu" : "Abrir menu");
+      menuBotao.textContent = menuEstaAberto ? "×" : "☰";
+    });
+
+    menuLinks.querySelectorAll("a").forEach(function (link) {
+      link.addEventListener("click", function () {
+        menuLinks.classList.remove("is-open");
+        menuBotao.setAttribute("aria-expanded", "false");
+        menuBotao.setAttribute("aria-label", "Abrir menu");
+        menuBotao.textContent = "☰";
+      });
+    });
+
+    /* Lógica do quiz final — tema: cobertura oceânica. */
+    const opcoesQuiz = document.querySelectorAll(".quiz-option");
+    const resultadoQuiz = document.querySelector("#quiz-result");
+
+    opcoesQuiz.forEach(function (opcao) {
+      opcao.addEventListener("click", function () {
+        if (opcao.dataset.correct === "true") {
+          resultadoQuiz.textContent = "Correto! Os oceanos cobrem cerca de 71% da superfície terrestre. Parabéns por chegar até aqui! 🌊🎉";
+        } else {
+          resultadoQuiz.textContent = "Não é essa. Os oceanos cobrem um pouco mais da metade do planeta 💙";
+        }
+      });
+    });
+  </script>
+</body>
+</html>

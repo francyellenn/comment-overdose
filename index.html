@@ -1,0 +1,2361 @@
+<!DOCTYPE html>
+<!-- AVISO: Os comentarios foram feitos por mim (Francyellen) para utilização posterior 
+ desse mesmo site para estudos, apesar de ser feito para entrega. 
+ Utilização de ia para auxilio(base dos codigos e como mexer) mas foi feito por mim a suma 
+ grande maioria.
+  ============================================================================
+  PÁGINA PRINCIPAL — INDEX.HTML
+  ============================================================================
+  
+  O que é o DOCTYPE?
+  - É a primeira linha de todo documento HTML.
+  - Informa ao navegador que este arquivo usa HTML5 (a versão mais recente).
+  - Sem ele, o navegador pode entrar em "modo de compatibilidade" e exibir
+    a página de forma incorreta ou diferente do esperado.
+  ============================================================================
+-->
+
+<html lang="pt-BR">
+<!--
+  A tag <html> é o elemento raiz que envolve TODO o conteúdo da página.
+  
+  O atributo lang="pt-BR" faz três coisas importantes:
+  1. Diz aos leitores de tela (usados por pessoas com deficiência visual) que 
+     o conteúdo está em português do Brasil, permitindo pronúncia correta.
+  2. Ajuda o Google e outros buscadores a entender o idioma da página.
+  3. Permite que o navegador ofereça tradução automática quando necessário.
+  
+  "pt" = português, "BR" = Brasil (diferente de "pt-PT" que seria Portugal).
+-->
+
+<head>
+  <!--
+    ============================================================================
+    SEÇÃO HEAD — CONFIGURAÇÕES INVISÍVEIS DA PÁGINA
+    ============================================================================
+    
+    O <head> contém informações que o NAVEGADOR precisa, mas que o VISITANTE
+    não vê diretamente na tela. É como os bastidores de um teatro:
+    - Codificação de caracteres (para acentos funcionarem)
+    - Título da aba do navegador
+    - Descrição para o Google
+    - Estilos visuais (CSS)
+    - Conexões com outras páginas ou recursos
+    
+    Nada dentro do <head> aparece no corpo visível da página.
+    ============================================================================
+  -->
+
+  <meta charset="UTF-8">
+  <!--
+    O que é charset?
+    - "charset" significa "conjunto de caracteres" (character set).
+    - UTF-8 é um padrão universal que inclui caracteres de praticamente
+      todos os idiomas do mundo.
+    
+    Por que UTF-8 é importante para português?
+    - Sem ele, caracteres como ã, é, ç, ô podem aparecer como símbolos
+      estranhos (exemplo: "Ã§" em vez de "ç").
+    - UTF-8 suporta mais de 1 milhão de caracteres diferentes.
+    
+    Esta tag DEVE ser uma das primeiras dentro do <head> para que o navegador
+    saiba como interpretar todo o restante do documento.
+  -->
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!--
+    O que é viewport?
+    - Viewport é a "janela de visualização" do navegador — a área onde
+      o conteúdo da página é exibido.
+    
+    O que cada valor faz:
+    - width=device-width: Diz ao navegador para usar a largura real da tela
+      do dispositivo. Sem isso, celulares podem mostrar a versão desktop
+      da página em miniatura (tudo muito pequeno).
+    - initial-scale=1.0: Define que o zoom inicial é 100% (sem ampliação
+      nem redução). O valor 1.0 significa "tamanho normal".
+    
+    Por que é essencial?
+    - Sem esta tag, sites ficam praticamente ilegíveis em celulares.
+    - É a base do "design responsivo" (site que se adapta a diferentes telas).
+    - Todo site moderno PRECISA desta meta tag.
+  -->
+
+  <meta name="description" content="Projeto completo sobre a importância dos oceanos, biodiversidade marinha, ameaças ambientais e como podemos ajudar a proteger os mares. Inclui quiz interativo, galeria de fotos e vídeos educativos.">
+  <!--
+    O que é a meta description?
+    - É um resumo do conteúdo da página, com 150-160 caracteres ideais.
+    
+    Onde ela aparece?
+    - Nos resultados do Google, logo abaixo do título azul clicável.
+    - Quando alguém compartilha o link no WhatsApp, Facebook ou Twitter.
+    
+    Não repita palavras demais e seja descritivo sobre o conteúdo real.
+  -->
+
+  <meta name="author" content="">
+  <!--
+    Identifica quem criou a página. Não aparece visualmente, mas:
+    - Fica registrado no código-fonte para referência.
+    - Alguns buscadores e ferramentas usam essa informação.
+  -->
+
+  <meta name="keywords" content="oceano, meio ambiente, biodiversidade marinha, poluição, conservação">
+  <!--
+    Lista palavras-chave relacionadas ao conteúdo da página.
+    
+    Nota histórica: Antigamente (anos 2000), o Google usava muito esta tag
+    para posicionar sites. Hoje ela tem pouca influência no ranking, mas
+    ainda é considerada uma boa prática por organização e documentação.
+  -->
+
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🌊</text></svg>">
+  <!--
+    O que é o favicon?
+    - É o pequeno ícone que aparece na aba do navegador, ao lado do título.
+    - Também aparece nos favoritos/bookmarks salvos pelo usuário.
+    
+    Como funciona esta técnica?
+    - Em vez de usar um arquivo de imagem separado (.ico ou .png), estamos
+      criando o ícone diretamente no código usando SVG (gráfico vetorial).
+    - O emoji 🌊 é renderizado como uma imagem vetorial dentro do SVG.
+    - "data:image/svg+xml" é um "Data URI" — permite embutir dados
+      diretamente no HTML sem precisar de arquivos externos.
+    
+    Vantagem: Não precisamos de um arquivo separado de imagem.
+    Desvantagem: Nem todos os navegadores muito antigos suportam.
+  -->
+
+  <title>Oceano Vivo — Conhecer para proteger</title>
+  <!--
+    O que é o <title>?
+    - Define o texto que aparece na aba do navegador.
+    - É o título azul clicável nos resultados do Google.
+    - É usado quando alguém salva a página nos favoritos.
+    
+    Boas práticas para títulos:
+    - Deve ter entre 50-60 caracteres (o Google corta títulos longos).
+    - Deve ser descritivo e único para cada página do site.
+    - O separador " — " (travessão) é uma convenção comum para separar
+      o nome do site do subtítulo/descrição.
+    
+    Cada página do site terá um título DIFERENTE para que o usuário saiba
+    em qual página está só olhando a aba do navegador.
+  -->
+
+  <style>
+    /*
+    ============================================================================
+    SEÇÃO DE ESTILOS CSS — TODA A APARÊNCIA VISUAL DO SITE
+    ============================================================================
+    
+    O que é CSS?
+    - CSS significa "Cascading Style Sheets" (Folhas de Estilo em Cascata).
+    - É a linguagem que controla COMO o HTML aparece na tela:
+      cores, tamanhos, posições, espaçamentos, animações, etc.
+    - Sem CSS, a página seria apenas texto preto em fundo branco.
+    
+    Por que está dentro de <style> e não em arquivo separado?
+    - Em projetos profissionais, o CSS geralmente fica em um arquivo
+      separado (ex: estilo.css) para organização.
+    - A tag <style> diz ao navegador: "o que está aqui dentro é CSS".
+    
+    O que significa "Cascata" no nome CSS?
+    - Os estilos são aplicados em cascata (de cima para baixo).
+    - Se dois estilos conflitam, o que vem por último geralmente vence.
+    - Estilos mais específicos têm prioridade sobre os genéricos.
+    ============================================================================
+    */
+
+    /* 
+    --------------------------------------------------------------------------
+    VARIÁVEIS CSS (CUSTOM PROPERTIES)
+    --------------------------------------------------------------------------
+    
+    O que são variáveis CSS?
+    - São "apelidos" para valores que usamos repetidamente no código.
+    - Começam sempre com dois traços: --nome-da-variavel
+    - São definidas dentro de :root para ficarem disponíveis em TODO o CSS.
+    
+    Por que usar variáveis?
+    - Se quisermos mudar a cor principal do site de azul para verde,
+      basta alterar UMA linha em vez de procurar e trocar em 50 lugares.
+    - Facilita a manutenção: muda em um lugar, atualiza em todos.
+    - Torna o código mais legível: var(--ocean) é mais claro que #087e9b.
+    
+    O que é :root?
+    - Representa o elemento raiz do documento (o <html>).
+    - Variáveis definidas aqui podem ser usadas em qualquer parte do CSS.
+    - É uma convenção universal para declarar variáveis globais.
+    --------------------------------------------------------------------------
+    */
+    :root {
+      /* Azul marinho escuro — usado em títulos e elementos de destaque forte.
+         Transmite seriedade e profundidade, como o fundo do oceano. */
+      --navy: #082f49;
+
+      /* Azul profundo — tom intermediário entre o navy e o ocean.
+         Usado em fundos de seções escuras e transições de cor. */
+      --deep-blue: #0c4a6e;
+
+      /* Azul oceano — a cor principal/primária do site.
+         Representa o oceano e é usada em links, ícones e destaques.
+         Códigos de cor hexadecimal: # + 6 dígitos (RR GG BB).
+         08 = pouco vermelho, 7e = bastante verde, 9b = bastante azul. */
+      --ocean: #087e9b;
+
+      /* Turquesa/verde-água — cor secundária e de ação.
+         Usada nos botões principais e elementos interativos.
+         Transmite frescor e natureza, lembrando águas tropicais. */
+      --turquoise: #37c8bd;
+
+      /* Azul pálido — cor de fundo para seções alternadas.
+         É tão claro que quase parece branco, mas cria uma sutil
+         separação visual entre as seções da página. */
+      --pale: #e9f8f7;
+
+      /* Areia — tom quente e suave, usado em fundos especiais.
+         Lembra a areia da praia, complementando o tema marítimo. */
+      --sand: #f5f0e6;
+
+      /* Branco puro — fundo de cartões e elementos que precisam
+         de máximo contraste com o texto. */
+      --white: #ffffff;
+
+      /* Tinta/Ink — cor principal do texto do corpo.
+         Não é preto puro (#000000) porque preto total em fundo branco
+         cria contraste excessivo que cansa os olhos. Este azul-escuro
+         é mais confortável para leitura prolongada. */
+      --ink: #17324a;
+
+      /* Cinza suavizado — para textos secundários e descritivos.
+         Cria hierarquia visual: textos importantes são --ink (escuro),
+         textos de apoio são --muted (mais claro). */
+      --muted: #617586;
+
+      /* Sombra padrão — efeito de profundidade usado em cartões.
+         rgba(8, 47, 73, 0.12) significa:
+         - R:8, G:47, B:73 = tom azulado (harmoniza com o tema)
+         - 0.12 = 12% de opacidade (muito sutil e elegante)
+         Sombras azuladas parecem mais naturais que sombras pretas. */
+      --shadow: 0 18px 50px rgba(8, 47, 73, 0.12);
+
+      /* Raio de arredondamento padrão — cantos arredondados dos cartões.
+         22px cria um arredondamento moderno sem ser circular.
+         Tendência atual de design: cantos arredondados transmitem
+         suavidade e acessibilidade. */
+      --radius: 22px;
+
+      /* Gradiente do herói — usado como sobreposição na imagem de fundo
+         da seção de abertura para garantir que o texto seja legível. */
+      --hero-overlay: linear-gradient(
+        90deg,
+        rgba(4, 35, 58, 0.86) 0%,      /* Esquerda: escuro (onde fica o texto) */
+        rgba(4, 35, 58, 0.45) 55%,      /* Centro: semi-transparente */
+        rgba(4, 35, 58, 0.08) 100%       /* Direita: quase transparente (mostra a foto) */
+      );
+
+      /* Tempo padrão de transição — duração das animações suaves.
+         180ms é rápido o suficiente para parecer instantâneo,
+         mas lento o suficiente para o olho perceber a mudança. */
+      --transition-speed: 180ms;
+    }
+
+    /*
+    --------------------------------------------------------------------------
+    RESET CSS — ZERANDO PADRÕES DOS NAVEGADORES
+    --------------------------------------------------------------------------
+    
+    O problema:
+    - Cada navegador (Chrome, Firefox, Safari, Edge) tem seus próprios
+      estilos padrão para os elementos HTML.
+    - Um <h1> pode ter margem de 20px no Chrome e 22px no Firefox.
+    - Isso causa inconsistências visuais entre navegadores.
+    
+    A solução:
+    - "Resetar" esses estilos, zerando margens e paddings.
+    - Assim, TUDO começa do zero e nós controlamos cada detalhe.
+    
+    O seletor * (asterisco):
+    - Seleciona TODOS os elementos da página, sem exceção.
+    - É chamado de "seletor universal".
+    --------------------------------------------------------------------------
+    */
+    * {
+      /* box-sizing: border-box é uma das declarações mais importantes do CSS moderno.
+         
+         O problema que resolve:
+         - Por padrão, se você define width: 200px e padding: 20px, o elemento
+           fica com 240px no total (200 + 20 + 20). Isso é confuso!
+         - Com border-box, padding e border são INCLUÍDOS nos 200px.
+           O conteúdo interno que encolhe, não o elemento total.
+         
+         Exemplo prático:
+         - Sem border-box: width:100px + padding:10px = 120px total ❌ confuso
+         - Com border-box: width:100px + padding:10px = 100px total ✅ previsível
+         
+         99% dos desenvolvedores profissionais usam esta configuração. */
+      box-sizing: border-box;
+
+      /* Remove toda margem externa padrão dos elementos.
+         Margem (margin) é o espaço FORA do elemento, entre ele e seus vizinhos. */
+      margin: 0;
+
+      /* Remove todo espaçamento interno padrão dos elementos.
+         Padding é o espaço DENTRO do elemento, entre a borda e o conteúdo. */
+      padding: 0;
+    }
+
+    /*
+    --------------------------------------------------------------------------
+    ROLAGEM SUAVE (SMOOTH SCROLL)
+    --------------------------------------------------------------------------
+    
+    Quando o usuário clica em um link como "#sobre", o navegador normalmente
+    PULA instantaneamente para aquela seção. Com scroll-behavior: smooth,
+    a página DESLIZA suavemente até o destino, criando uma experiência
+    mais agradável e menos desorientadora.
+    --------------------------------------------------------------------------
+    */
+    html {
+      /* Ativa a animação suave ao rolar para âncoras internas da página. */
+      scroll-behavior: smooth;
+
+      /* scroll-padding-top: cria um "colchão" invisível no topo.
+         
+         Por que 90px?
+         - Nosso cabeçalho (header) é fixo e tem ~76px de altura.
+         - Sem este padding, ao clicar em "#sobre", o título da seção
+           ficaria ESCONDIDO atrás do cabeçalho fixo.
+         - Com 90px (76px do header + 14px de folga), o conteúdo
+           para em uma posição visível abaixo do menu.
+         
+         Este é um problema comum em sites com cabeçalho fixo (sticky). */
+      scroll-padding-top: 90px;
+    }
+
+    /*
+    --------------------------------------------------------------------------
+    ESTILOS DO BODY — CONFIGURAÇÃO BASE DO CORPO DA PÁGINA
+    --------------------------------------------------------------------------
+    
+    O <body> é o contêiner de TUDO que é visível na página.
+    Os estilos definidos aqui são "herdados" por muitos elementos filhos
+    (texto dentro de parágrafos, listas, etc.), então é eficiente
+    definir tipografia e cores aqui.
+    --------------------------------------------------------------------------
+    */
+    body {
+      /* Cor de fundo geral da página — um branco com leve tom azulado.
+         #fbfdfd é quase branco mas tem uma sutileza que é mais suave
+         para os olhos do que branco puro (#ffffff). */
+      background: #fbfdfd;
+
+      /* Cor padrão do texto — herdada por parágrafos, listas, etc.
+         var(--ink) referencia a variável definida em :root. */
+      color: var(--ink);
+
+      /* Família tipográfica — define quais fontes o navegador deve tentar usar.
+         
+         Como funciona a lista de fontes:
+         1. Arial — o navegador tenta usar primeiro. É a fonte mais comum
+            em Windows e está disponível em praticamente todos os sistemas.
+         2. Helvetica — se Arial não existir (raro), tenta Helvetica,
+            que é a fonte padrão do macOS. São visualmente quase idênticas.
+         3. sans-serif — última opção, é um "curinga". O navegador usa
+            qualquer fonte sem serifa disponível no sistema.
+         
+         O que é "sans-serif"?
+         - "Serif" são os pequenos traços nas pontas das letras (ex: Times New Roman).
+         - "Sans-serif" significa "sem serifa" — letras limpas e retas (ex: Arial).
+         - Fontes sans-serif são mais legíveis em telas digitais. */
+      font-family: Arial, Helvetica, sans-serif;
+
+      /* Altura de linha (line-height) — espaço entre as linhas do texto.
+         
+         O valor 1.6 significa 160% do tamanho da fonte.
+         - Se a fonte é 16px, cada linha ocupa 25.6px de altura.
+         - Isso cria espaço confortável entre as linhas.
+         - Valor menor (1.2) = linhas apertadas, difícil de ler.
+         - Valor maior (2.0) = linhas muito espaçadas, desperdiça espaço.
+         - 1.5 a 1.7 é o range recomendado para texto de leitura. */
+      line-height: 1.6;
+    }
+
+    /*
+    --------------------------------------------------------------------------
+    CONTÊINER — CENTRALIZAÇÃO E LARGURA MÁXIMA DO CONTEÚDO
+    --------------------------------------------------------------------------
+    
+    O contêiner é um padrão fundamental do web design. Ele:
+    1. Centraliza o conteúdo horizontalmente na página.
+    2. Impede que o texto se estenda de ponta a ponta em telas muito largas
+       (texto em linhas muito longas é difícil de ler).
+    3. Adiciona margens laterais para o conteúdo não encostar nas bordas.
+    --------------------------------------------------------------------------
+    */
+    .container {
+      /* width: min() — função CSS que escolhe o MENOR valor entre os dois.
+         
+         Em telas grandes (ex: monitor de 1920px):
+         - calc(100% - 40px) = 1880px
+         - 1120px é menor → usa 1120px ✅
+         
+         Em telas pequenas (ex: celular de 375px):
+         - calc(100% - 40px) = 335px
+         - 335px é menor que 1120px → usa 335px ✅
+         
+         Os 40px subtraídos criam 20px de margem em cada lado,
+         impedindo que o conteúdo encoste nas bordas da tela.
+         
+         Resultado: conteúdo nunca passa de 1120px mas se adapta
+         perfeitamente a telas menores. Responsivo com uma linha! */
+      width: min(1120px, calc(100% - 40px));
+
+      /* margin: 0 auto centraliza horizontalmente o contêiner.
+         - 0 = sem margem em cima e embaixo.
+         - auto = o navegador calcula margens iguais à esquerda e à direita,
+           centralizando o elemento. É como dizer "divida o espaço sobrando
+           igualmente dos dois lados". */
+      margin: 0 auto;
+    }
+
+    /*
+    --------------------------------------------------------------------------
+    REGRA PARA MÍDIAS — IMAGENS E VÍDEOS RESPONSIVOS
+    --------------------------------------------------------------------------
+    
+    Problema que resolve:
+    - Uma imagem de 2000px de largura em um celular de 375px causaria
+      rolagem horizontal (o pesadelo do design responsivo).
+    - Iframes de vídeo também podem estourar seus contêineres.
+    
+    Solução:
+    - max-width: 100% impede que qualquer mídia fique maior que seu pai.
+    --------------------------------------------------------------------------
+    */
+    img,
+    iframe {
+      /* display: block remove o pequeno espaço que aparece abaixo de
+         imagens inline. Por padrão, imagens são "inline" (como texto)
+         e têm um espaço extra embaixo para acomodar letras descendentes
+         (como g, p, y). Tornando-as "block", esse espaço desaparece. */
+      display: block;
+
+      /* Garante que a mídia nunca ultrapasse a largura do elemento pai.
+         Se a imagem é 800px mas o contêiner é 350px, ela encolhe para 350px.
+         Se o contêiner é 900px, ela mantém seus 800px originais. */
+      max-width: 100%;
+    }
+
+    /*
+    --------------------------------------------------------------------------
+    LINKS — ESTILIZAÇÃO GLOBAL
+    --------------------------------------------------------------------------
+    */
+    a {
+      /* color: inherit faz o link usar a mesma cor do elemento pai.
+         Sem isso, links ficam azuis (#0000EE) e sublinhados por padrão.
+         Queremos controlar a cor de cada link individualmente. */
+      color: inherit;
+
+      /* Remove o sublinhado padrão dos links.
+         Vamos adicionar outros indicadores visuais (cor, hover) para
+         mostrar que são clicáveis. */
+      text-decoration: none;
+    }
+
+    /*
+    --------------------------------------------------------------------------
+    CABEÇALHO FIXO (STICKY HEADER)
+    --------------------------------------------------------------------------
+    
+    O cabeçalho fica "grudado" no topo da tela enquanto o usuário rola
+    a página, permitindo acesso constante à navegação.
+    
+    position: sticky vs position: fixed:
+    - fixed: sempre no mesmo lugar da tela, ignora o fluxo do documento.
+    - sticky: fica no fluxo normal até atingir a posição definida (top: 0),
+      depois "gruda". É mais natural e não remove espaço do layout.
+    --------------------------------------------------------------------------
+    */
+    .site-header {
+      /* sticky = "gruda" quando atinge top: 0 durante a rolagem. */
+      position: sticky;
+
+      /* top: 0 = gruda no topo absoluto da janela do navegador. */
+      top: 0;
+
+      /* z-index controla a ordem de empilhamento dos elementos.
+         Elementos com z-index maior ficam NA FRENTE.
+         10 é alto o suficiente para o header ficar sobre o conteúdo
+         da página, mas deixa margem para modais ou popups (que usariam
+         z-index: 100 ou mais). */
+      z-index: 10;
+
+      /* Fundo semi-transparente branco.
+         rgba(255,255,255, 0.94) = branco com 94% de opacidade.
+         Os 6% de transparência permitem ver levemente o conteúdo
+         passando por trás, criando um efeito de "vidro fosco". */
+      background: rgba(255, 255, 255, 0.94);
+
+      /* Linha sutil na parte inferior para separar o header do conteúdo.
+         1px solid = linha contínua de 1 pixel.
+         rgba com 0.08 = quase invisível, apenas o suficiente para
+         definir o limite do cabeçalho. */
+      border-bottom: 1px solid rgba(8, 47, 73, 0.08);
+
+      /* backdrop-filter: blur() aplica desfoque ao que está ATRÁS do elemento.
+         Combinado com o fundo semi-transparente, cria o famoso efeito
+         "glass morphism" (vidro fosco) usado em interfaces modernas
+         como iOS e macOS.
+         12px = intensidade do desfoque. Mais alto = mais borrado. */
+      backdrop-filter: blur(12px);
+    }
+
+    /*
+    --------------------------------------------------------------------------
+    BARRA DE NAVEGAÇÃO — LAYOUT FLEXBOX
+    --------------------------------------------------------------------------
+    
+    Flexbox é um sistema de layout CSS que facilita alinhar e distribuir
+    elementos em uma linha ou coluna. É perfeito para barras de navegação
+    porque permite:
+    - Alinhar itens verticalmente ao centro
+    - Distribuir espaço entre o logo e os links
+    - Adaptar a tudo automaticamente em diferentes tamanhos de tela
+    --------------------------------------------------------------------------
+    */
+    .nav-wrap {
+      /* Altura mínima garante que o header tenha tamanho confortável
+         para toques em dispositivos móveis. Apple recomenda mínimo de
+         44px para áreas tocáveis; 76px é bem mais que isso. */
+      min-height: 76px;
+
+      /* display: flex ativa o Flexbox neste contêiner.
+         Todos os filhos diretos (brand, menu-toggle, nav-links)
+         passam a ser "flex items" e podem ser alinhados facilmente. */
+      display: flex;
+
+      /* justify-content distribui os itens no eixo HORIZONTAL.
+         space-between = primeiro item encostado à esquerda,
+         último item encostado à direita, espaço igual no meio.
+         Resultado: logo à esquerda, menu à direita. */
+      justify-content: space-between;
+
+      /* align-items alinha os itens no eixo VERTICAL.
+         center = todos ficam centralizados verticalmente dentro
+         da altura de 76px do nav-wrap. */
+      align-items: center;
+
+      /* gap define o espaço ENTRE os flex items (mas não nas bordas).
+         24px de espaço entre o logo e os links do menu. */
+      gap: 24px;
+    }
+
+    /*
+    --------------------------------------------------------------------------
+    MARCA/LOGO — IDENTIDADE VISUAL
+    --------------------------------------------------------------------------
+    */
+    .brand {
+      /* inline-flex = combina comportamento inline (fica na linha do texto)
+         com flexbox (alinha ícone e texto lado a lado).
+         Diferente de "flex" que ocupa toda a largura disponível,
+         inline-flex ocupa apenas o espaço necessário. */
+      display: inline-flex;
+
+      /* Centraliza verticalmente o ícone e o texto da marca.
+         Sem isso, o ícone poderia ficar mais alto ou mais baixo que o texto. */
+      align-items: center;
+
+      /* Espaço de 10px entre o ícone circular e o texto "Oceano Vivo". */
+      gap: 10px;
+
+      /* Cor escura para o nome do projeto — transmite seriedade. */
+      color: var(--navy);
+
+      /* Tamanho ligeiramente maior que o texto normal para destaque. */
+      font-size: 1.08rem;
+
+      /* font-weight: 800 = "extra bold". A escala vai de 100 a 900:
+         100 = Thin (fino), 400 = Normal, 700 = Bold, 800 = Extra Bold, 900 = Black.
+         O nome do projeto deve ser o texto mais "pesado" do cabeçalho. */
+      font-weight: 800;
+
+      /* letter-spacing negativo (-0.04em) JUNTA as letras levemente.
+         Em tipografia, títulos e logotipos costumam ter letras mais juntas
+         que texto corrido. -0.04em = 4% mais junto que o normal.
+         "em" é uma unidade relativa ao tamanho da fonte atual. */
+      letter-spacing: -0.04em;
+    }
+
+    /*
+    --------------------------------------------------------------------------
+    ÍCONE DA MARCA — DESENHADO COM CSS PURO
+    --------------------------------------------------------------------------
+    
+    Em vez de usar uma imagem para o logo, criamos um ícone decorativo
+    usando apenas propriedades CSS. Isso é mais leve (não precisa
+    carregar arquivos) e mostra domínio técnico avançado.
+    --------------------------------------------------------------------------
+    */
+    .brand-mark {
+      /* Dimensões fixas para o ícone — um quadrado de 36x36 pixels. */
+      width: 36px;
+      height: 36px;
+
+      /* display: grid com place-items: center é a forma mais simples
+         de centralizar QUALQUER conteúdo dentro de um contêiner.
+         place-items é um atalho para align-items + justify-items.
+         Uma linha para centralizar horizontal E vertical! */
+      display: grid;
+      place-items: center;
+
+      /* O símbolo ≈ dentro do ícone será branco para contrastar com
+         o fundo colorido do gradiente. */
+      color: var(--white);
+
+      /* linear-gradient cria uma transição suave entre duas cores.
+         135deg = direção do gradiente (diagonal, do canto superior
+         esquerdo ao canto inferior direito).
+         Vai de azul oceano a turquesa, criando um efeito visual rico. */
+      background: linear-gradient(135deg, var(--ocean), var(--turquoise));
+
+      /* border-radius define o arredondamento dos cantos.
+         4 valores = canto-superior-esquerdo, superior-direito,
+         inferior-direito, inferior-esquerdo.
+         50% 50% 50% 10px = três cantos totalmente arredondados (circulares)
+         e um canto quase reto (10px). Cria uma forma orgânica parecida
+         com uma gota d'água ou uma concha — perfeito para tema marítimo! */
+      border-radius: 50% 50% 50% 10px;
+
+      /* Rotaciona o ícone -10 graus (sentido anti-horário).
+         Esse leve giro torna o design mais dinâmico e menos rígido.
+         transform não afeta o layout — outros elementos não se movem. */
+      transform: rotate(-10deg);
+    }
+
+    /*
+    --------------------------------------------------------------------------
+    LINKS DE NAVEGAÇÃO
+    --------------------------------------------------------------------------
+    */
+    .nav-links {
+      /* Exibe os links em uma linha horizontal. */
+      display: flex;
+
+      /* Centraliza verticalmente todos os links na barra. */
+      align-items: center;
+
+      /* 28px de espaço entre cada link — espaçamento confortável. */
+      gap: 28px;
+
+      /* Remove os marcadores (bullets/bolinhas) da lista.
+         <ul> por padrão tem bolinhas; list-style: none as remove. */
+      list-style: none;
+    }
+
+    /* Estilo individual de cada link do menu. */
+    .nav-links a {
+      /* Cor cinza-azulada — mais suave que preto, harmoniza com o tema. */
+      color: #456174;
+
+      /* Tamanho levemente menor que o texto do corpo (1rem).
+         Links de navegação não precisam ser grandes. */
+      font-size: 0.93rem;
+
+      /* Negrito para ser facilmente identificável como link clicável. */
+      font-weight: 700;
+
+      /* Transição suave na cor quando o mouse passa por cima.
+         "color" = propriedade que será animada.
+         var(--transition-speed) = duração (180ms).
+         "ease" = curva de aceleração (começa rápido, desacelera no final). */
+      transition: color var(--transition-speed) ease;
+    }
+
+    /* Estado de hover (mouse por cima) e focus-visible (foco por teclado). */
+    .nav-links a:hover,
+    .nav-links a:focus-visible {
+      /* Muda para a cor principal do oceano, indicando interatividade. */
+      color: var(--ocean);
+    }
+
+    /*
+    --------------------------------------------------------------------------
+    BOTÃO HAMBÚRGUER (MENU MOBILE)
+    --------------------------------------------------------------------------
+    
+    O "menu hambúrguer" (≡ ou ☰) é o botão com três linhas horizontais
+    que aparece em celulares quando não há espaço para todos os links.
+    O nome vem da semelhança visual com um hambúrguer (pão, carne, pão).
+    --------------------------------------------------------------------------
+    */
+    .menu-toggle {
+      /* Escondido em telas grandes — os links já estão visíveis.
+         Será mudado para "display: inline-grid" via media query. */
+      display: none;
+
+      /* Remove a borda padrão de botões. */
+      border: 0;
+
+      /* Remove o fundo cinza padrão de botões HTML. */
+      background: transparent;
+
+      /* Cor escura para o ícone ☰ */
+      color: var(--navy);
+
+      /* Tamanho grande para fácil toque em telas sensíveis ao toque.
+         1.6rem ≈ 25.6px — grande o suficiente para dedos. */
+      font-size: 1.6rem;
+
+      /* cursor: pointer muda o cursor para a "mãozinha" ao passar o mouse,
+         indicando que o elemento é clicável. Botões HTML já fazem isso
+         por padrão, mas é bom garantir após resetar os estilos. */
+      cursor: pointer;
+    }
+
+    /*
+    --------------------------------------------------------------------------
+    SEÇÃO HERO — ABERTURA IMPACTANTE DA PÁGINA
+    --------------------------------------------------------------------------
+    
+    "Hero" é o termo usado em web design para a grande seção de abertura
+    de um site. Geralmente contém:
+    - Uma imagem grande de fundo
+    - Um título principal chamativo
+    - Uma breve descrição
+    - Botões de ação (CTA — Call To Action)
+    
+    O objetivo é causar uma primeira impressão forte e comunicar
+    rapidamente sobre o que é o site.
+    --------------------------------------------------------------------------
+    */
+    .hero {
+      /* Altura mínima generosa para que a seção ocupe boa parte da tela.
+         600px é suficiente para a maioria dos monitores, mas o conteúdo
+         pode expandir além disso se necessário. */
+      min-height: 600px;
+
+      /* Flexbox para centralizar verticalmente o conteúdo de texto
+         dentro da seção hero, independente da altura. */
+      display: flex;
+      align-items: center;
+
+      /* position: relative permite que filhos com position: absolute
+         se posicionem em relação a este elemento, não à página toda. */
+      position: relative;
+
+      /* overflow: hidden garante que nada "vaze" para fora da seção.
+         Útil se a imagem de fundo for maior que o contêiner. */
+      overflow: hidden;
+
+      /* Todo o texto dentro do hero será branco para contrastar
+         com a imagem escura de fundo. */
+      color: var(--white);
+
+      /* background com múltiplas camadas — técnica avançada!
+         
+         Camada 1: linear-gradient (sobreposição escura)
+         - Cria uma camada semi-transparente sobre a foto.
+         - Mais escura à esquerda (onde fica o texto) para legibilidade.
+         - Mais clara à direita para mostrar a beleza da foto.
+         - Sem isso, o texto branco seria ilegível sobre a imagem clara.
+         
+         Camada 2: url("...") (a imagem de fundo)
+         - Foto do oceano carregada do Unsplash (banco de imagens gratuito).
+         - center 48% = posição da imagem (centralizada horizontalmente,
+           ligeiramente acima do centro verticalmente).
+         - / cover = a imagem cobre toda a área, cortando se necessário.
+           "cover" garante que não haja espaço vazio.
+         
+         As camadas são separadas por vírgula e se sobrepõem:
+         a primeira (gradiente) fica POR CIMA da segunda (foto). */
+      background:
+        var(--hero-overlay),
+        url("https://images.unsplash.com/photo-1518837695005-2083093ee35b?auto=format&fit=crop&w=2000&q=85") center 48% / cover;
+    }
+
+    /* Limita a largura do texto para melhor legibilidade. */
+    .hero-content {
+      /* Texto com mais de 680px por linha fica difícil de acompanhar
+         com os olhos. Esta limitação melhora a experiência de leitura. */
+      max-width: 680px;
+
+      /* Espaçamento interno vertical para afastar o texto das bordas
+         da seção hero. O padding superior é maior (100px) para dar
+         espaço ao cabeçalho fixo. */
+      padding: 100px 0;
+    }
+
+    /*
+    --------------------------------------------------------------------------
+    EYEBROW — ETIQUETA IDENTIFICADORA
+    --------------------------------------------------------------------------
+    
+    Em design editorial, "eyebrow" (sobrancelha) é um pequeno texto
+    acima do título que categoriza ou contextualiza o conteúdo.
+    Exemplo: "TECNOLOGIA" acima de "Apple lança novo iPhone".
+    Aqui usamos para identificar o tema da página: "Meio ambiente".
+    --------------------------------------------------------------------------
+    */
+    .eyebrow {
+      /* inline-block permite definir margin/padding enquanto mantém
+         o elemento na mesma linha do texto. "block" ocuparia toda
+         a largura; "inline" não permite margin vertical. */
+      display: inline-block;
+
+      /* Espaço abaixo da etiqueta, separando-a do título h1. */
+      margin-bottom: 18px;
+
+      /* Verde-água claro para ser visível no fundo escuro do hero
+         sem competir com o título branco. */
+      color: #b6fff1;
+
+      /* Tamanho pequeno — a etiqueta é secundária, o título é o protagonista. */
+      font-size: 0.78rem;
+
+      /* Extra bold para compensar o tamanho pequeno e manter legibilidade. */
+      font-weight: 800;
+
+      /* Espaçamento entre letras — texto em caps fica melhor com mais espaço.
+         0.15em = 15% do tamanho da fonte. */
+      letter-spacing: 0.15em;
+
+      /* Transforma todas as letras em MAIÚSCULAS.
+         É uma convenção para etiquetas/categorias em design editorial. */
+      text-transform: uppercase;
+    }
+
+    /*
+    --------------------------------------------------------------------------
+    TÍTULO PRINCIPAL (H1) — TIPOGRAFIA RESPONSIVA
+    --------------------------------------------------------------------------
+    
+    O h1 é o título MAIS IMPORTANTE de cada página.
+    Regras de SEO e acessibilidade:
+    - Cada página deve ter APENAS UM h1.
+    - Deve descrever o conteúdo principal da página.
+    - Leitores de tela anunciam "Título nível 1" para ajudar na navegação.
+    --------------------------------------------------------------------------
+    */
+    h1 {
+      /* Limita a largura do título para evitar linhas muito longas. */
+      max-width: 650px;
+
+      /* Espaço entre o título e o parágrafo seguinte. */
+      margin-bottom: 20px;
+
+      /* clamp() — FUNÇÃO CSS PODEROSA para responsividade!
+         
+         Sintaxe: clamp(mínimo, ideal, máximo)
+         
+         clamp(2.8rem, 7vw, 5.7rem) significa:
+         - MÍNIMO: 2.8rem (44.8px) — nunca fica menor que isso.
+         - IDEAL: 7vw (7% da largura da viewport/janela).
+           Em tela de 1200px: 7% = 84px.
+           Em tela de 375px: 7% = 26.25px (mas clamp impede, usa o mínimo).
+         - MÁXIMO: 5.7rem (91.2px) — nunca fica maior que isso.
+         
+         Resultado: o título cresce e encolhe fluidamente com a tela,
+         mas nunca fica pequeno demais nem absurdamente grande.
+         
+         Isso SUBSTITUI media queries para tamanho de fonte! */
+      font-size: clamp(2.8rem, 7vw, 5.7rem);
+
+      /* Altura de linha quase 1:1 — em títulos grandes, menos espaço
+         entre linhas fica mais elegante. Para texto de corpo, usamos
+         1.6 (mais espaçado). */
+      line-height: 0.99;
+
+      /* Letter-spacing negativo junta as letras.
+         Em tipografia, títulos grandes ficam melhor com tracking reduzido
+         (letras mais próximas). -0.065em = 6.5% mais junto.
+         Quanto maior a fonte, mais negativo pode ser o tracking. */
+      letter-spacing: -0.065em;
+    }
+
+    /* Parágrafo descritivo dentro do hero. */
+    .hero p {
+      /* Largura máxima para linhas confortáveis de leitura. */
+      max-width: 540px;
+
+      /* Espaço antes dos botões de ação. */
+      margin-bottom: 30px;
+
+      /* Branco com 90% de opacidade — levemente transparente para criar
+         hierarquia visual. O título é branco sólido (mais importante),
+         o parágrafo é levemente transparente (secundário). */
+      color: rgba(255, 255, 255, 0.9);
+
+      /* Tamanho responsivo para o texto descritivo. */
+      font-size: clamp(1rem, 2vw, 1.2rem);
+    }
+
+    /*
+    --------------------------------------------------------------------------
+    BOTÕES DE AÇÃO (CTA — CALL TO ACTION)
+    --------------------------------------------------------------------------
+    
+    CTAs são os elementos mais importantes para direcionar a ação do
+    visitante. "Explorar o tema" e "Assistir ao vídeo" são CTAs que
+    guiam o usuário pelo conteúdo da página.
+    --------------------------------------------------------------------------
+    */
+    .button-row {
+      /* Flexbox para alinhar botões lado a lado. */
+      display: flex;
+
+      /* flex-wrap: wrap permite que botões "quebrem" para a linha
+         de baixo se não couberem lado a lado (importante no celular). */
+      flex-wrap: wrap;
+
+      /* Espaço entre os botões. */
+      gap: 12px;
+    }
+
+    /* Base visual compartilhada por TODOS os botões do site. */
+    .button {
+      /* min-height: 48px é o tamanho mínimo recomendado pela WCAG
+         (Web Content Accessibility Guidelines) para áreas tocáveis
+         em dispositivos móveis. Garante que dedos consigam tocar. */
+      min-height: 48px;
+
+      /* inline-flex = ocupa só o espaço necessário + permite flexbox
+         interno para centralizar texto e possíveis ícones. */
+      display: inline-flex;
+
+      /* Centraliza o texto horizontal e verticalmente dentro do botão. */
+      justify-content: center;
+      align-items: center;
+
+      /* Espaçamento interno — espaço entre o texto e as bordas do botão.
+         12px vertical, 22px horizontal. */
+      padding: 12px 22px;
+
+      /* Borda transparente por padrão — ocupa espaço sem ser visível.
+         Isso evita que o botão "pule" ao receber uma borda em hover. */
+      border: 1px solid transparent;
+
+      /* border-radius: 999px cria um botão totalmente arredondado
+         (formato "pill" ou pílula). Qualquer valor muito grande (999px,
+         9999px) produz o mesmo efeito em elementos retangulares. */
+      border-radius: 999px;
+
+      /* Texto forte e legível. */
+      font-weight: 800;
+
+      /* Transição suave para duas propriedades: posição e cor de fundo.
+         Quando o mouse passa por cima, a mudança é animada. */
+      transition: transform var(--transition-speed) ease,
+                  background-color var(--transition-speed) ease;
+
+      /* Cursor de mão para indicar que é clicável. */
+      cursor: pointer;
+    }
+
+    /* Efeito hover para TODOS os botões. */
+    .button:hover {
+      /* translateY(-2px) move o botão 2px para CIMA.
+         Cria uma sutil sensação de "elevação" ou "flutuação".
+         É um micro-interação que dá feedback visual ao usuário. */
+      transform: translateY(-2px);
+    }
+
+    /* Botão PRIMÁRIO — o mais importante, com cor de destaque. */
+    .button-primary {
+      /* Texto escuro sobre fundo claro para máximo contraste. */
+      color: var(--navy);
+
+      /* Fundo turquesa — a cor mais vibrante do site para atrair atenção. */
+      background: var(--turquoise);
+    }
+
+    /* Botão GHOST (fantasma) — secundário, contorno sem preenchimento. */
+    .button-ghost {
+      /* Texto branco para ser visto sobre o fundo escuro do hero. */
+      color: var(--white);
+
+      /* Borda branca semi-transparente — mostra o contorno do botão
+         sem ser tão forte quanto o botão primário. */
+      border-color: rgba(255, 255, 255, 0.6);
+
+      /* Fundo quase transparente — leve indicação de que é clicável. */
+      background: rgba(255, 255, 255, 0.08);
+    }
+
+    /*
+    --------------------------------------------------------------------------
+    SEÇÕES GERAIS — ESPAÇAMENTO PADRÃO
+    --------------------------------------------------------------------------
+    */
+    .section {
+      /* 92px de padding vertical cria respiração generosa entre seções.
+         Espaço em branco (whitespace) é um princípio fundamental de design:
+         conteúdo precisa de "ar" ao redor para ser confortável de ler. */
+      padding: 92px 0;
+    }
+
+    /* Fundo suave para seções alternadas — cria ritmo visual.
+       Seção branca → seção colorida → seção branca → etc.
+       Ajuda o visitante a perceber onde termina uma seção e começa outra. */
+    .section-soft {
+      background: var(--pale);
+    }
+
+    /*
+    --------------------------------------------------------------------------
+    CABEÇALHO DE SEÇÃO — LAYOUT EM DUAS COLUNAS
+    --------------------------------------------------------------------------
+    
+    Cada seção tem um título (h2) e uma descrição.
+    Em telas grandes, ficam lado a lado para melhor uso do espaço.
+    Em telas pequenas, empilham verticalmente.
+    --------------------------------------------------------------------------
+    */
+    .section-heading {
+      /* CSS Grid cria um layout de grade bidimensional.
+         Aqui, divide o espaço em duas colunas desiguais. */
+      display: grid;
+
+      /* 0.8fr 1.2fr = a primeira coluna ocupa 40% e a segunda 60%.
+         "fr" significa "fração" do espaço disponível.
+         0.8fr + 1.2fr = 2fr total → 0.8/2 = 40%, 1.2/2 = 60%. */
+      grid-template-columns: 0.8fr 1.2fr;
+
+      /* align-items: end alinha os itens pela base (parte inferior).
+         O título h2 e o parágrafo ficam alinhados pelo rodapé,
+         criando uma linha base visual elegante. */
+      align-items: end;
+
+      /* Espaço entre as duas colunas. */
+      gap: 32px;
+
+      /* Espaço entre o cabeçalho e o conteúdo da seção abaixo. */
+      margin-bottom: 42px;
+    }
+
+    /* Títulos de seção (h2) — segundo nível de hierarquia. */
+    h2 {
+      /* Cor do título — azul marinho escuro, consistente em todo o site. */
+      color: var(--navy);
+
+      /* Tamanho responsivo usando clamp (mesma técnica do h1). */
+      font-size: clamp(2rem, 4vw, 3.2rem);
+
+      /* Altura de linha compacta para títulos — 108% do tamanho da fonte. */
+      line-height: 1.08;
+
+      /* Tracking levemente negativo para títulos grandes. */
+      letter-spacing: -0.055em;
+    }
+
+    /* Texto de apoio nas descrições de seção. */
+    .section-heading p,
+    .intro-copy {
+      color: var(--muted);
+      font-size: 1.05rem;
+    }
+
+    /*
+    --------------------------------------------------------------------------
+    GRADE DE FATOS/CARTÕES INFORMATIVOS
+    --------------------------------------------------------------------------
+    
+    CSS Grid vs Flexbox:
+    - Grid é ideal para layouts em grade (linhas E colunas).
+    - Flexbox é ideal para alinhar itens em uma ÚNICA direção.
+    - Aqui usamos Grid porque queremos 3 colunas iguais.
+    --------------------------------------------------------------------------
+    */
+    .fact-grid {
+      /* CSS Grid com 3 colunas de tamanho igual. */
+      display: grid;
+
+      /* repeat(3, 1fr) = cria 3 colunas, cada uma com 1 fração.
+         1fr + 1fr + 1fr = 3fr → cada coluna = 33.33% do espaço. */
+      grid-template-columns: repeat(3, 1fr);
+
+      /* Espaço entre os cartões. */
+      gap: 18px;
+    }
+
+    /* Cartão individual de informação. */
+    .fact-card {
+      /* Espaçamento interno generoso para o conteúdo respirar. */
+      padding: 27px;
+
+      /* Borda sutil — quase invisível, mas ajuda a definir o limite do cartão. */
+      border: 1px solid rgba(8, 47, 73, 0.07);
+
+      /* Cantos arredondados usando a variável global. */
+      border-radius: var(--radius);
+
+      /* Fundo branco para destaque sobre seções com fundo colorido. */
+      background: var(--white);
+
+      /* Sombra suave que cria sensação de profundidade/elevação.
+         O cartão parece "flutuar" levemente sobre o fundo. */
+      box-shadow: 0 10px 35px rgba(8, 47, 73, 0.06);
+    }
+
+    /* Número/estatística em destaque no cartão. */
+    .fact-number {
+      /* display: block faz o número ocupar sua própria linha. */
+      display: block;
+
+      /* Espaço entre o número e o título do cartão. */
+      margin-bottom: 12px;
+
+      /* Cor de destaque — azul oceano chama atenção para o dado. */
+      color: var(--ocean);
+
+      /* Grande e pesado para impacto visual imediato. */
+      font-size: 2rem;
+      font-weight: 900;
+      letter-spacing: -0.06em;
+    }
+
+    /* Título do cartão (h3 = terceiro nível de hierarquia). */
+    .fact-card h3 {
+      margin-bottom: 9px;
+      color: var(--navy);
+      font-size: 1.08rem;
+    }
+
+    /* Descrição do cartão. */
+    .fact-card p {
+      color: var(--muted);
+      font-size: 0.94rem;
+    }
+
+    /*
+    --------------------------------------------------------------------------
+    LAYOUT DA SEÇÃO DE AMEAÇAS — IMAGEM + TEXTO
+    --------------------------------------------------------------------------
+    */
+    .issue-layout {
+      /* Grid com duas colunas iguais para imagem e texto. */
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+
+      /* Centraliza verticalmente mesmo se imagem e texto têm alturas diferentes. */
+      align-items: center;
+
+      /* Espaço generoso entre imagem e texto. */
+      gap: 58px;
+    }
+
+    /* Imagem da seção de ameaças. */
+    .issue-image {
+      /* Ocupa toda a largura da sua coluna no grid. */
+      width: 100%;
+
+      /* Altura mínima para a imagem ter presença visual.
+         Se a imagem for menor, ela se estica; se for maior, é cortada. */
+      min-height: 420px;
+
+      /* object-fit: cover faz a imagem COBRIR todo o espaço definido,
+         cortando o excesso se necessário (como background-size: cover).
+         A imagem mantém suas proporções — nunca fica distorcida/esticada.
+         Alternativas: contain (mostra tudo, pode ter espaços vazios),
+         fill (estica/distorce para preencher). */
+      object-fit: cover;
+
+      /* Cantos bem arredondados para design moderno. */
+      border-radius: 30px;
+
+      /* Sombra padrão do site para consistência visual. */
+      box-shadow: var(--shadow);
+    }
+
+    /* Texto ao lado da imagem de ameaças. */
+    .issue-copy p {
+      margin-top: 18px;
+      color: var(--muted);
+    }
+
+    /*
+    --------------------------------------------------------------------------
+    LISTA DE AÇÕES — O QUE O VISITANTE PODE FAZER
+    --------------------------------------------------------------------------
+    */
+    .action-list {
+      display: grid;
+      gap: 14px;
+      margin-top: 24px;
+      list-style: none;
+    }
+
+    /* Cada item da lista de ações. */
+    .action-list li {
+      /* Flexbox para alinhar o ícone ✓ com o texto ao lado. */
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+      color: var(--ink);
+      font-weight: 700;
+    }
+
+    /* Círculo colorido com o ícone de confirmação. */
+    .check {
+      /* Dimensões fixas — o círculo não encolhe nem cresce. */
+      width: 25px;
+      height: 25px;
+
+      /* flex: 0 0 25px impede que o flexbox encolha ou expanda o círculo.
+         0 = não cresce, 0 = não encolhe, 25px = tamanho fixo.
+         Sem isso, o flexbox poderia comprimir o ícone. */
+      flex: 0 0 25px;
+
+      /* Centraliza o ✓ dentro do círculo. */
+      display: grid;
+      place-items: center;
+
+      /* Ícone branco sobre fundo azul. */
+      color: var(--white);
+      background: var(--ocean);
+
+      /* 50% cria um círculo perfeito quando width = height. */
+      border-radius: 50%;
+
+      /* Tamanho menor para o ícone ✓ ficar proporcional ao círculo. */
+      font-size: 0.8rem;
+    }
+
+    /*
+    --------------------------------------------------------------------------
+    SEÇÃO DE VÍDEO — FUNDO ESCURO PARA DESTAQUE
+    --------------------------------------------------------------------------
+    */
+    .video-section {
+      color: var(--white);
+
+      /* Gradiente de azul marinho para azul escuro — cria profundidade.
+         Diferencia esta seção das demais com um visual impactante. */
+      background: linear-gradient(135deg, var(--navy), #075e78);
+    }
+
+    /* Sobrescreve a cor do h2 para funcionar no fundo escuro. */
+    .video-section h2 {
+      color: var(--white);
+    }
+
+    /* Layout do vídeo — texto à esquerda, player à direita. */
+    .video-layout {
+      display: grid;
+
+      /* 0.8fr 1.2fr = texto menor, vídeo maior (é o destaque). */
+      grid-template-columns: 0.8fr 1.2fr;
+      align-items: center;
+      gap: 48px;
+    }
+
+    /* Texto de descrição do vídeo. */
+    .video-layout p {
+      margin-top: 16px;
+
+      /* Semi-transparente para hierarquia visual no fundo escuro. */
+      color: rgba(255, 255, 255, 0.78);
+    }
+
+    /* Iframe do vídeo incorporado. */
+    .video-frame {
+      width: 100%;
+
+      /* aspect-ratio: 16/9 mantém a proporção widescreen do vídeo.
+         16:9 é o formato padrão de vídeos HD, Full HD e 4K.
+         O navegador calcula a altura automaticamente baseado na largura.
+         Exemplo: se largura = 640px → altura = 640 × 9/16 = 360px. */
+      aspect-ratio: 16 / 9;
+
+      /* Remove a borda padrão de iframes (geralmente preta e feia). */
+      border: 0;
+
+      /* Cantos arredondados para consistência com o design. */
+      border-radius: 20px;
+
+      /* Cor de fundo escura enquanto o vídeo carrega — evita flash branco. */
+      background: #001c2b;
+
+      /* Sombra profunda para o vídeo "flutuar" sobre o fundo escuro. */
+      box-shadow: 0 20px 50px rgba(0, 0, 0, 0.25);
+    }
+
+    /*
+    --------------------------------------------------------------------------
+    GALERIA DE IMAGENS
+    --------------------------------------------------------------------------
+    */
+    .gallery-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 16px;
+    }
+
+    /* Cada imagem da galeria. */
+    .gallery-grid img {
+      width: 100%;
+
+      /* Altura fixa para todas as imagens ficarem uniformes na grade.
+         object-fit: cover garante que diferentes proporções sejam
+         cortadas (não distorcidas) para caber em 260px de altura. */
+      height: 260px;
+      object-fit: cover;
+      border-radius: 18px;
+
+      /* Transição suave para o efeito de zoom no hover. */
+      transition: transform 220ms ease;
+    }
+
+    /* Zoom sutil ao passar o mouse — indica que a imagem é interativa. */
+    .gallery-grid img:hover {
+      /* scale(1.025) = aumenta 2.5% em todas as direções.
+         É sutil o suficiente para ser elegante, não exagerado. */
+      transform: scale(1.025);
+    }
+
+    /*
+    --------------------------------------------------------------------------
+    CARTÃO DO QUIZ — INTERAÇÃO EDUCATIVA
+    --------------------------------------------------------------------------
+    */
+    .quiz-card {
+      /* Largura máxima para o cartão não ficar muito largo em monitores. */
+      max-width: 760px;
+
+      /* margin: 0 auto centraliza o cartão horizontalmente. */
+      margin: 0 auto;
+
+      padding: 38px;
+      border: 1px solid rgba(8, 47, 73, 0.08);
+      border-radius: 28px;
+      background: var(--white);
+      box-shadow: var(--shadow);
+
+      /* Centraliza todo o texto dentro do cartão. */
+      text-align: center;
+    }
+
+    .quiz-card h2 {
+      margin-bottom: 14px;
+      font-size: clamp(1.8rem, 4vw, 2.5rem);
+    }
+
+    .quiz-question {
+      margin: 18px 0 22px;
+      color: var(--muted);
+      font-weight: 700;
+    }
+
+    /* Contêiner das opções de resposta. */
+    .quiz-options {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+
+    /* Cada botão de resposta do quiz. */
+    .quiz-option {
+      padding: 11px 18px;
+      border: 1px solid #cbdde2;
+      border-radius: 999px;
+      color: var(--navy);
+      background: var(--white);
+
+      /* font: inherit faz o botão usar a mesma fonte do body.
+         Por padrão, botões HTML usam uma fonte diferente do sistema.
+         "inherit" significa "herde do elemento pai". */
+      font: inherit;
+      font-weight: 700;
+      cursor: pointer;
+      transition: background-color var(--transition-speed) ease,
+                  color var(--transition-speed) ease;
+    }
+
+    .quiz-option:hover,
+    .quiz-option:focus-visible {
+      color: var(--white);
+      background: var(--ocean);
+    }
+
+    /* Área de resultado do quiz. */
+    .quiz-result {
+      /* min-height reserva espaço para evitar "pulo" no layout
+         quando o texto do resultado aparece. */
+      min-height: 30px;
+      margin-top: 20px;
+      color: var(--ocean);
+      font-weight: 800;
+    }
+
+    /*
+    --------------------------------------------------------------------------
+    BARRA DE NAVEGAÇÃO ENTRE PÁGINAS
+    --------------------------------------------------------------------------
+    Adicionada para conectar as diferentes páginas do site.
+    --------------------------------------------------------------------------
+    */
+    .page-nav {
+      /* Fundo suave para destacar a barra de páginas. */
+      background: var(--sand);
+
+      /* Padding vertical para não ficar grudado nos elementos. */
+      padding: 16px 0;
+
+      /* Borda sutil no topo para separar do conteúdo acima. */
+      border-top: 1px solid rgba(8, 47, 73, 0.06);
+    }
+
+    /* Lista de links para outras páginas. */
+    .page-nav-list {
+      /* Flexbox para alinhar links horizontalmente. */
+      display: flex;
+
+      /* Centraliza os links no meio da barra. */
+      justify-content: center;
+
+      /* Permite que links quebrem linha em telas pequenas. */
+      flex-wrap: wrap;
+
+      /* Espaço entre os links. */
+      gap: 8px;
+
+      /* Remove bolinhas da lista. */
+      list-style: none;
+    }
+
+    /* Cada link de página na barra de navegação. */
+    .page-nav-link {
+      /* Padding para criar uma área tocável confortável. */
+      padding: 8px 18px;
+
+      /* Cantos arredondados em formato pílula. */
+      border-radius: 999px;
+
+      /* Cor do texto. */
+      color: var(--navy);
+
+      /* Negrito para destaque. */
+      font-weight: 700;
+
+      /* Tamanho levemente menor que texto normal. */
+      font-size: 0.88rem;
+
+      /* Transição suave para hover. */
+      transition: background-color var(--transition-speed) ease,
+                  color var(--transition-speed) ease;
+    }
+
+    /* Hover dos links de página. */
+    .page-nav-link:hover,
+    .page-nav-link:focus-visible {
+      background: var(--ocean);
+      color: var(--white);
+    }
+
+    /* Estado ativo — destaca a página atual. */
+    .page-nav-link.is-active {
+      background: var(--navy);
+      color: var(--white);
+    }
+
+    /*
+    --------------------------------------------------------------------------
+    RODAPÉ DO SITE
+    --------------------------------------------------------------------------
+    */
+    .site-footer {
+      padding: 28px 0;
+
+      /* Cor clara no fundo escuro — lê bem sem ser brilhante demais. */
+      color: #d7e8ed;
+
+      /* Azul muito escuro — quase preto, mas harmoniza com o tema. */
+      background: #06283e;
+
+      font-size: 0.9rem;
+    }
+
+    .footer-inner {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 16px;
+    }
+
+    /*
+    --------------------------------------------------------------------------
+    ACESSIBILIDADE — INDICADOR DE FOCO
+    --------------------------------------------------------------------------
+    
+    Quando alguém navega usando o TECLADO (Tab para avançar, Shift+Tab
+    para voltar), o navegador precisa mostrar QUAL elemento está focado.
+    
+    :focus-visible é ativado apenas quando o foco vem do teclado,
+    NÃO quando o usuário clica com o mouse (evitando contornos
+    indesejados ao clicar em botões).
+    
+    Contornos de foco são ESSENCIAIS para acessibilidade.
+    Nunca os remova completamente (outline: none) sem substituto!
+    --------------------------------------------------------------------------
+    */
+    a:focus-visible,
+    button:focus-visible {
+      /* Contorno dourado — visível tanto em fundos claros quanto escuros. */
+      outline: 3px solid #ffca70;
+
+      /* offset separa o contorno do elemento para não cobrir o conteúdo. */
+      outline-offset: 3px;
+    }
+
+    /*
+    --------------------------------------------------------------------------
+    MEDIA QUERIES — ADAPTAÇÃO PARA DIFERENTES TAMANHOS DE TELA
+    --------------------------------------------------------------------------
+    
+    O que são media queries?
+    - São regras CSS condicionais: "SE a tela for menor que X pixels,
+      ENTÃO aplique estes estilos".
+    - São a base do design responsivo (sites que funcionam em qualquer tela).
+    
+    Como funcionam?
+    - @media (max-width: 760px) = "quando a tela tiver no máximo 760px".
+    - Os estilos dentro desta regra SÓ são aplicados nessa condição.
+    - Em telas maiores que 760px, estes estilos são IGNORADOS.
+    
+    Breakpoints comuns:
+    - 480px = celulares pequenos (iPhone SE, etc.)
+    - 760px = celulares grandes e tablets em retrato
+    - 1024px = tablets em paisagem e laptops pequenos
+    - 1200px+ = desktops e monitores grandes
+    --------------------------------------------------------------------------
+    */
+    @media (max-width: 760px) {
+      /* Reduz a altura do hero no celular — não precisa ser tão grande. */
+      .hero {
+        min-height: 560px;
+
+        /* Move a imagem levemente para a direita (58%) para mostrar
+           uma parte mais interessante da foto em telas estreitas. */
+        background-position: 58% center;
+      }
+
+      /* Transforma o menu horizontal em um painel vertical oculto. */
+      .nav-links {
+        /* Escondido por padrão — será mostrado com a classe .is-open */
+        display: none;
+
+        /* Posiciona o menu abaixo do cabeçalho. */
+        position: absolute;
+        top: 76px;
+        left: 0;
+        right: 0;
+
+        /* Espaçamento interno do painel. */
+        padding: 20px;
+
+        /* Muda de horizontal para vertical. */
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 18px;
+
+        /* Fundo branco sólido para o painel. */
+        background: var(--white);
+
+        /* Linha inferior e sombra para separar do conteúdo. */
+        border-bottom: 1px solid rgba(8, 47, 73, 0.1);
+        box-shadow: 0 16px 20px rgba(8, 47, 73, 0.08);
+      }
+
+      /* Classe adicionada pelo JavaScript quando o botão ☰ é clicado. */
+      .nav-links.is-open {
+        display: flex;
+      }
+
+      /* Mostra o botão hambúrguer em telas pequenas. */
+      .menu-toggle {
+        display: inline-grid;
+        place-items: center;
+      }
+
+      /* Empilha título e descrição das seções. */
+      .section-heading {
+        grid-template-columns: 1fr;
+        gap: 14px;
+      }
+
+      /* Uma coluna para os cartões no celular. */
+      .fact-grid {
+        grid-template-columns: 1fr;
+      }
+
+      /* Empilha imagem sobre texto nas seções de duas colunas. */
+      .issue-layout,
+      .video-layout {
+        grid-template-columns: 1fr;
+        gap: 32px;
+      }
+
+      /* Reduz a altura da imagem para não dominar a tela do celular. */
+      .issue-image {
+        min-height: 300px;
+      }
+
+      /* 2 colunas para a galeria em tablets/celulares grandes. */
+      .gallery-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      /* Menos espaço entre seções para economizar rolagem. */
+      .section {
+        padding: 68px 0;
+      }
+    }
+
+    /* Estilos para celulares muito pequenos. */
+    @media (max-width: 480px) {
+      /* Reduz margens laterais para aproveitar mais espaço. */
+      .container {
+        width: min(100% - 28px, 1120px);
+      }
+
+      /* 1 coluna para a galeria em telas muito estreitas. */
+      .gallery-grid {
+        grid-template-columns: 1fr;
+      }
+
+      /* Menos padding no quiz para não ficar apertado. */
+      .quiz-card {
+        padding: 28px 18px;
+      }
+
+      /* Empilha os itens do rodapé verticalmente. */
+      .footer-inner {
+        align-items: flex-start;
+        flex-direction: column;
+      }
+    }
+
+    /*
+    --------------------------------------------------------------------------
+    PREFERÊNCIAS DE ACESSIBILIDADE DO SISTEMA
+    --------------------------------------------------------------------------
+    
+    Algumas pessoas configuram seus sistemas operacionais para reduzir
+    movimentos e animações (por questões de saúde como epilepsia ou
+    enjoo de movimento/cinetose).
+    
+    Esta media query RESPEITA essa preferência desativando todas as
+    animações e transições do site. É uma questão de INCLUSÃO.
+    --------------------------------------------------------------------------
+    */
+    @media (prefers-reduced-motion: reduce) {
+      *,
+      *::before,
+      *::after {
+        /* Desativa rolagem suave — pula diretamente para a seção. */
+        scroll-behavior: auto !important;
+
+        /* Reduz todas as transições a praticamente zero.
+           0.01ms é tão rápido que parece instantâneo.
+           Não usamos 0ms porque alguns navegadores ignoram valor zero. */
+        transition-duration: 0.01ms !important;
+
+        /* Desativa animações CSS (se houvesse). */
+        animation-duration: 0.01ms !important;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <!--
+  ============================================================================
+  INÍCIO DO CORPO DA PÁGINA — CONTEÚDO VISÍVEL
+  ============================================================================
+  
+  Tudo dentro de <body> é o que o visitante VÊ e INTERAGE na página.
+  O corpo é dividido em três partes principais:
+  1. <header> — cabeçalho com navegação (topo)
+  2. <main> — conteúdo principal (meio)
+  3. <footer> — rodapé com informações finais (base)
+  
+  Esta divisão é importante para:
+  - Acessibilidade: leitores de tela identificam as regiões da página.
+  - SEO: buscadores entendem melhor a estrutura do conteúdo.
+  - Organização: facilita a manutenção do código.
+  ============================================================================
+  -->
+
+  <!--
+  ============================================================================
+  CABEÇALHO DO SITE — NAVEGAÇÃO FIXA
+  ============================================================================
+  
+  O <header> é um elemento semântico do HTML5.
+  "Semântico" significa que tem SIGNIFICADO — diz ao navegador e aos
+  leitores de tela que este é o cabeçalho da página.
+  
+  Alternativa não-semântica: <div class="header"> (funciona visualmente
+  mas não comunica significado — é como uma caixa sem etiqueta).
+  ============================================================================
+  -->
+  <header class="site-header">
+    <!--
+    O <nav> é outro elemento semântico que indica uma área de NAVEGAÇÃO.
+    Leitores de tela anunciam: "Navegação principal" para o usuário.
+    
+    aria-label="Navegação principal" é um atributo ARIA (Accessible Rich
+    Internet Applications) que fornece uma descrição textual para
+    tecnologias assistivas. Se a página tivesse dois <nav> (principal
+    e rodapé), o aria-label diferenciaria cada um.
+    -->
+    <nav class="container nav-wrap" aria-label="Navegação principal">
+
+      <!--
+      MARCA/LOGOTIPO DO PROJETO
+      
+      O link leva a "#inicio" (a seção hero desta página).
+      
+      aria-label fornece uma descrição mais completa do que o texto visível.
+      Leitores de tela dirão: "Link: Oceano Vivo, voltar ao início"
+      em vez de apenas "Link: símbolo Oceano Vivo".
+      -->
+      <a class="brand" href="#inicio" aria-label="Oceano Vivo, voltar ao início">
+        <!--
+        O <span> com aria-hidden="true" contém o símbolo decorativo ≈.
+        aria-hidden="true" diz aos leitores de tela: "ignore este elemento".
+        O símbolo é apenas decorativo e não adiciona informação.
+        Sem aria-hidden, o leitor de tela diria "aproximadamente igual"
+        antes do nome, o que seria confuso.
+        -->
+        <span class="brand-mark" aria-hidden="true">≈</span>
+        <span>Oceano Vivo</span>
+      </a>
+
+      <!--
+      BOTÃO HAMBÚRGUER PARA DISPOSITIVOS MÓVEIS
+      
+      type="button" evita que o botão envie um formulário acidentalmente
+      (o tipo padrão de <button> é "submit").
+      
+      aria-label descreve a ação do botão para leitores de tela.
+      aria-expanded="false" indica que o menu está FECHADO.
+      Quando clicado, o JavaScript muda para "true" (aberto).
+      -->
+      <button class="menu-toggle" type="button" aria-label="Abrir menu" aria-expanded="false">
+        ☰
+        <!--
+        ☰ é o caractere Unicode "TRIGRAM FOR HEAVEN" (U+2630).
+        Visualmente parece três linhas horizontais — o ícone de menu.
+        Quando o menu está aberto, o JavaScript muda para × (fechar).
+        -->
+      </button>
+
+      <!--
+      LISTA DE LINKS DE NAVEGAÇÃO
+      
+      Usamos <ul> (unordered list) porque a ordem dos links não importa.
+      Cada link usa âncora (#secao) para rolar até a seção correspondente.
+      
+      id="menu-principal" permite que o JavaScript encontre este elemento.
+      -->
+      <ul class="nav-links" id="menu-principal">
+        <li><a href="#sobre">O oceano</a></li>
+        <li><a href="#ameacas">Ameaças</a></li>
+        <li><a href="#video">Vídeo</a></li>
+        <li><a href="#galeria">Galeria</a></li>
+        <li><a href="#quiz">Quiz</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <!--
+  ============================================================================
+  CONTEÚDO PRINCIPAL — <main>
+  ============================================================================
+  
+  O elemento <main> identifica o conteúdo PRINCIPAL da página.
+  Cada página HTML deve ter apenas UM <main>.
+  
+  Leitores de tela podem pular diretamente para o <main>,
+  ignorando o cabeçalho — um atalho valioso para usuários frequentes.
+  ============================================================================
+  -->
+  <main>
+
+    <!--
+    ============================================================================
+    SEÇÃO HERO — ABERTURA DA PÁGINA
+    ============================================================================
+    
+    id="inicio" cria uma âncora para o link "Voltar ao início" funcionar.
+    O id deve ser ÚNICO na página — nenhum outro elemento pode ter id="inicio".
+    -->
+    <section class="hero" id="inicio">
+      <div class="container hero-content">
+        <!--
+        A tag <span> é um contêiner inline sem significado semântico.
+        É usado quando precisamos estilizar um trecho de texto que não
+        se encaixa em nenhum elemento semântico (como <p> ou <h1>).
+        -->
+        <span class="eyebrow">• Meio ambiente</span>
+
+        <!--
+        O <h1> é o título mais importante. Cada página tem apenas UM.
+        Este título comunica imediatamente o tema e o propósito do site.
+        O ponto final não é necessário em títulos (convenção tipográfica).
+        -->
+        <h1>O oceano é vida. Vamos cuidar dele.</h1>
+
+        <!--
+        O parágrafo de apoio complementa o título com mais detalhes.
+        Deve ser conciso — 2-3 linhas no máximo para manter a atenção.
+        -->
+        <p>
+          Conheça a importância dos mares, descubra os desafios que eles enfrentam
+          e veja como pequenas atitudes podem fazer diferença.
+        </p>
+
+        <!--
+        Os CTAs (Call to Action) guiam o visitante para o próximo passo.
+        Sempre devemos ter UM botão principal (cor de destaque) e
+        opcionalmente botões secundários (ghost/outline).
+        -->
+        <div class="button-row">
+          <!--
+          O botão primário leva à seção "#sobre" — o conteúdo mais importante.
+          É colorido (turquesa) para atrair atenção primeiro.
+          -->
+          <a class="button button-primary" href="#sobre">Explorar o tema</a>
+
+          <!--
+          O botão secundário (ghost) oferece uma alternativa sem competir
+          visualmente com o botão principal. Tem apenas contorno.
+          -->
+          <a class="button button-ghost" href="#video">Assistir ao vídeo</a>
+        </div>
+      </div>
+    </section>
+
+    <!--
+    ============================================================================
+    SEÇÃO "SOBRE O OCEANO" — FATOS E DADOS
+    ============================================================================
+    
+    <section> é um elemento semântico que agrupa conteúdo com um TEMA comum.
+    Cada seção deve ter um título (h2, h3, etc.) que a identifique.
+    
+    Classes múltiplas: "section section-soft"
+    - "section" aplica o padding padrão.
+    - "section-soft" adiciona o fundo colorido.
+    - Um elemento pode ter QUANTAS classes quiser, separadas por espaço.
+    ============================================================================
+    -->
+    <section class="section section-soft" id="sobre">
+      <div class="container">
+        <!--
+        O cabeçalho da seção divide título e descrição em duas colunas
+        para criar um layout editorial mais sofisticado.
+        -->
+        <div class="section-heading">
+          <h2>Um planeta azul, cheio de vida.</h2>
+          <p>
+            Os oceanos cobrem a maior parte da superfície da Terra. Eles regulam o
+            clima, abrigam uma enorme diversidade de seres vivos e são essenciais
+            para a vida de todos nós.
+          </p>
+        </div>
+
+        <!--
+        GRADE DE CARTÕES INFORMATIVOS
+        
+        <article> é usado para conteúdo que faz sentido SOZINHO,
+        independente do contexto. Cada fato/dado poderia ser compartilhado
+        separadamente e ainda faria sentido.
+        -->
+        <div class="fact-grid">
+          <article class="fact-card">
+            <!--
+            O ~ (til) antes de 71% indica "aproximadamente".
+            Mostra rigor científico — não é exatamente 71%, é uma estimativa.
+            -->
+            <span class="fact-number">~71%</span>
+            <h3>Da superfície terrestre</h3>
+            <p>É coberta por oceanos, que formam o maior conjunto de habitats do planeta.</p>
+          </article>
+
+          <article class="fact-card">
+            <span class="fact-number">50%+</span>
+            <h3>Do oxigênio que respiramos</h3>
+            <p>É produzido por organismos marinhos, como o fitoplâncton, segundo estimativas científicas.</p>
+          </article>
+
+          <article class="fact-card">
+            <span class="fact-number">1 oceano</span>
+            <h3>Conectado pelo mundo</h3>
+            <p>Apesar dos diferentes nomes, as águas dos oceanos fazem parte de um sistema global.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!--
+    ============================================================================
+    SEÇÃO "AMEAÇAS" — PROBLEMAS E SOLUÇÕES
+    ============================================================================
+    -->
+    <section class="section" id="ameacas">
+      <div class="container issue-layout">
+        <!--
+        IMAGEM COM TEXTO ALTERNATIVO (ALT)
+        
+        O atributo alt é OBRIGATÓRIO em todas as imagens e descreve
+        o que a imagem mostra. Serve para:
+        1. Leitores de tela lerem a descrição para pessoas cegas.
+        2. Exibir texto quando a imagem não carrega (internet lenta).
+        3. Ajudar o Google a entender o conteúdo da imagem.
+        
+        loading="lazy" adia o carregamento da imagem até que ela
+        esteja próxima da área visível. Isso:
+        - Economiza dados do usuário (não carrega o que não vê).
+        - Acelera o carregamento inicial da página.
+        - É uma otimização de performance nativa do HTML.
+        -->
+        <img
+          class="issue-image"
+          src="https://images.unsplash.com/photo-1592354218822-e43de51a8b33?q=80&w=1472&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=NHwxMjA3fDA%3D"
+          alt="Tartaruga marinha nadando em águas azuis — representa a vida marinha ameaçada pela poluição"
+          loading="lazy"
+        >
+
+        <div class="issue-copy">
+          <!--
+          style="color: var(--ocean);" é um estilo inline.
+          Normalmente evitamos estilos inline (melhor usar CSS separado),
+          mas para uma pequena exceção de cor, é aceitável.
+          -->
+          <span class="eyebrow" style="color: var(--ocean);">O desafio</span>
+          <h2>Proteger o mar começa em terra.</h2>
+          <p>
+            O lixo plástico, a poluição, a pesca excessiva e as mudanças climáticas
+            ameaçam os ecossistemas marinhos. Como rios e mares estão conectados,
+            o que fazemos no dia a dia também pode chegar ao oceano.
+          </p>
+          <p>
+            A boa notícia é que escolhas conscientes ajudam a reduzir esse impacto.
+            Cada pessoa pode contribuir e também inspirar a comunidade ao seu redor.
+          </p>
+
+          <!--
+          LISTA DE AÇÕES PRÁTICAS
+          
+          <ul> = lista não ordenada (os itens não têm sequência obrigatória).
+          Usaríamos <ol> se a ordem importasse (ex: passos de uma receita).
+          -->
+          <ul class="action-list">
+            <li>
+              <!--
+              aria-hidden="true" no ícone ✓ porque é decorativo.
+              O <span> ao redor do texto garante que leitores de tela
+              leiam apenas o conteúdo significativo.
+              -->
+              <span class="check" aria-hidden="true">✓</span>
+              <span>Use garrafas e sacolas reutilizáveis.</span>
+            </li>
+            <li>
+              <span class="check" aria-hidden="true">✓</span>
+              <span>Separe os resíduos e descarte-os corretamente.</span>
+            </li>
+            <li>
+              <span class="check" aria-hidden="true">✓</span>
+              <span>Evite produtos descartáveis quando houver alternativa.</span>
+            </li>
+            <li>
+              <span class="check" aria-hidden="true">✓</span>
+              <span>Compartilhe informações confiáveis sobre conservação.</span>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!--
+    ============================================================================
+    SEÇÃO DE VÍDEO — CONTEÚDO AUDIOVISUAL
+    ============================================================================
+    
+    Vídeos incorporados enriquecem a página com conteúdo
+    multimídia.
+    ============================================================================
+    -->
+    <section class="section video-section" id="video">
+      <div class="container video-layout">
+        <div>
+          <span class="eyebrow">Aprenda assistindo</span>
+          <h2>O oceano visto de perto.</h2>
+          <p>
+            Assista a um vídeo sobre a vida marinha e observe como os ecossistemas
+            do oceano são diversos. O vídeo é incorporado do YouTube e pode exigir
+            conexão com a internet.
+          </p>
+        </div>
+
+        <!--
+        IFRAME — INCORPORAÇÃO DE CONTEÚDO EXTERNO
+        
+        <iframe> permite incorporar uma página dentro de outra.
+        Aqui, incorporamos um player do YouTube.
+        
+        Atributos importantes:
+        
+        src: URL do vídeo no formato "embed" (incorporável) do YouTube.
+        - youtube-nocookie.com é o domínio de privacidade aprimorada
+          do YouTube. Não coleta cookies até o usuário apertar play.
+        
+        title: Descrição para acessibilidade — leitores de tela leem
+        o title para descrever o que o iframe contém.
+        
+        loading="lazy": Carrega o vídeo somente quando necessário.
+        
+        referrerpolicy: Controla quais informações são enviadas ao YouTube
+        quando o iframe é carregado. "strict-origin-when-cross-origin"
+        envia apenas o domínio de origem, protegendo a privacidade.
+        
+        allow: Lista de permissões para o conteúdo do iframe:
+        - accelerometer: acesso ao sensor de movimento (VR/360°).
+        - autoplay: permite autoplay (o YouTube gerencia isso).
+        - clipboard-write: permite copiar texto/links.
+        - encrypted-media: para conteúdo DRM (direitos autorais).
+        - gyroscope: sensor de orientação (vídeos 360°).
+        - picture-in-picture: player flutuante.
+        - web-share: API de compartilhamento.
+        
+        allowfullscreen: Permite que o vídeo entre em tela cheia.
+        -->
+   <iframe
+   class="video-frame"
+   src="https://www.youtube.com/embed/Nz7ffAyUVEI?si=N1TmC8uhh7gyYL2v"
+   title="Vídeo educativo sobre o oceano e a vida marinha"
+   loading="lazy"
+   referrerpolicy="strict-origin-when-cross-origin"
+   allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+   allowfullscreen>
+   </iframe>
+      </div>
+    </section>
+
+    <!--
+    ============================================================================
+    SEÇÃO GALERIA — FOTOGRAFIAS DA BIODIVERSIDADE MARINHA
+    ============================================================================
+    
+    Imagens são poderosas para comunicação: uma foto de um recife de coral
+    transmite mais emoção que um parágrafo descrevendo-o.
+    
+    Todas as imagens vêm do Unsplash (unsplash.com), um banco de imagens
+    GRATUITO para uso pessoal e comercial.
+    
+    Os parâmetros na URL controlam a qualidade e o tamanho:
+    - auto=format: o servidor escolhe o melhor formato (JPEG, WebP).
+    - fit=crop: recorta a imagem para caber nas dimensões pedidas.
+    - w=800: largura de 800px (suficiente para telas normais).
+    - q=80: qualidade de 80% (bom equilíbrio entre qualidade e tamanho).
+    ============================================================================
+    -->
+    <section class="section" id="galeria">
+      <div class="container">
+        <div class="section-heading">
+          <h2>Uma pequena janela para o mar.</h2>
+          <p>
+            Recifes, ondas e animais marinhos fazem parte de um ecossistema rico.
+            Conhecer essa diversidade é um passo importante para valorizá-la.
+          </p>
+        </div>
+
+        <div class="gallery-grid">
+          <img
+            src="https://plus.unsplash.com/premium_photo-1663954865103-fc7b4d3c5ded?q=80&w=1470&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=NHwxMjA3fDA%3D"
+            alt="Peixes coloridos nadando perto de um recife de coral vibrante com tons de laranja e amarelo"
+            loading="lazy"
+          >
+          <img
+            src="https://images.unsplash.com/photo-1559827260-dc66d52bef19?auto=format&fit=crop&w=800&q=80"
+            alt="Ondas azuis do oceano vistas de perto, com textura da espuma branca"
+            loading="lazy"
+          >
+          <img
+            src="https://plus.unsplash.com/premium_photo-1673002094103-b2657755f800?q=80&w=1470&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=NHwxMjA3fDA%3D"
+            alt="Vida marinha em um ambiente de águas claras e cristalinas, com raios de sol penetrando a superfície"
+            loading="lazy"
+          >
+        </div>
+      </div>
+    </section>
+
+    <!--
+    ============================================================================
+    SEÇÃO QUIZ — INTERATIVIDADE EDUCATIVA
+    ============================================================================
+    
+    O quiz transforma o visitante de espectador passivo em participante ativo.
+    A interação reforça o aprendizado e torna a apresentação mais dinâmica.
+    ============================================================================
+    -->
+    <section class="section section-soft" id="quiz">
+      <div class="container">
+        <div class="quiz-card">
+          <span class="eyebrow" style="color: var(--ocean);">Teste seus conhecimentos</span>
+          <h2>Hora do quiz!</h2>
+          <p class="quiz-question">Qual atitude ajuda a reduzir o lixo que pode chegar ao oceano?</p>
+
+          <!--
+          role="group" indica que os botões formam um GRUPO relacionado.
+          aria-label descreve o propósito do grupo para leitores de tela.
+          
+          data-correct é um atributo de dados personalizado (data attribute).
+          - Atributos data-* são valores que o HTML armazena para o JavaScript usar.
+          - Não afetam a aparência visual — são "dados escondidos" no elemento.
+          - O JavaScript lê com elemento.dataset.correct.
+          - data-correct="true" = resposta certa.
+          - data-correct="false" = resposta errada.
+          -->
+          <div class="quiz-options" role="group" aria-label="Respostas do quiz">
+            <button class="quiz-option" type="button" data-correct="false">Jogar resíduos na rua</button>
+            <button class="quiz-option" type="button" data-correct="true">Usar itens reutilizáveis</button>
+            <button class="quiz-option" type="button" data-correct="false">Deixar lixo na praia</button>
+          </div>
+
+          <!--
+          aria-live="polite" é um atributo ARIA que faz leitores de tela
+          ANUNCIAREM automaticamente quando o conteúdo deste elemento muda.
+          
+          "polite" = espera o leitor de tela terminar o que está falando
+          antes de anunciar a mudança (não interrompe).
+          "assertive" = interrompe imediatamente (para avisos urgentes).
+          
+          Quando o JavaScript coloca o resultado aqui, o leitor de tela
+          lê automaticamente "Resposta correta!" sem o usuário precisar
+          navegar até o elemento.
+          -->
+          <p class="quiz-result" id="quiz-result" aria-live="polite"></p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!--
+  ============================================================================
+  BARRA DE NAVEGAÇÃO ENTRE PÁGINAS
+  ============================================================================
+  
+  Esta barra permite ao visitante navegar para as outras páginas do projeto.
+  Fica antes do rodapé para ser facilmente acessível após ler o conteúdo.
+  
+  A classe "is-active" marca a página atual (neste caso, a Página Inicial).
+  ============================================================================
+  -->
+  <nav class="page-nav" aria-label="Páginas do projeto">
+    <div class="container">
+      <ul class="page-nav-list">
+        <!--
+        A página atual tem a classe "is-active" e usa aria-current="page"
+        para informar leitores de tela que ESTA é a página ativa.
+        -->
+        <li><a class="page-nav-link is-active" href="index.html" aria-current="page">Página Inicial</a></li>
+        <li><a class="page-nav-link" href="index2.html">Biodiversidade</a></li>
+        <li><a class="page-nav-link" href="index3.html">Poluição</a></li>
+        <li><a class="page-nav-link" href="index4.html">Curiosidades</a></li>
+        <li><a class="page-nav-link" href="index5.html">Referências</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <!--
+  ============================================================================
+  RODAPÉ DO SITE
+  ============================================================================
+  
+  O <footer> é semântico e indica o final da página.
+  Geralmente contém: créditos, links úteis, informações de contato.
+  ============================================================================
+  -->
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <p>Oceano Vivo — Conscientização ambiental.</p>
+      <a href="#inicio">Voltar ao início ↑</a>
+    </div>
+  </footer>
+
+  <!--
+  ============================================================================
+  JAVASCRIPT — INTERATIVIDADE DA PÁGINA
+  ============================================================================
+  
+  A tag <script> contém código que adiciona COMPORTAMENTO à página.
+  
+  IMPORTANTE: Este NÃO é Java, Python, C ou outra linguagem.
+  É JavaScript — a linguagem nativa dos navegadores web.
+  JavaScript é a ÚNICA linguagem de programação que os navegadores
+  executam nativamente (sem plugins ou compiladores).
+  
+  Por que está no final do <body>?
+  - O navegador lê o HTML de cima para baixo.
+  - Se o script estivesse no <head>, tentaria encontrar elementos
+    que ainda não existem (causando erros).
+  - No final do <body>, todos os elementos HTML já foram criados
+    e o JavaScript pode manipulá-los com segurança.
+  ============================================================================
+  -->
+  <script>
+    /*
+    ============================================================================
+    CONTROLE DO MENU MOBILE (HAMBÚRGUER)
+    ============================================================================
+    
+    Estas linhas fazem o botão ☰ abrir e fechar a navegação em celulares.
+    
+    document.querySelector() procura um elemento na página usando um
+    seletor CSS e retorna o PRIMEIRO encontrado.
+    
+    Diferença de querySelector e querySelectorAll:
+    - querySelector → retorna UM elemento (o primeiro encontrado).
+    - querySelectorAll → retorna TODOS os elementos que correspondem.
+    ============================================================================
+    */
+
+    // Encontra o botão hambúrguer na página e guarda em uma variável.
+    // A variável "menuBotao" agora representa aquele botão específico.
+    const menuBotao = document.querySelector(".menu-toggle");
+
+    // Encontra a lista de links do menu.
+    // "const" cria uma variável que não pode ser reatribuída (constante).
+    const menuLinks = document.querySelector(".nav-links");
+
+    /*
+    addEventListener() adiciona um "ouvinte de eventos" ao elemento.
+    
+    O que é um evento?
+    - É algo que ACONTECE na página: um clique, uma tecla pressionada,
+      o mouse passando por cima, a página terminando de carregar, etc.
+    
+    addEventListener("click", function) significa:
+    - "Quando este elemento for CLICADO, execute esta função."
+    
+    O que é uma função?
+    - É um bloco de código reutilizável que executa uma tarefa.
+    - function() { ... } é uma função anônima (sem nome).
+    */
+    menuBotao.addEventListener("click", function () {
+      /*
+      classList.toggle() adiciona uma classe se ela não existe,
+      ou remove se já existe. É como um interruptor de luz.
+      
+      - Se .nav-links NÃO tem "is-open" → adiciona → menu ABRE.
+      - Se .nav-links TEM "is-open" → remove → menu FECHA.
+      
+      Retorna true se adicionou, false se removeu.
+      Guardamos o resultado em "menuEstaAberto" para usar abaixo.
+      */
+      const menuEstaAberto = menuLinks.classList.toggle("is-open");
+
+      /*
+      setAttribute() muda o valor de um atributo HTML.
+      Aqui, atualizamos aria-expanded para refletir o estado real do menu.
+      
+      Leitores de tela usam aria-expanded para informar:
+      - "Botão: Abrir menu, recolhido" (false)
+      - "Botão: Fechar menu, expandido" (true)
+      */
+      menuBotao.setAttribute("aria-expanded", menuEstaAberto);
+
+      /*
+      Muda o aria-label baseado no estado do menu.
+      Se o menu está aberto, o botão agora serve para FECHAR.
+      
+      Operador ternário: condição ? valorSeVerdadeiro : valorSeFalso
+      É uma forma compacta de if/else em uma única linha.
+      */
+      menuBotao.setAttribute("aria-label", menuEstaAberto ? "Fechar menu" : "Abrir menu");
+
+      /*
+      textContent muda o texto visível do botão.
+      ☰ (três linhas) quando fechado, × (xis) quando aberto.
+      Isso dá feedback visual sobre a ação que o botão executará.
+      */
+      menuBotao.textContent = menuEstaAberto ? "×" : "☰";
+    });
+
+    /*
+    ============================================================================
+    FECHAR MENU AO CLICAR EM UM LINK
+    ============================================================================
+    
+    Quando o usuário clica em um link do menu mobile, o menu deve fechar
+    automaticamente. Caso contrário, ele ficaria aberto cobrindo o
+    conteúdo que o usuário quer ver.
+    
+    querySelectorAll retorna uma NodeList (lista de elementos).
+    forEach percorre cada item da lista e executa uma função para cada um.
+    ============================================================================
+    */
+    menuLinks.querySelectorAll("a").forEach(function (link) {
+      link.addEventListener("click", function () {
+        // Remove a classe que mantém o menu aberto.
+        menuLinks.classList.remove("is-open");
+
+        // Atualiza os atributos de acessibilidade de volta ao estado "fechado".
+        menuBotao.setAttribute("aria-expanded", "false");
+        menuBotao.setAttribute("aria-label", "Abrir menu");
+        menuBotao.textContent = "☰";
+      });
+    });
+
+    /*
+    ============================================================================
+    LÓGICA DO QUIZ — VERIFICAÇÃO DE RESPOSTAS
+    ============================================================================
+    
+    Este bloco faz os botões de resposta funcionarem:
+    1. Detecta qual botão foi clicado.
+    2. Verifica se a resposta está correta (data-correct="true").
+    3. Exibe uma mensagem de feedback.
+    ============================================================================
+    */
+
+    // Seleciona TODOS os botões de opção do quiz (retorna uma NodeList com 3 botões).
+    const opcoesQuiz = document.querySelectorAll(".quiz-option");
+
+    // Seleciona o parágrafo onde o resultado será exibido.
+    const resultadoQuiz = document.querySelector("#quiz-result");
+
+    // Para CADA botão de opção, adiciona um ouvinte de clique.
+    opcoesQuiz.forEach(function (opcao) {
+      opcao.addEventListener("click", function () {
+        /*
+        opcao.dataset.correct acessa o valor do atributo data-correct.
+        
+        Como funciona dataset:
+        - Qualquer atributo HTML que começa com "data-" pode ser lido
+          pelo JavaScript usando elemento.dataset.nomeSemData.
+        - data-correct → dataset.correct
+        - data-valor → dataset.valor
+        - data-minha-info → dataset.minhaInfo (camelCase automático)
+        
+        O valor é sempre uma STRING (texto), então comparamos com "true"
+        (texto), não com true (booleano).
+        */
+        if (opcao.dataset.correct === "true") {
+          // Resposta correta — mostra mensagem positiva.
+          resultadoQuiz.textContent = "Resposta correta! Reutilizar ajuda a produzir menos lixo. 🌊";
+        } else {
+          // Resposta errada — incentiva a tentar novamente.
+          resultadoQuiz.textContent = "Ainda não. Tente outra opção e pense em como reduzir o lixo. 💙";
+        }
+      });
+    });
+  </script>
+</body>

@@ -1,0 +1,1349 @@
+<!DOCTYPE html>
+<!--
+  ============================================================================
+  PÁGINA 2 — INDEX2.HTML — BIODIVERSIDADE MARINHA
+  ============================================================================
+-->
+
+<html lang="pt-BR">
+
+<head>
+  <!-- SEÇÃO HEAD — CONFIGURAÇÕES INVISÍVEIS DA PÁGINA -->
+
+  <meta charset="UTF-8">
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <meta name="description" content="Descubra a incrível biodiversidade dos oceanos: recifes de coral, manguezais, espécies marinhas e os ecossistemas que abrigam milhões de formas de vida.">
+  <!--
+    Por que é DIFERENTE da descrição da página 1?
+    - Cada página do site tem um conteúdo diferente.
+    - A página 1 é uma visão geral; esta é sobre biodiversidade.
+    - Descrições únicas ajudam o Google a entender que cada página
+      oferece algo diferente, melhorando o posicionamento nos resultados.
+  -->
+
+  <meta name="author" content="Equipe Oceano Vivo">
+
+  <meta name="keywords" content="biodiversidade marinha, recifes de coral, manguezais, espécies oceânicas, vida marinha, ecossistemas">
+  <!--
+    Lista palavras-chave relacionadas ao conteúdo DESTA página.
+
+    Note que as palavras-chave são DIFERENTES das da página 1:
+    - Página 1: "oceano, meio ambiente, poluição, conservação"
+    - Página 2: "biodiversidade, recifes, manguezais, espécies"
+
+    Isso porque cada página aborda um subtema diferente do projeto.
+  -->
+
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🐠</text></svg>">
+  <!--
+    Por que usamos 🐠 (peixe) em vez de 🌊 (onda) da página 1?
+    - Cada página pode ter um favicon diferente para ajudar o usuário
+      a identificar visualmente qual aba está aberta.
+    - Quando o usuário tem várias abas do projeto abertas, os ícones
+      diferentes ajudam a distinguir cada página rapidamente.
+  -->
+
+  <title>Biodiversidade Marinha — Oceano Vivo</title>
+  <!--
+    Por que é DIFERENTE do título da página 1?
+    - Página 1: "Oceano Vivo — Conhecer para proteger"
+    - Página 2: "Biodiversidade Marinha — Oceano Vivo"
+  -->
+
+  <style>
+    /*
+    ============================================================================
+    SEÇÃO DE ESTILOS CSS — TODA A APARÊNCIA VISUAL DO SITE
+    ============================================================================
+
+    Por que o CSS é praticamente igual ao da página 1?
+    - Um site deve ter IDENTIDADE VISUAL CONSISTENTE em todas as páginas.
+    - Cores, fontes, espaçamentos e componentes devem ser os mesmos.
+    - Isso cria uma experiência coesa: o visitante sente que está no
+      mesmo site, não em páginas soltas e desconectadas.
+    - Em projetos profissionais, o CSS ficaria em um arquivo separado
+      (ex: estilo.css) que todas as páginas compartilhariam.
+    - Como estamos fazendo tudo em um único arquivo por página,
+      precisamos repetir o CSS.
+    ============================================================================
+    */
+
+    /*
+    --------------------------------------------------------------------------
+    VARIÁVEIS CSS (CUSTOM PROPERTIES)
+    --------------------------------------------------------------------------
+
+    IMPORTANTE: As variáveis são IDÊNTICAS às da página 1 para manter
+    a consistência visual do site. Mudar uma cor aqui sem mudar na
+    página 1 criaria uma experiência visual quebrada.
+    --------------------------------------------------------------------------
+    */
+    :root {
+      --navy: #082f49;
+
+      --deep-blue: #0c4a6e;
+
+      --ocean: #087e9b;
+
+      --turquoise: #37c8bd;
+
+      --pale: #e9f8f7;
+
+      --sand: #f5f0e6;
+
+      --white: #ffffff;
+
+      --ink: #17324a;
+
+      --muted: #617586;
+
+      --shadow: 0 18px 50px rgba(8, 47, 73, 0.12);
+
+      --radius: 22px;
+
+      --hero-overlay: linear-gradient(
+        90deg,
+        rgba(4, 35, 58, 0.86) 0%,
+        rgba(4, 35, 58, 0.45) 55%,
+        rgba(4, 35, 58, 0.08) 100%
+      );
+
+      --transition-speed: 180ms;
+    }
+
+    /* RESET CSS — ZERANDO PADRÕES DOS NAVEGADORES */
+    * {
+      box-sizing: border-box;
+
+      margin: 0;
+
+      padding: 0;
+    }
+
+    /* ROLAGEM SUAVE (SMOOTH SCROLL) */
+    html {
+      scroll-behavior: smooth;
+
+      scroll-padding-top: 90px;
+    }
+
+    /* ESTILOS DO BODY — CONFIGURAÇÃO BASE DO CORPO DA PÁGINA */
+    body {
+      background: #fbfdfd;
+
+      color: var(--ink);
+
+      font-family: Arial, Helvetica, sans-serif;
+
+      line-height: 1.6;
+    }
+
+    /* CONTÊINER — CENTRALIZAÇÃO E LARGURA MÁXIMA DO CONTEÚDO */
+    .container {
+      width: min(1120px, calc(100% - 40px));
+
+      margin: 0 auto;
+    }
+
+    /* REGRA PARA MÍDIAS — IMAGENS E VÍDEOS RESPONSIVOS */
+    img,
+    iframe {
+      display: block;
+
+      max-width: 100%;
+    }
+
+    /* LINKS — ESTILIZAÇÃO GLOBAL */
+    a {
+      color: inherit;
+
+      text-decoration: none;
+    }
+
+    /* CABEÇALHO FIXO (STICKY HEADER) */
+    .site-header {
+      position: sticky;
+      top: 0;
+      z-index: 10;
+
+      background: rgba(255, 255, 255, 0.94);
+      border-bottom: 1px solid rgba(8, 47, 73, 0.08);
+
+      backdrop-filter: blur(12px);
+    }
+
+    /* BARRA DE NAVEGAÇÃO — LAYOUT FLEXBOX */
+    .nav-wrap {
+      min-height: 76px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 24px;
+    }
+
+    /* MARCA/LOGO — IDENTIDADE VISUAL */
+    .brand {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      color: var(--navy);
+      font-size: 1.08rem;
+      font-weight: 800;
+      letter-spacing: -0.04em;
+    }
+
+    .brand-mark {
+      width: 36px;
+      height: 36px;
+      display: grid;
+      place-items: center;
+      color: var(--white);
+      background: linear-gradient(135deg, var(--ocean), var(--turquoise));
+      border-radius: 50% 50% 50% 10px;
+      transform: rotate(-10deg);
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 28px;
+      list-style: none;
+    }
+
+    .nav-links a {
+      color: #456174;
+      font-size: 0.93rem;
+      font-weight: 700;
+      transition: color var(--transition-speed) ease;
+    }
+
+    .nav-links a:hover,
+    .nav-links a:focus-visible {
+      color: var(--ocean);
+    }
+
+    .menu-toggle {
+      display: none;
+      border: 0;
+      background: transparent;
+      color: var(--navy);
+      font-size: 1.6rem;
+      cursor: pointer;
+    }
+
+    /* SEÇÃO HERO — ABERTURA IMPACTANTE DA PÁGINA */
+    .hero {
+      min-height: 600px;
+      display: flex;
+      align-items: center;
+      position: relative;
+      overflow: hidden;
+      color: var(--white);
+
+
+      background:
+        var(--hero-overlay),
+        url("https://images.unsplash.com/photo-1546026423-cc4642628d2b?auto=format&fit=crop&w=2000&q=85") center 48% / cover;
+    }
+
+    .hero-content {
+      max-width: 680px;
+      padding: 100px 0;
+    }
+
+    /* Eyebrow */
+    .eyebrow {
+      display: inline-block;
+      margin-bottom: 18px;
+      color: #b6fff1;
+      font-size: 0.78rem;
+      font-weight: 800;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+    }
+
+    /* TÍTULO PRINCIPAL (H1) — TIPOGRAFIA RESPONSIVA */
+    h1 {
+      max-width: 650px;
+      margin-bottom: 20px;
+      font-size: clamp(2.8rem, 7vw, 5.7rem);
+      line-height: 0.99;
+      letter-spacing: -0.065em;
+    }
+
+    .hero p {
+      max-width: 540px;
+      margin-bottom: 30px;
+      color: rgba(255, 255, 255, 0.9);
+      font-size: clamp(1rem, 2vw, 1.2rem);
+    }
+
+    .button-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+
+    .button {
+      min-height: 48px;
+      display: inline-flex;
+      justify-content: center;
+      align-items: center;
+      padding: 12px 22px;
+      border: 1px solid transparent;
+      border-radius: 999px;
+      font-weight: 800;
+      transition: transform var(--transition-speed) ease,
+                  background-color var(--transition-speed) ease;
+      cursor: pointer;
+    }
+
+    .button:hover {
+      transform: translateY(-2px);
+    }
+
+    .button-primary {
+      color: var(--navy);
+      background: var(--turquoise);
+    }
+
+    .button-ghost {
+      color: var(--white);
+      border-color: rgba(255, 255, 255, 0.6);
+      background: rgba(255, 255, 255, 0.08);
+    }
+
+    .section {
+      padding: 92px 0;
+    }
+
+    .section-soft {
+      background: var(--pale);
+    }
+
+    /* Cabeçalho de seção */
+    .section-heading {
+      display: grid;
+      grid-template-columns: 0.8fr 1.2fr;
+      align-items: end;
+      gap: 32px;
+      margin-bottom: 42px;
+    }
+
+    /* Títulos de seção (h2) */
+    h2 {
+      color: var(--navy);
+      font-size: clamp(2rem, 4vw, 3.2rem);
+      line-height: 1.08;
+      letter-spacing: -0.055em;
+    }
+
+    .section-heading p,
+    .intro-copy {
+      color: var(--muted);
+      font-size: 1.05rem;
+    }
+
+    /*
+    --------------------------------------------------------------------------
+    GRADE DE ECOSSISTEMAS — NOVA PARA A PÁGINA 2
+    --------------------------------------------------------------------------
+
+    Esta grade apresenta os três principais ecossistemas marinhos.
+    Usamos CSS Grid com 3 colunas iguais (repeat(3, 1fr)).
+
+    Por que 3 colunas?
+    - Temos 3 ecossistemas para apresentar (recifes, manguezais, abismo).
+    - 3 colunas criam um layout equilibrado e simétrico.
+    - Em celulares, muda para 1 coluna via media query.
+
+    Diferença para a fact-grid da página 1:
+    - A fact-grid mostrava números/estatísticas.
+    - Esta mostra ecossistemas com imagens de fundo nos cartões.
+    - Os cartões são maiores e têm mais conteúdo visual.
+    --------------------------------------------------------------------------
+    */
+    .ecosystem-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 22px;
+    }
+
+    /*
+    Cartão de ecossistema — cartão com imagem de fundo e texto sobreposto.
+
+    Por que usamos position: relative aqui?
+    - Para que o gradiente escuro (position: absolute) fique posicionado
+      DENTRO do cartão, não na página inteira.
+    - O position: absolute do filho se posiciona em relação ao
+      ancestor mais próximo com position: relative.
+    --------------------------------------------------------------------------
+    */
+    .ecosystem-card {
+      position: relative;
+
+      min-height: 380px;
+
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+
+      padding: 28px;
+
+      border-radius: var(--radius);
+
+      overflow: hidden;
+
+      color: var(--white);
+
+
+      background-size: cover;
+      background-position: center;
+    }
+
+    /*
+    Camada de gradiente escuro sobre a imagem do cartão.
+
+    Por que precisamos deste gradiente?
+    - O texto branco seria ilegível sobre partes claras da imagem.
+    - O gradiente escurece a parte inferior do cartão (onde fica o texto)
+      mas deixa a parte superior mais transparente (para mostrar a foto).
+
+    position: absolute + inset: 0 faz este elemento cobrir TODO o cartão.
+    - inset: 0 é um atalho para top:0; right:0; bottom:0; left:0.
+    - É como dizer "ocupe 100% do espaço do pai".
+
+    z-index: 1 coloca o gradiente ACIMA da imagem de fundo
+    mas ABAIXO do texto (que terá z-index: 2).
+    --------------------------------------------------------------------------
+    */
+    .ecosystem-card::before {
+      content: "";
+
+      position: absolute;
+      inset: 0;
+      z-index: 1;
+
+      /* Gradiente vertical: transparente no topo, escuro na base.
+         0% = topo do cartão (transparente, mostra a foto).
+         60% = meio (começa a escurecer).
+         100% = base (bem escuro, onde fica o texto). */
+      background: linear-gradient(
+        to top,
+        rgba(4, 35, 58, 0.92) 0%,
+        rgba(4, 35, 58, 0.55) 50%,
+        rgba(4, 35, 58, 0.05) 100%
+      );
+    }
+
+    /* O conteúdo do cartão (título, texto) fica ACIMA do gradiente.
+       z-index: 2 > z-index: 1 do ::before. */
+    .ecosystem-card > * {
+      position: relative;
+      z-index: 2;
+    }
+
+    /* Título do ecossistema dentro do cartão. */
+    .ecosystem-card h3 {
+      margin-bottom: 8px;
+      font-size: 1.3rem;
+      font-weight: 800;
+    }
+
+    /* Descrição do ecossistema. */
+    .ecosystem-card p {
+      color: rgba(255, 255, 255, 0.85);
+      font-size: 0.92rem;
+      line-height: 1.5;
+    }
+
+    /* Etiqueta do ecossistema (ex: "Recifes de Coral"). */
+    .ecosystem-tag {
+      display: inline-block;
+      margin-bottom: 10px;
+      padding: 4px 12px;
+      border-radius: 999px;
+      background: rgba(55, 200, 189, 0.25);
+      color: var(--turquoise);
+      font-size: 0.75rem;
+      font-weight: 800;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+    }
+
+    /*
+    --------------------------------------------------------------------------
+    LAYOUT DE ESPÉCIES EM DESTAQUE — IMAGEM + TEXTO
+    --------------------------------------------------------------------------
+
+    Mesmo layout da seção "ameaças" da página 1: duas colunas com
+    imagem de um lado e texto do outro. Consistência visual!
+    --------------------------------------------------------------------------
+    */
+    .species-layout {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      align-items: center;
+      gap: 58px;
+    }
+
+    .species-image {
+      width: 100%;
+      min-height: 420px;
+      object-fit: cover;
+      border-radius: 30px;
+      box-shadow: var(--shadow);
+    }
+
+    .species-copy p {
+      margin-top: 18px;
+      color: var(--muted);
+    }
+
+    /*
+    --------------------------------------------------------------------------
+    LISTA DE CARACTERÍSTICAS — O QUE TORNA A ESPÉCIE ESPECIAL
+    --------------------------------------------------------------------------
+
+    Similar à action-list da página 1, mas com ícone de "★" em vez de "✓"
+    para diferenciar visualmente (características ≠ ações).
+    --------------------------------------------------------------------------
+    */
+    .trait-list {
+      display: grid;
+      gap: 14px;
+      margin-top: 24px;
+      list-style: none;
+    }
+
+    .trait-list li {
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+      color: var(--ink);
+      font-weight: 700;
+    }
+
+    /* Círculo com ícone de estrela para cada característica. */
+    .trait-icon {
+      width: 25px;
+      height: 25px;
+      flex: 0 0 25px;
+      display: grid;
+      place-items: center;
+      color: var(--white);
+      background: var(--turquoise);
+      border-radius: 50%;
+      font-size: 0.7rem;
+    }
+
+    /*
+    --------------------------------------------------------------------------
+    GRADE DE ESTATÍSTICAS — DADOS IMPACTANTES
+    --------------------------------------------------------------------------
+
+    Grade com 4 colunas para apresentar números impressionantes sobre
+    a biodiversidade marinha. Números grandes chamam atenção e
+    ajudam a memorizar informações.
+    --------------------------------------------------------------------------
+    */
+    .stat-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 18px;
+    }
+
+    .stat-card {
+      padding: 28px 22px;
+      border: 1px solid rgba(8, 47, 73, 0.07);
+      border-radius: var(--radius);
+      background: var(--white);
+      box-shadow: 0 10px 35px rgba(8, 47, 73, 0.06);
+      text-align: center;
+    }
+
+    /* Número grande e colorido — o dado principal. */
+    .stat-number {
+      display: block;
+      margin-bottom: 8px;
+      color: var(--ocean);
+      font-size: 2.2rem;
+      font-weight: 900;
+      letter-spacing: -0.06em;
+    }
+
+    /* Descrição do dado estatístico. */
+    .stat-card p {
+      color: var(--muted);
+      font-size: 0.9rem;
+      line-height: 1.4;
+    }
+
+    /* GALERIA DE IMAGENS — BIODIVERSIDADE EM FOTOS */
+    .gallery-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 16px;
+    }
+
+    .gallery-grid img {
+      width: 100%;
+      height: 260px;
+      object-fit: cover;
+      border-radius: 18px;
+      transition: transform 220ms ease;
+    }
+
+    .gallery-grid img:hover {
+      transform: scale(1.025);
+    }
+
+    /* SEÇÃO DE VÍDEO — FUNDO ESCURO PARA DESTAQUE */
+    .video-section {
+      color: var(--white);
+      background: linear-gradient(135deg, var(--navy), #075e78);
+    }
+
+    .video-section h2 {
+      color: var(--white);
+    }
+
+    .video-layout {
+      display: grid;
+      grid-template-columns: 0.8fr 1.2fr;
+      align-items: center;
+      gap: 48px;
+    }
+
+    .video-layout p {
+      margin-top: 16px;
+      color: rgba(255, 255, 255, 0.78);
+    }
+
+    .video-frame {
+      width: 100%;
+      aspect-ratio: 16 / 9;
+      border: 0;
+      border-radius: 20px;
+      background: #001c2b;
+      box-shadow: 0 20px 50px rgba(0, 0, 0, 0.25);
+    }
+
+    /* CARTÃO DO QUIZ — INTERAÇÃO EDUCATIVA */
+    .quiz-card {
+      max-width: 760px;
+      margin: 0 auto;
+      padding: 38px;
+      border: 1px solid rgba(8, 47, 73, 0.08);
+      border-radius: 28px;
+      background: var(--white);
+      box-shadow: var(--shadow);
+      text-align: center;
+    }
+
+    .quiz-card h2 {
+      margin-bottom: 14px;
+      font-size: clamp(1.8rem, 4vw, 2.5rem);
+    }
+
+    .quiz-question {
+      margin: 18px 0 22px;
+      color: var(--muted);
+      font-weight: 700;
+    }
+
+    .quiz-options {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+
+    .quiz-option {
+      padding: 11px 18px;
+      border: 1px solid #cbdde2;
+      border-radius: 999px;
+      color: var(--navy);
+      background: var(--white);
+      font: inherit;
+      font-weight: 700;
+      cursor: pointer;
+      transition: background-color var(--transition-speed) ease,
+                  color var(--transition-speed) ease;
+    }
+
+    .quiz-option:hover,
+    .quiz-option:focus-visible {
+      color: var(--white);
+      background: var(--ocean);
+    }
+
+    .quiz-result {
+      min-height: 30px;
+      margin-top: 20px;
+      color: var(--ocean);
+      font-weight: 800;
+    }
+
+    /* BARRA DE NAVEGAÇÃO ENTRE PÁGINAS */
+    .page-nav {
+      background: var(--sand);
+      padding: 16px 0;
+      border-top: 1px solid rgba(8, 47, 73, 0.06);
+    }
+
+    .page-nav-list {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 8px;
+      list-style: none;
+    }
+
+    .page-nav-link {
+      padding: 8px 18px;
+      border-radius: 999px;
+      color: var(--navy);
+      font-weight: 700;
+      font-size: 0.88rem;
+      transition: background-color var(--transition-speed) ease,
+                  color var(--transition-speed) ease;
+    }
+
+    .page-nav-link:hover,
+    .page-nav-link:focus-visible {
+      background: var(--ocean);
+      color: var(--white);
+    }
+
+    .page-nav-link.is-active {
+      background: var(--navy);
+      color: var(--white);
+    }
+
+    /* RODAPÉ DO SITE */
+    .site-footer {
+      padding: 28px 0;
+      color: #d7e8ed;
+      background: #06283e;
+      font-size: 0.9rem;
+    }
+
+    .footer-inner {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 16px;
+    }
+
+    /* ACESSIBILIDADE — INDICADOR DE FOCO */
+    a:focus-visible,
+    button:focus-visible {
+      outline: 3px solid #ffca70;
+      outline-offset: 3px;
+    }
+
+    /* MEDIA QUERIES — ADAPTAÇÃO PARA DIFERENTES TAMANHOS DE TELA */
+    @media (max-width: 760px) {
+      .hero {
+        min-height: 560px;
+        background-position: 58% center;
+      }
+
+      .nav-links {
+        display: none;
+        position: absolute;
+        top: 76px;
+        left: 0;
+        right: 0;
+        padding: 20px;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 18px;
+        background: var(--white);
+        border-bottom: 1px solid rgba(8, 47, 73, 0.1);
+        box-shadow: 0 16px 20px rgba(8, 47, 73, 0.08);
+      }
+
+      .nav-links.is-open {
+        display: flex;
+      }
+
+      .menu-toggle {
+        display: inline-grid;
+        place-items: center;
+      }
+
+      .section-heading {
+        grid-template-columns: 1fr;
+        gap: 14px;
+      }
+
+      .ecosystem-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .stat-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .species-layout,
+      .video-layout {
+        grid-template-columns: 1fr;
+        gap: 32px;
+      }
+
+      .species-image {
+        min-height: 300px;
+      }
+
+      .gallery-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .section {
+        padding: 68px 0;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .container {
+        width: min(100% - 28px, 1120px);
+      }
+
+      .gallery-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .stat-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .quiz-card {
+        padding: 28px 18px;
+      }
+
+      .footer-inner {
+        align-items: flex-start;
+        flex-direction: column;
+      }
+    }
+
+    /* PREFERÊNCIAS DE ACESSIBILIDADE DO SISTEMA */
+    @media (prefers-reduced-motion: reduce) {
+      *,
+      *::before,
+      *::after {
+        scroll-behavior: auto !important;
+        transition-duration: 0.01ms !important;
+        animation-duration: 0.01ms !important;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <!-- INÍCIO DO CORPO DA PÁGINA — CONTEÚDO VISÍVEL -->
+
+  <!-- CABEÇALHO DO SITE — NAVEGAÇÃO FIXA -->
+  <header class="site-header">
+    <nav class="container nav-wrap" aria-label="Navegação principal">
+
+      <!--
+      MARCA/LOGOTIPO
+
+      href="index.html" — diferente da página 1!
+      Na página 1, o logo levava a "#inicio" (seção da mesma página).
+      Aqui, leva a "index.html" (a página principal do projeto).
+
+      Por que?
+      - Em sites com múltiplas páginas, o logotipo SEMPRE leva à
+        página inicial (home). É uma convenção universal da web.
+      - O usuário espera que clicar no logo o leve "para casa".
+      -->
+      <a class="brand" href="index.html" aria-label="Oceano Vivo, voltar à página inicial">
+        <span class="brand-mark" aria-hidden="true">≈</span>
+        <span>Oceano Vivo</span>
+      </a>
+
+      <button class="menu-toggle" type="button" aria-label="Abrir menu" aria-expanded="false">
+        ☰
+      </button>
+
+      <!--
+      LINKS DE NAVEGAÇÃO — DESTA PÁGINA
+
+      Os links apontam para seções desta página.
+      Cada página tem suas próprias seções e âncoras.
+      -->
+      <ul class="nav-links" id="menu-principal">
+        <li><a href="#ecossistemas">Ecossistemas</a></li>
+        <li><a href="#especies">Espécies</a></li>
+        <li><a href="#dados">Dados</a></li>
+        <li><a href="#galeria">Galeria</a></li>
+        <li><a href="#video">Vídeo</a></li>
+        <li><a href="#quiz">Quiz</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- CONTEÚDO PRINCIPAL — <main> -->
+  <main>
+
+    <!--
+    ============================================================================
+    SEÇÃO HERO — ABERTURA DA PÁGINA 2
+    ============================================================================
+
+    A imagem de fundo mostra um recife de coral colorido, representando
+    a riqueza da biodiversidade marinha.
+
+    id="inicio" cria a âncora para o link "Voltar ao início" do rodapé.
+    -->
+    <section class="hero" id="inicio">
+      <div class="container hero-content">
+        <!--
+        A etiqueta identifica esta página como parte do projeto e
+        indica o subtema específico (Biodiversidade).
+        -->
+        <span class="eyebrow">• Biodiversidade</span>
+
+        <!--
+        O h1 é o título MAIS IMPORTANTE desta página.
+        Diferente da página 1: aqui o foco é a VIDA no oceano,
+        não o oceano em si.
+        -->
+        <h1>A vida que habita o oceano.</h1>
+
+        <p>
+          Dos recifes de coral às profundezas abissais, o oceano abriga uma
+          diversidade impressionante de seres vivos. Conheça os ecossistemas
+          e as espécies que tornam o mar tão especial.
+        </p>
+
+        <div class="button-row">
+          <a class="button button-primary" href="#ecossistemas">Explorar ecossistemas</a>
+          <a class="button button-ghost" href="#galeria">Ver galeria</a>
+        </div>
+      </div>
+    </section>
+
+    <!--
+    ============================================================================
+    SEÇÃO ECOSSISTEMAS — OS TRÊS GRANDES HABITATS MARINHOS
+    ============================================================================
+
+    Esta seção apresenta três ecossistemas marinhos fundamentais.
+    Cada um é mostrado em um cartão com imagem de fundo e texto sobreposto.
+
+    Por que usar cartões com imagem de fundo em vez de imagem + texto?
+    - Cria um impacto visual mais forte e imersivo.
+    - O visitante "entra" no ecossistema ao ver a foto em tela cheia.
+    - É um padrão comum em sites de natureza e turismo.
+
+    Os cartões usam a técnica de "overlay" (camada escura sobre a imagem)
+    para garantir que o texto branco seja legível sobre qualquer foto.
+    ============================================================================
+    -->
+    <section class="section section-soft" id="ecossistemas">
+      <div class="container">
+        <div class="section-heading">
+          <h2>Três mundos dentro do mar.</h2>
+          <p>
+            O oceano não é um lugar uniforme. Diferentes condições de luz,
+            temperatura e profundidade criam ecossistemas únicos, cada um
+            com suas próprias comunidades de seres vivos.
+          </p>
+        </div>
+
+        <div class="ecosystem-grid">
+
+          <!--
+          CARTÃO 1 — RECIFES DE CORAL
+
+          style="background-image: url(...)" define a imagem de fundo
+          diretamente no HTML (estilo inline).
+
+          Por que inline e não no CSS?
+          - Cada cartão tem uma imagem DIFERENTE.
+          - Se colocássemos no CSS, precisaríamos de uma classe separada
+            para cada cartão (.recife, .mangue, .abismo), o que seria
+            menos eficiente.
+          - O style inline é aceitável quando o valor é ÚNICO por elemento.
+
+          A imagem é do Unsplash — banco de imagens gratuito.
+          -->
+          <article class="ecosystem-card" style="background-image: url('https://images.unsplash.com/photo-1583212292454-1fe6229603b7?auto=format&fit=crop&w=800&q=80');">
+            <span class="ecosystem-tag">Tropical</span>
+            <h3>Recifes de Coral</h3>
+            <p>
+              Chamados de "florestas tropicais do mar", os recifes cobrem
+              menos de 1% do oceano, mas abrigam cerca de 25% de todas
+              as espécies marinhas conhecidas.
+            </p>
+          </article>
+
+          <!--
+          CARTÃO 2 — MANGUEZAIS
+
+          Imagem diferente, mesmo layout. A consistência visual entre
+          os cartões facilita a comparação e a leitura.
+          -->
+          <article class="ecosystem-card" style="background-image: url('https://images.unsplash.com/photo-1784751449611-ff8ac03ff234?q=80&w=1470&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=NHwxMjA3fDA%3D');">
+            <span class="ecosystem-tag">Costeiro</span>
+            <h3>Manguezais</h3>
+            <p>
+              Na transição entre terra e mar, os manguezais são berçários
+              naturais. Muitas espécies de peixes, crustáceos e aves
+              dependem deles para se reproduzir e se alimentar.
+            </p>
+          </article>
+
+          <!--
+          CARTÃO 3 — ÁGUAS PROFUNDAS
+
+          O abismo oceânico é o maior habitat do planeta, mas também
+          o menos explorado. Conhecemos melhor a superfície de Marte
+          do que o fundo dos nossos oceanos.
+          -->
+          <article class="ecosystem-card" style="background-image: url('https://images.unsplash.com/photo-1549074862-6173e20d02a8?q=80&w=1470&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=NHwxMjA3fDA%3D');">
+            <span class="ecosystem-tag">Abissal</span>
+            <h3>Águas Profundas</h3>
+            <p>
+              Abaixo de 200 metros, a luz do sol não chega. Mesmo assim,
+              criaturas bioluminescentes e fontes hidrotermais sustentam
+              ecossistemas inteiros na escuridão total.
+            </p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!--
+    ============================================================================
+    SEÇÃO ESPÉCIES EM DESTAQUE — IMAGEM + TEXTO
+    ============================================================================
+
+    Layout de duas colunas: imagem à esquerda, texto à direita.
+    Mesmo padrão da seção "ameaças" da página 1 para consistência.
+
+    Por que destacamos a baleia-jubarte?
+    - É uma espécie icônica e facilmente reconhecível.
+    - Tem uma história de conservação bem-sucedida (quase foi extinta
+      pela caça, mas se recuperou graças a leis de proteção).
+    - Ilustra bem a conexão entre ação humana e vida marinha.
+    ============================================================================
+    -->
+    <section class="section" id="especies">
+      <div class="container species-layout">
+        <!-- IMAGEM DA BALEIA-JUBARTE -->
+        <img
+          class="species-image"
+          src="https://images.unsplash.com/photo-1568430462989-44163eb1752f?auto=format&fit=crop&w=1100&q=85"
+          alt="Baleia-jubarte saltando para fora da água com o oceano azul ao fundo — representa a grandiosidade da vida marinha"
+          loading="lazy"
+        >
+
+        <div class="species-copy">
+          <span class="eyebrow" style="color: var(--ocean);">Espécie em destaque</span>
+          <h2>A baleia-jubarte e sua jornada.</h2>
+          <p>
+            A baleia-jubarte (Megaptera novaeangliae) é um dos maiores
+            animais do planeta, podendo medir até 16 metros e pesar
+            40 toneladas. Apesar do tamanho, alimenta-se de krill —
+            pequenos crustáceos de apenas alguns centímetros.
+          </p>
+          <p>
+            Todos os anos, elas realizam uma das migrações mais longas
+            do reino animal, viajando até 10.000 km entre as águas
+            polares (onde se alimentam) e as tropicais (onde se reproduzem).
+          </p>
+
+          <!-- LISTA DE CARACTERÍSTICAS -->
+          <ul class="trait-list">
+            <li>
+              <span class="trait-icon" aria-hidden="true">★</span>
+              <span>Canta melodias complexas que podem durar horas.</span>
+            </li>
+            <li>
+              <span class="trait-icon" aria-hidden="true">★</span>
+              <span>População se recuperou após a proibição da caça em 1986.</span>
+            </li>
+            <li>
+              <span class="trait-icon" aria-hidden="true">★</span>
+              <span>É encontrada em todos os oceanos do mundo.</span>
+            </li>
+            <li>
+              <span class="trait-icon" aria-hidden="true">★</span>
+              <span>Seus filhotes nascem com cerca de 4 metros de comprimento.</span>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!--
+    ============================================================================
+    SEÇÃO DADOS ESTATÍSTICOS — NÚMEROS QUE IMPRESSIONAM
+    ============================================================================
+
+    Dados numéricos são mais memoráveis que texto corrido.
+    "230.000 espécies" é mais impactante que "muitas espécies".
+
+    A grade tem 4 colunas em desktop e 2 em celular (via media query).
+    Por que 4 colunas?
+    - Temos 4 dados para apresentar.
+    - 4 colunas criam uma linha horizontal equilibrada.
+    - Em telas menores, 2 colunas mantêm a legibilidade.
+    ============================================================================
+    -->
+    <section class="section section-soft" id="dados">
+      <div class="container">
+        <div class="section-heading">
+          <h2>O oceano em números.</h2>
+          <p>
+            A biodiversidade marinha é vasta e ainda pouco conhecida.
+            Estes números ajudam a dimensionar a riqueza de vida
+            que existe sob a superfície do mar.
+          </p>
+        </div>
+
+        <div class="stat-grid">
+          <article class="stat-card">
+            <span class="stat-number">~230 mil</span>
+            <p>Espécies marinhas catalogadas pela ciência até o momento.</p>
+          </article>
+
+          <article class="stat-card">
+            <span class="stat-number">2 milhões+</span>
+            <p>Espécies estimadas ainda não descobertas nas profundezas.</p>
+          </article>
+
+          <article class="stat-card">
+            <span class="stat-number">~25%</span>
+            <p>Da vida marinha depende dos recifes de coral para sobreviver.</p>
+          </article>
+
+          <article class="stat-card">
+            <span class="stat-number">95%</span>
+            <p>Do oceano profundo ainda não foi explorado pela humanidade.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- SEÇÃO GALERIA — FOTOGRAFIAS DA BIODIVERSIDADE -->
+    <section class="section" id="galeria">
+      <div class="container">
+        <div class="section-heading">
+          <h2>Retratos da vida marinha.</h2>
+          <p>
+            Cada espécie marinha é o resultado de milhões de anos de
+            evolução. Estas fotografias mostram apenas uma pequena
+            amostra da diversidade que existe nos oceanos.
+          </p>
+        </div>
+
+        <div class="gallery-grid">
+          <!--
+          IMAGEM 1 — TARTARUGA MARINHA
+
+          O alt é detalhado e descritivo para acessibilidade.
+          Não diz apenas "tartaruga" mas descreve a cena completa.
+          -->
+          <img
+            src="https://images.unsplash.com/photo-1591025207163-942350e47db2?auto=format&fit=crop&w=800&q=80"
+            alt="Tartaruga marinha verde nadando sobre um recife de coral com águas cristalinas ao redor"
+            loading="lazy"
+          >
+
+          <!-- IMAGEM 2 — ÁGUA-VIVA -->
+          <img
+            src="https://images.unsplash.com/photo-1545671913-b89ac1b4ac10?auto=format&fit=crop&w=800&q=80"
+            alt="Água-viva translúcida flutuando em águas escuras com seus tentáculos iluminados"
+            loading="lazy"
+          >
+
+          <!-- IMAGEM 3 — PEIXE-PALHAÇO -->
+          <img
+            src="https://images.unsplash.com/photo-1535591273668-578e31182c4f?auto=format&fit=crop&w=800&q=80"
+            alt="Peixe-palhaço laranja e branco entre os tentáculos de uma anêmona do mar"
+            loading="lazy"
+          >
+
+          <!-- IMAGEM 4 — GOLFINHO -->
+          <img
+            src="https://images.unsplash.com/photo-1607153333879-c174d265f1d2?auto=format&fit=crop&w=800&q=80"
+            alt="Golfinho saltando acima da superfície do oceano com respingos de água"
+            loading="lazy"
+          >
+
+          <!-- IMAGEM 5 — CAVALO-MARINHO -->
+          <img
+            src="https://images.unsplash.com/photo-1571752726703-5e7d1f6a986d?auto=format&fit=crop&w=800&q=80"
+            alt="Cavalo-marinho amarelo agarrado a uma planta marinha com o fundo desfocado"
+            loading="lazy"
+          >
+
+          <!-- IMAGEM 6 — CORAL -->
+          <img
+            src="https://plus.unsplash.com/premium_photo-1664303395976-2c473d2803c5?q=80&w=1442&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=NHwxMjA3fDA%3D"
+            alt="Recife de coral colorido com tons de roxo, laranja e verde sob a água do mar"
+            loading="lazy"
+          >
+        </div>
+      </div>
+    </section>
+
+    <!-- SEÇÃO DE VÍDEO — CONTEÚDO AUDIOVISUAL -->
+    <section class="section video-section" id="video">
+      <div class="container video-layout">
+        <div>
+          <span class="eyebrow">Aprenda assistindo</span>
+          <h2>A biodiversidade em movimento.</h2>
+          <p>
+            Assista a um vídeo que mostra a riqueza da vida nos oceanos,
+            desde os menores organismos do plâncton até as grandes
+            baleias. O vídeo é incorporado do YouTube e requer
+            conexão com a internet.
+          </p>
+        </div>
+
+        <!-- IFRAME — INCORPORAÇÃO DE VÍDEO DO YOUTUBE -->
+        <iframe
+          class="video-frame"
+          src="https://www.youtube.com/embed/kVX0Gg1oDKI?si=zuUFKErRb9ALZ8jV"
+          title="Vídeo educativo sobre a biodiversidade marinha e os ecossistemas oceânicos"
+          loading="lazy"
+          referrerpolicy="strict-origin-when-cross-origin"
+          allow="accelerometer; autoplay; clipboard          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+          allowfullscreen>
+        </iframe>
+      </div>
+    </section>
+
+    <!--
+    ============================================================================
+    SEÇÃO QUIZ — TESTE SOBRE BIODIVERSIDADE
+    ============================================================================
+
+    A pergunta é DIFERENTE da pergunta da página 1 porque o tema é outro.
+
+    Página 1: perguntava sobre atitudes para reduzir lixo no oceano.
+    Página 2: pergunta sobre o ecossistema mais biodiverso do mar.
+
+    Isso mantém o visitante engajado se as perguntas fossem as mesmas,
+    ele não teria motivo para explorar as outras páginas.
+    ============================================================================
+    -->
+    <section class="section section-soft" id="quiz">
+      <div class="container">
+        <div class="quiz-card">
+          <span class="eyebrow" style="color: var(--ocean);">Teste seus conhecimentos</span>
+          <h2>Quiz da biodiversidade!</h2>
+          <p class="quiz-question">Qual ecossistema marinho abriga cerca de 25% de todas as espécies do oceano?</p>
+
+          <div class="quiz-options" role="group" aria-label="Respostas do quiz">
+            <button class="quiz-option" type="button" data-correct="false">Águas profundas</button>
+            <button class="quiz-option" type="button" data-correct="true">Recifes de coral</button>
+            <button class="quiz-option" type="button" data-correct="false">Oceano aberto</button>
+          </div>
+
+          <p class="quiz-result" id="quiz-result" aria-live="polite"></p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- BARRA DE NAVEGAÇÃO ENTRE PÁGINAS -->
+  <nav class="page-nav" aria-label="Páginas do projeto">
+    <div class="container">
+      <ul class="page-nav-list">
+        <li><a class="page-nav-link" href="index.html" >Página Inicial</a></li>
+        <li><a class="page-nav-link is-active" href="index2.html" aria-current="page">Biodiversidade</a></li>
+        <li><a class="page-nav-link" href="index3.html">Poluição</a></li>
+        <li><a class="page-nav-link" href="index4.html">Curiosidades</a></li>
+        <li><a class="page-nav-link" href="index5.html">Referências</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- RODAPÉ DO SITE -->
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <p>Oceano Vivo — Biodiversidade marinha.</p>
+      <a href="#inicio">Voltar ao início ↑</a>
+    </div>
+  </footer>
+
+  <!--
+  ============================================================================
+  JAVASCRIPT — INTERATIVIDADE DA PÁGINA
+  ============================================================================
+
+  Por que o JavaScript é praticamente igual ao da página 1?
+  - As funcionalidades são as mesmas: abrir/fechar menu e verificar quiz.
+  - Este código normalmente ficaria em um arquivo separado (ex: script.js) compartilhado por todas as páginas. 
+    Mas aprendemos com repetição. Na proxima colocar em uma pasta separada srita
+  - Como estou fazendo tudo em um único arquivo por página, repetimos o JavaScript em cada uma. 
+  ============================================================================
+  -->
+  <script>
+    /* CONTROLE DO MENU MOBILE (HAMBÚRGUER) */
+
+    const menuBotao = document.querySelector(".menu-toggle");
+
+    const menuLinks = document.querySelector(".nav-links");
+
+    menuBotao.addEventListener("click", function () {
+      const menuEstaAberto = menuLinks.classList.toggle("is-open");
+
+      menuBotao.setAttribute("aria-expanded", menuEstaAberto);
+
+      menuBotao.setAttribute("aria-label", menuEstaAberto ? "Fechar menu" : "Abrir menu");
+
+      menuBotao.textContent = menuEstaAberto ? "×" : "☰";
+    });
+
+    /* FECHAR MENU AO CLICAR EM UM LINK */
+    menuLinks.querySelectorAll("a").forEach(function (link) {
+      link.addEventListener("click", function () {
+        menuLinks.classList.remove("is-open");
+
+        menuBotao.setAttribute("aria-expanded", "false");
+        menuBotao.setAttribute("aria-label", "Abrir menu");
+        menuBotao.textContent = "☰";
+      });
+    });
+
+    /*
+    ============================================================================
+    LÓGICA DO QUIZ — VERIFICAÇÃO DE RESPOSTAS
+    ============================================================================
+
+    As MENSAGENS são diferentes das da página 1 porque o tema é outro.
+    Página 1: mensagens sobre redução de lixo.
+    Página 2: mensagens sobre recifes e biodiversidade.
+    ============================================================================
+    */
+
+    const opcoesQuiz = document.querySelectorAll(".quiz-option");
+
+    const resultadoQuiz = document.querySelector("#quiz-result");
+
+    opcoesQuiz.forEach(function (opcao) {
+      opcao.addEventListener("click", function () {
+        if (opcao.dataset.correct === "true") {
+          // Resposta correta — mensagem sobre recifes de coral.
+          resultadoQuiz.textContent = "Correto! Os recifes de coral abrigam cerca de 25% da vida marinha. 🐠";
+        } else {
+          // Resposta errada — incentiva a tentar novamente.
+          resultadoQuiz.textContent = "Não é essa. Pense no ecossistema tropical mais colorido do oceano. 🌊";
+        }
+      });
+    });
+  </script>
+</body>
+</html>
